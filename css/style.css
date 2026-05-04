@@ -146,6 +146,21 @@ a{
   color: var(--blue-dark);
 }
 
+.bg-image{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+.student-image{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* ===================== Hero Section ===================== */
 .hero {
   text-align: center;
@@ -587,7 +602,7 @@ a{
 }
 
 @media (max-width: 768px) {
-  .mobile-team-btn { display: flex; align-items: center; justify-content: center; }
+  .mobile-team-btn { display: none; align-items: center; justify-content: center; }
 }
 
 /* ===================== 3D Tilt for Cards ===================== */
