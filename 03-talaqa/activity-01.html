@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القراءة الخاطفة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header orange-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثالث ← النشاط 1</div>
+    <h1>⚡ القراءة الخاطفة</h1>
+    <div class="meta"><span>📂 الطلاقة اللغوية</span><span>🎓 السنة 3 و 4</span><span>⏱ 8 دقائق</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box orange">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تسريع التعرف الآلي على الكلمات عبر عرضها لفترة قصيرة (ومضة) ثم اختيار الكلمة الصحيحة. يُنشّط المسار المعجمي المباشر (Lexical Route) ويقوّي الذاكرة البصرية قصيرة المدى.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تظهر كلمة على الشاشة لمدة قصيرة ثم تختفي.</li>
+        <li>يختار التلميذ الكلمة التي رآها من بين 4 خيارات.</li>
+        <li>تقل مدة العرض تدريجياً من 1.5 ثانية إلى 0.5 ثانية.</li>
+        <li>10 كلمات متدرجة في الصعوبة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> التقط الكلمة!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;"><span id="current-num">1</span> / <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--orange-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill orange" id="progress-fill" style="width:0%; background:var(--orange);"></div></div>
+        </div>
+
+        <div id="flash-area" style="min-height:100px; display:flex; align-items:center; justify-content:center; border:3px dashed var(--orange); border-radius:12px; margin:20px 0; background:var(--bg-secondary);">
+          <div id="flash-word" style="font-size:2.5rem; font-weight:900; color:var(--orange-dark); opacity:0;">كلمة</div>
+        </div>
+
+        <p id="instruction-text" style="font-weight:600; color:var(--text-secondary);">اضغط "ابدأ" لرؤية الكلمة</p>
+
+        <button class="btn btn-success btn-lg" id="start-btn" onclick="flashWord()">⚡ ابدأ الومضة</button>
+
+        <div id="choices" style="display:none; margin-top:20px;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يعتمد هذا النشاط على نموذج <strong>المسار المزدوج</strong> لـ <strong>Coltheart (2001)</strong>. القراءة الخاطفة تُجبر الدماغ على استخدام <strong>المسار المعجمي</strong> (الكلمة ككل) بدل التهجئة البطيئة حرفاً حرفاً. كما يُنشّط <strong>منطقة الشكل البصري للكلمات (VWFA)</strong> حسب <strong>Dehaene (2009)</strong>.
+      </p>
+      <div class="reference">
+        📖 Coltheart, M. (2001). Dual Route Cascaded Model. <em>Psychological Review.</em><br>
+        📖 Dehaene, S. (2009). <em>Reading in the Brain.</em> Penguin Books.
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> 9-10 إجابات صحيحة.</li>
+        <li><strong>جيد:</strong> 7-8 إجابات.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 7.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="../index.html">🏠 الرئيسية</a>
+      <a href="activity-02.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const wordSets = [
+      { target: 'مَدْرَسَةٌ', distractors: ['مُدَرِّسٌ', 'مَدْرَجٌ', 'مَدِينَةٌ'] },
+      { target: 'عُصْفُورٌ', distractors: ['عَصِيرٌ', 'عُصْبَةٌ', 'عَصَاً'] },
+      { target: 'فَرَاشَةٌ', distractors: ['فُرْشَاةٌ', 'فَرَحٌ', 'فِرَاشٌ'] },
+      { target: 'سَيَّارَةٌ', distractors: ['سِيَاجٌ', 'سَيَاحَةٌ', 'سَيِّدٌ'] },
+      { target: 'كِتَابٌ', distractors: ['كَتِيبَةٌ', 'كَاتِبٌ', 'مَكْتَبٌ'] },
+      { target: 'حَدِيقَةٌ', distractors: ['حَقِيقَةٌ', 'حَدِيثٌ', 'حَلِيبٌ'] },
+      { target: 'مُسْتَشْفَى', distractors: ['مُصْطَفَى', 'مُسْتَقِيمٌ', 'مُشْتَرَكٌ'] },
+      { target: 'مَكْتَبَةٌ', distractors: ['كِتَابَةٌ', 'مَكْتَبٌ', 'كُتُبِيٌّ'] },
+      { target: 'طَائِرَةٌ', distractors: ['طَيَّارٌ', 'طَاوِلَةٌ', 'طَائِفَةٌ'] },
+      { target: 'إِنْتِظَارٌ', distractors: ['إِنْتِصَارٌ', 'إِنْتِبَاهٌ', 'إِنْتِشَارٌ'] },
+      { target: 'اِسْتِرَاحَةٌ', distractors: ['اِسْتِطَاعَةٌ', 'اِسْتِفَادَةٌ', 'اِسْتِرْجَاعٌ'] },
+      { target: 'تِلْمِيذٌ', distractors: ['تَلْمِيحٌ', 'تَعْلِيمٌ', 'تَحْدِيثٌ'] },
+    ];
+
+    let currentIndex = 0, score = 0, gameWords = [];
+    const baseDuration = 1500;
+
+    function init() {
+      gameWords = NeuroPedago.shuffle(wordSets).slice(0, 10);
+      document.getElementById('total-num').textContent = gameWords.length;
+      updateUI();
+    }
+
+    function updateUI() {
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameWords.length) * 100) + '%';
+    }
+
+    function flashWord() {
+      if (currentIndex >= gameWords.length) return;
+
+      document.getElementById('start-btn').style.display = 'none';
+      document.getElementById('choices').style.display = 'none';
+      document.getElementById('instruction-text').textContent = '👀 ركّز...';
+      NeuroPedago.hideFeedback('feedback');
+
+      const flashEl = document.getElementById('flash-word');
+      flashEl.textContent = gameWords[currentIndex].target;
+
+      // Decrease duration as we go
+      const duration = Math.max(500, baseDuration - currentIndex * 100);
+
+      setTimeout(() => {
+        flashEl.style.opacity = '1';
+        flashEl.style.transition = 'opacity 0.15s';
+        setTimeout(() => {
+          flashEl.style.opacity = '0';
+          document.getElementById('instruction-text').textContent = 'ما الكلمة التي رأيتها؟';
+          showChoices();
+        }, duration);
+      }, 500);
+    }
+
+    function showChoices() {
+      const item = gameWords[currentIndex];
+      const options = NeuroPedago.shuffle([item.target, ...item.distractors]);
+      const container = document.getElementById('choices');
+      container.innerHTML = '';
+      container.style.display = 'flex';
+      container.style.flexWrap = 'wrap';
+      container.style.justifyContent = 'center';
+      container.style.gap = '10px';
+
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = opt;
+        btn.style.fontSize = '1.3rem';
+        btn.addEventListener('click', () => checkAnswer(opt, btn));
+        container.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected, btn) {
+      const correct = gameWords[currentIndex].target;
+      document.querySelectorAll('#choices .choice-btn').forEach(b => b.style.pointerEvents = 'none');
+
+      if (selected === correct) {
+        score++;
+        document.getElementById('score').textContent = score;
+        btn.classList.add('correct');
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 ممتاز! عين ثاقبة!');
+      } else {
+        btn.classList.add('wrong');
+        document.querySelectorAll('#choices .choice-btn').forEach(b => {
+          if (b.textContent === correct) b.classList.add('correct');
+        });
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الكلمة كانت: ' + correct);
+      }
+
+      setTimeout(() => {
+        currentIndex++;
+        if (currentIndex >= gameWords.length) {
+          NeuroPedago.showResult('result-area', score, gameWords.length, 'talaqa-01');
+          document.getElementById('game-area').style.display = 'none';
+        } else {
+          updateUI();
+          document.getElementById('start-btn').style.display = 'inline-flex';
+          document.getElementById('choices').style.display = 'none';
+          document.getElementById('instruction-text').textContent = 'اضغط "ابدأ" للكلمة التالية';
+        }
+      }, 2000);
+    }
+
+    init();
+  </script>
+</body>
+</html>

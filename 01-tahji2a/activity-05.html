@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثنائيات متشابهة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header blue-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الأول: التهجئة ← النشاط 5
+    </div>
+    <h1>👀 ثنائيات متشابهة</h1>
+    <div class="meta">
+      <span>📂 المحور: التهجئة والفك الترميزي</span>
+      <span>🎓 المستوى: السنة 3 و 4</span>
+      <span>⏱ المدة: 10 دقائق</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box blue">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية قدرة التمييز البصري الدقيق بين الكلمات المتشابهة في الشكل، مما يقوّي التمثيلات الأرثوغرافية الدقيقة في الذاكرة المعجمية ويقلل من الخلط بين الكلمات أثناء القراءة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يُعرض زوج من الكلمات المتشابهة بصريًا (مثل: بَحْر / نَحْر).</li>
+        <li>يُطلب من التلميذ تحديد الحرف المختلف بينهما بالنقر عليه.</li>
+        <li>ثم يُطلب منه اختيار المعنى الصحيح لكل كلمة.</li>
+        <li>يتكرر مع 10 أزواج من الكلمات.</li>
+        <li>تُقدّم تغذية راجعة فورية مع الشرح.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اكتشف الفرق بين الكلمتين!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">الزوج <span id="current-num">1</span> من <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:25px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <p id="instruction" style="font-weight:600; color:var(--blue-dark); margin-bottom:20px; font-size:1.1rem;">
+          👆 انقر على الحرف المختلف في كل كلمة
+        </p>
+
+        <!-- الكلمتان -->
+        <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin:20px 0;">
+          <div>
+            <div id="word1-label" style="font-size:0.9rem; color:var(--text-light); margin-bottom:8px;">الكلمة الأولى</div>
+            <div id="word1-display" class="word-display" style="font-size:2.2rem;"></div>
+          </div>
+          <div style="display:flex; align-items:center; font-size:2rem; color:var(--text-light);">⟷</div>
+          <div>
+            <div id="word2-label" style="font-size:0.9rem; color:var(--text-light); margin-bottom:8px;">الكلمة الثانية</div>
+            <div id="word2-display" class="word-display" style="font-size:2.2rem;"></div>
+          </div>
+        </div>
+
+        <!-- معاني -->
+        <div id="meanings-area" style="display:none; margin-top:25px;">
+          <p style="font-weight:700; color:var(--blue-dark); margin-bottom:15px;">ما معنى كل كلمة؟</p>
+          <div id="meanings-quiz" style="display:grid; grid-template-columns:1fr 1fr; gap:15px; max-width:600px; margin:0 auto;"></div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يستند هذا النشاط إلى <strong>فرضية التعلم الذاتي لشير (Share, 1999)</strong> التي تؤكد أن القراءة الدقيقة تتطلب بناء تمثيلات أرثوغرافية مفصّلة لكل كلمة. عندما يُقارن التلميذ بين كلمتين متشابهتين، فإنه يُجبر دماغه على <strong>التدقيق في كل حرف</strong> بدلاً من القراءة التخمينية السطحية.
+      </p>
+      <p style="margin-top:10px;">
+        هذا يُنشّط <strong>المسار الحرفي (Letter-by-letter route)</strong> في نموذج القراءة المزدوج (Dual Route Model - Coltheart, 2001)، ويُعزّز الفصل بين الكلمات المتشابهة في <strong>المعجم الذهني</strong> (Mental Lexicon).
+      </p>
+      <div class="reference">
+        📖 Share, D. (1999). Self-Teaching Hypothesis. <em>JECP.</em> | Coltheart, M. (2001). Dual Route Model. <em>Psychological Review.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> تحديد الفرق والمعاني في 8-10 أزواج.</li>
+        <li><strong>جيد:</strong> 6-7 أزواج صحيحة.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 6، يُنصح بالتدريب على أزواج أبسط.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-04.html">→ النشاط السابق</a>
+      <a href="activity-06.html">النشاط التالي: الكلمة المخفية ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const pairs = [
+      { w1: 'مُسْتَشْفَى', w2: 'مُصْطَفَى', diffIdx: 1, m1: 'مَكَانٌ يُعَالَجُ فِيهِ الْمَرْضَى', m2: 'اسْمُ عَلَمٍ يَعْنِي الْمُخْتَار' },
+      { w1: 'اِنْتِظَار', w2: 'اِنْتِصَار', diffIdx: 3, m1: 'الْبَقَاءُ حَتَّى يَأْتِيَ شَيْء', m2: 'فَوْزٌ وَغَلَبَة' },
+      { w1: 'اِسْتِطَاعَة', w2: 'اِسْتِفَادَة', diffIdx: 3, m1: 'الْقُدْرَةُ عَلَى فِعْلِ شَيْء', m2: 'الْحُصُولُ عَلَى نَفْعٍ وَفَائِدَة' },
+      { w1: 'حَضَارَة', w2: 'حِصَارَة', diffIdx: 1, m1: 'تَارِيخُ الشُّعُوبِ وَتَقَدُّمُهَا', m2: 'مُحَاصَرَةُ مَكَانٍ وَتَطْوِيقُه' },
+      { w1: 'تَوْجِيه', w2: 'تَوْبِيخ', diffIdx: 2, m1: 'إِرْشَادٌ وَنَصِيحَة', m2: 'تَأْنِيبٌ وَلَوْم' },
+      { w1: 'اِخْتِبَار', w2: 'اِخْتِيَار', diffIdx: 3, m1: 'اِمْتِحَانٌ فِي الْمَدْرَسَة', m2: 'اِنْتِقَاءُ شَيْءٍ مِنْ بَيْنِ أَشْيَاء' },
+      { w1: 'مُسَابَقَة', w2: 'مُرَافَقَة', diffIdx: 1, m1: 'مُنَافَسَةٌ لِلْفَوْزِ بِجَائِزَة', m2: 'مُصَاحَبَةُ شَخْصٍ فِي رِحْلَة' },
+      { w1: 'اِحْتِرَام', w2: 'اِحْتِرَاف', diffIdx: 4, m1: 'تَقْدِيرٌ وَأَدَبٌ مَعَ الْآخَرِين', m2: 'إِتْقَانُ مِهْنَةٍ وَالتَّخَصُّصُ فِيهَا' },
+      { w1: 'مَسْؤُولِيَّة', w2: 'مَأْمُورِيَّة', diffIdx: 1, m1: 'وَاجِبٌ يَتَحَمَّلُهُ الْإِنْسَان', m2: 'مُهِمَّةٌ يُكَلَّفُ بِهَا شَخْص' },
+      { w1: 'اِسْتِقْبَال', w2: 'اِسْتِقْلَال', diffIdx: 4, m1: 'تَرْحِيبٌ بِالضُّيُوفِ الْقَادِمِين', m2: 'حُرِّيَّةُ الْوَطَنِ وَسِيَادَتُه' },
+      { w1: 'مُغَامَرَة', w2: 'مُحَاوَرَة', diffIdx: 1, m1: 'رِحْلَةٌ مُثِيرَةٌ فِيهَا مَخَاطِر', m2: 'نِقَاشٌ وَحِوَارٌ بَيْنَ شَخْصَيْن' },
+      { w1: 'اِكْتِشَاف', w2: 'اِخْتِلَاف', diffIdx: 1, m1: 'إِيجَادُ شَيْءٍ جَدِيدٍ لَمْ يُعْرَف', m2: 'تَبَايُنٌ وَعَدَمُ تَطَابُق' },
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let gamePairs = [];
+    let phase = 'find'; // 'find' or 'meaning'
+    let foundCount = 0;
+
+    function getBase(word) {
+      return word.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '').split('');
+    }
+
+    function init() {
+      gamePairs = NeuroPedago.shuffle(pairs).slice(0, 10);
+      document.getElementById('total-num').textContent = gamePairs.length;
+      loadPair();
+    }
+
+    function loadPair() {
+      if (currentIndex >= gamePairs.length) {
+        NeuroPedago.showResult('result-area', score, gamePairs.length * 2, 'tahji2a-05');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      phase = 'find';
+      foundCount = 0;
+      const pair = gamePairs[currentIndex];
+      
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gamePairs.length) * 100) + '%';
+      document.getElementById('meanings-area').style.display = 'none';
+      document.getElementById('instruction').textContent = '👆 انقر على الحرف المختلف في كل كلمة';
+      NeuroPedago.hideFeedback('feedback');
+
+      renderWord('word1-display', pair.w1, pair.diffIdx, 1);
+      renderWord('word2-display', pair.w2, pair.diffIdx, 2);
+    }
+
+    function renderWord(containerId, word, diffIdx, wordNum) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      const letters = getBase(word);
+      
+      letters.forEach((letter, i) => {
+        const box = document.createElement('div');
+        box.className = 'letter-box';
+        box.textContent = letter;
+        box.style.cursor = 'pointer';
+        box.addEventListener('click', () => handleClick(i, diffIdx, box, wordNum));
+        container.appendChild(box);
+      });
+    }
+
+    function handleClick(idx, diffIdx, box, wordNum) {
+      if (phase !== 'find') return;
+      
+      if (idx === diffIdx) {
+        box.className = 'letter-box highlight';
+        foundCount++;
+        NeuroPedago.sounds.click();
+        
+        if (foundCount >= 2) {
+          score++;
+          document.getElementById('score').textContent = score;
+          NeuroPedago.sounds.correct();
+          NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! وجدت الحرف المختلف!');
+          
+          setTimeout(showMeanings, 1000);
+        }
+      } else {
+        box.style.animation = 'shake 0.3s ease';
+        setTimeout(() => box.style.animation = '', 300);
+        NeuroPedago.sounds.wrong();
+      }
+    }
+
+    function showMeanings() {
+      phase = 'meaning';
+      const pair = gamePairs[currentIndex];
+      document.getElementById('instruction').textContent = '🧠 اختر المعنى الصحيح لكل كلمة:';
+      document.getElementById('meanings-area').style.display = 'block';
+      NeuroPedago.hideFeedback('feedback');
+
+      const quiz = document.getElementById('meanings-quiz');
+      quiz.innerHTML = '';
+
+      // كلمة 1
+      const div1 = document.createElement('div');
+      div1.innerHTML = `<div style="font-weight:700; font-size:1.3rem; color:var(--blue-dark); margin-bottom:10px;">${pair.w1}</div>`;
+      const shuffledMeanings = NeuroPedago.shuffle([pair.m1, pair.m2]);
+      shuffledMeanings.forEach(m => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.style.fontSize = '0.95rem';
+        btn.textContent = m;
+        btn.addEventListener('click', () => {
+          if (m === pair.m1) {
+            btn.className = 'choice-btn correct';
+            score++;
+            document.getElementById('score').textContent = score;
+            NeuroPedago.sounds.correct();
+            NeuroPedago.showFeedback('feedback', 'success', '✅ ممتاز!');
+            setTimeout(() => { currentIndex++; loadPair(); }, 1200);
+          } else {
+            btn.className = 'choice-btn wrong';
+            NeuroPedago.sounds.wrong();
+            NeuroPedago.showFeedback('feedback', 'error', `❌ "${pair.w1}" تعني: ${pair.m1}`);
+            setTimeout(() => { currentIndex++; loadPair(); }, 2000);
+          }
+        });
+        div1.appendChild(btn);
+      });
+      quiz.appendChild(div1);
+    }
+
+    init();
+  </script>
+</body>
+</html>

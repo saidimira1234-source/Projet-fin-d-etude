@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحدي الإملاء السمعي - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header green-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثاني ← النشاط 6</div>
+    <h1>📝 تحدي الإملاء السمعي</h1>
+    <div class="meta"><span>📂 التحويل الصوتي</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box green">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تعزيز التحويل من المسموع إلى المكتوب عبر الاستماع إلى جملة كاملة ثم إعادة ترتيب كلماتها المبعثرة. يُنشّط الذاكرة العاملة الصوتية والفهم التركيبي للجمل.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يسمع التلميذ جملة كاملة عبر النطق الآلي.</li>
+        <li>تظهر كلمات الجملة مبعثرة على الشاشة.</li>
+        <li>يرتّب التلميذ الكلمات بالنقر عليها بالترتيب الصحيح.</li>
+        <li>يمكنه إعادة السماع مرتين.</li>
+        <li>8 جمل متدرجة في الطول.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اسمع ورتّب الجملة!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;"><span id="current-num">1</span> / <span id="total-num">8</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <div style="margin:20px 0;">
+          <button class="btn btn-success btn-lg" onclick="playSentence()">🔊 اسمع الجملة</button>
+          <span id="listen-info" style="font-size:0.85rem; color:var(--text-light); margin-right:10px;"></span>
+        </div>
+
+        <!-- منطقة الترتيب -->
+        <p style="font-weight:600; color:var(--green-dark); margin:15px 0;">الجملة المُرتّبة:</p>
+        <div id="answer-zone" class="sentence-slots" style="min-height:60px;"></div>
+
+        <p style="font-weight:600; color:var(--text-secondary); margin:15px 0;">الكلمات المتاحة:</p>
+        <div id="words-zone" class="drag-container"></div>
+
+        <div class="btn-group" style="margin-top:15px;">
+          <button class="btn btn-outline btn-sm" onclick="resetSentence()">🔄 أعد الترتيب</button>
+          <button class="btn btn-primary" onclick="checkAnswer()">✅ تحقق</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يُنشّط هذا النشاط <strong>الذاكرة العاملة الصوتية</strong> بشكل مكثف حسب نموذج <strong>Perfetti (2007)</strong> لجودة التمثيل المعجمي. الاستماع إلى جملة كاملة يتطلب:
+      </p>
+      <ul style="margin:10px 25px; color:var(--text-secondary);">
+        <li><strong>الحفظ المؤقت:</strong> في حلقة التكرار الصوتي.</li>
+        <li><strong>التحليل التركيبي:</strong> فهم بنية الجملة (فاعل-فعل-مفعول).</li>
+        <li><strong>الإنتاج:</strong> إعادة ترتيب الكلمات وفق القواعد النحوية.</li>
+      </ul>
+      <div class="reference">
+        📖 Perfetti, C. (2007). Reading Ability: Lexical Quality. <em>Scientific Studies of Reading.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> ترتيب 7-8 جمل صحيحة.</li>
+        <li><strong>جيد:</strong> 5-6 جمل.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 5.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-04.html">→ السابق</a>
+      <a href="../index.html">🏠 الرئيسية</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const sentences = [
+      'ذَهَبَ التِّلْمِيذُ الْمُجْتَهِدُ إِلَى الْمَكْتَبَةِ لِيَسْتَعِيرَ كِتَابًا عَنِ الْفَضَاءِ',
+      'اسْتَيْقَظَتْ مَرْيَمُ مُبَكِّرًا وَتَنَاوَلَتْ فُطُورَهَا الصَّحِّيَّ قَبْلَ الذَّهَابِ إِلَى الْمَدْرَسَةِ',
+      'زَرَعَ الْفَلَّاحُ أَشْجَارَ الزَّيْتُونِ فِي الْحَقْلِ الْوَاسِعِ بَعْدَ هُطُولِ الْأَمْطَارِ',
+      'يُشَارِكُ الْأَطْفَالُ فِي الْمُسَابَقَاتِ الرِّيَاضِيَّةِ بِحَمَاسٍ كَبِيرٍ كُلَّ عَامٍ',
+      'تَطِيرُ الْفَرَاشَاتُ الْمُلَوَّنَةُ فَوْقَ الْأَزْهَارِ الْجَمِيلَةِ فِي فَصْلِ الرَّبِيعِ',
+      'اكْتَشَفَ الْعُلَمَاءُ مَعْلُومَاتٍ جَدِيدَةً عَنِ الْكَوَاكِبِ فِي الْمَجْمُوعَةِ الشَّمْسِيَّةِ',
+      'يَحْتَفِلُ التَّلَامِيذُ بِعِيدِ الِاسْتِقْلَالِ كُلَّ سَنَةٍ بِأَنَاشِيدَ وَطَنِيَّةٍ جَمِيلَةٍ',
+      'صَنَعَ الْمُخْتَرِعُ الصَّغِيرُ آلَةً تَعْمَلُ بِالطَّاقَةِ الشَّمْسِيَّةِ لِتَنْظِيفِ الْمِيَاهِ',
+      'تَسْتَقْبِلُ الْمُسْتَشْفَيَاتُ الْمَرْضَى وَتُقَدِّمُ لَهُمُ الرِّعَايَةَ الصِّحِّيَّةَ اللَّازِمَةَ',
+      'يَجِبُ عَلَيْنَا الْمُحَافَظَةُ عَلَى الْبِيئَةِ وَعَدَمُ رَمْيِ النِّفَايَاتِ فِي الطَّبِيعَةِ',
+    ];
+
+    let currentIndex = 0, score = 0, gameSentences = [], selectedWords = [], listensLeft = 3;
+
+    function init() {
+      gameSentences = NeuroPedago.shuffle(sentences).slice(0, 8);
+      document.getElementById('total-num').textContent = gameSentences.length;
+      loadSentence();
+    }
+
+    function loadSentence() {
+      if (currentIndex >= gameSentences.length) {
+        NeuroPedago.showResult('result-area', score, gameSentences.length, 'tahwil-06');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      selectedWords = [];
+      listensLeft = 3;
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameSentences.length) * 100) + '%';
+      document.getElementById('listen-info').textContent = '';
+      NeuroPedago.hideFeedback('feedback');
+
+      const words = gameSentences[currentIndex].split(' ');
+      const shuffled = NeuroPedago.shuffle(words);
+
+      const answerZone = document.getElementById('answer-zone');
+      answerZone.innerHTML = '';
+
+      const wordsZone = document.getElementById('words-zone');
+      wordsZone.innerHTML = '';
+
+      shuffled.forEach((word, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'drag-item';
+        btn.textContent = word;
+        btn.id = 'word-' + i;
+        btn.style.fontSize = '1.2rem';
+        btn.addEventListener('click', () => selectWord(word, btn));
+        wordsZone.appendChild(btn);
+      });
+    }
+
+    function playSentence() {
+      if (listensLeft <= 0) {
+        NeuroPedago.showFeedback('feedback', 'info', '🔇 انتهت محاولات الاستماع');
+        return;
+      }
+      listensLeft--;
+      document.getElementById('listen-info').textContent = '(متبقي: ' + listensLeft + ')';
+      NeuroPedago.speak(gameSentences[currentIndex], 0.8).then((ok) => {
+        if (!ok) {
+          NeuroPedago.showFeedback('feedback', 'info', '⚠ النطق غير متوفر. الجملة: ' + gameSentences[currentIndex]);
+        }
+      });
+    }
+
+    function selectWord(word, btn) {
+      selectedWords.push(word);
+      btn.style.display = 'none';
+      NeuroPedago.sounds.click();
+
+      const answerZone = document.getElementById('answer-zone');
+      const tag = document.createElement('div');
+      tag.className = 'drag-item';
+      tag.textContent = word;
+      tag.style.fontSize = '1.2rem';
+      tag.style.borderColor = 'var(--green)';
+      tag.style.background = 'var(--green-light)';
+      answerZone.appendChild(tag);
+    }
+
+    function resetSentence() {
+      selectedWords = [];
+      document.getElementById('answer-zone').innerHTML = '';
+      document.querySelectorAll('#words-zone .drag-item').forEach(el => el.style.display = 'flex');
+      NeuroPedago.hideFeedback('feedback');
+    }
+
+    function checkAnswer() {
+      const correct = gameSentences[currentIndex].split(' ');
+      const isCorrect = selectedWords.length === correct.length && selectedWords.every((w, i) => w === correct[i]);
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 ممتاز! الجملة الصحيحة!');
+      } else {
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الترتيب الصحيح: ' + gameSentences[currentIndex]);
+      }
+      setTimeout(() => { currentIndex++; loadSentence(); }, 2500);
+    }
+
+    init();
+  </script>
+</body>
+</html>

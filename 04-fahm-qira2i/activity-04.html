@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الملخّص الذكي - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header purple-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الرابع ← النشاط 4</div>
+    <h1>📝 الملخّص الذكي</h1>
+    <div class="meta"><span>📂 الفهم القرائي</span><span>🎓 السنة 3 و 4</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box purple">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية مهارة التلخيص عبر تحديد الجمل الأساسية والثانوية في نص قصير. يُنشّط التقييم المعرفي والتمييز بين المعلومات المهمة والتفصيلية.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يقرأ التلميذ فقرة قصيرة.</li>
+        <li>تظهر جمل من الفقرة ويُصنّفها: جملة أساسية (فكرة رئيسية) أو ثانوية (تفصيل).</li>
+        <li>بعد التصنيف، يرى الملخص الذكي المكوّن من الجمل الأساسية فقط.</li>
+        <li>3 فقرات مختلفة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> لخّص بذكاء!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">الفقرة: <span id="para-num" style="color:var(--purple);">1</span> / 3</div>
+          <div style="font-weight:700; color:var(--purple-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%; background:var(--purple);"></div></div>
+        </div>
+
+        <div id="full-text" class="reading-area" style="font-size:1.2rem; line-height:2.2; padding:25px; border:2px solid var(--purple); border-radius:12px; background:var(--bg-secondary); text-align:right; margin:15px 0;"></div>
+
+        <div id="classify-area" style="margin:20px 0;">
+          <p style="font-weight:700; color:var(--purple-dark);">صنّف هذه الجملة:</p>
+          <div id="sentence-display" style="font-size:1.2rem; font-weight:600; padding:15px; background:#f3e8ff; border-radius:10px; margin:10px 0; border-right:4px solid var(--purple);"></div>
+          <div style="display:flex; justify-content:center; gap:15px; margin-top:10px;">
+            <button class="btn btn-primary" onclick="classify('main')">⭐ فكرة رئيسية</button>
+            <button class="btn btn-outline" onclick="classify('detail')">📌 تفصيل</button>
+          </div>
+        </div>
+
+        <div id="summary-area" style="display:none; margin:20px 0;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        التلخيص هو من أعلى مهارات الفهم حسب تصنيف <strong>بلوم</strong>. يتطلب <strong>التقييم المعرفي</strong> (تمييز المهم من غير المهم) الذي يُنشّط <strong>القشرة الجبهية الظهرية الجانبية (dlPFC)</strong>. حسب <strong>Brown & Day (1983)</strong>، التلخيص يتطلب: حذف التفاصيل، تعميم، بناء جملة شاملة. هذه عمليات تنفيذية عليا.
+      </p>
+      <div class="reference">
+        📖 Brown, A.L. & Day, J.D. (1983). Macrorules for summarizing texts. <em>Journal of Verbal Learning and Verbal Behavior.</em><br>
+        📖 Kintsch, W. & van Dijk, T.A. (1978). Toward a model of text comprehension. <em>Psychological Review.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> تصنيف صحيح لـ 80%+ من الجمل.</li>
+        <li><strong>جيد:</strong> 60-79%.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 60%.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-03.html">→ السابق</a>
+      <a href="activity-05.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const paragraphs = [
+      {
+        text: 'النَّحْلُ حَشَرَاتٌ مُفِيدَةٌ جِدًّا. تَصْنَعُ النَّحْلَةُ الْعَسَلَ اللَّذِيذَ. لَوْنُ النَّحْلَةِ أَصْفَرُ وَأَسْوَدُ. تَعِيشُ النَّحْلُ فِي مَجْمُوعَاتٍ تُسَمَّى خَلَايَا. تَنْتَقِلُ مِنْ زَهْرَةٍ إِلَى أُخْرَى لِجَمْعِ الرَّحِيقِ. بِدُونِ النَّحْلِ لَا تَنْمُو كَثِيرٌ مِنَ الْفَوَاكِهِ.',
+        sentences: [
+          { text: 'النحل حشرات مفيدة جداً.', type: 'main' },
+          { text: 'تصنع النحلة العسل اللذيذ.', type: 'main' },
+          { text: 'لون النحلة أصفر وأسود.', type: 'detail' },
+          { text: 'تعيش النحل في مجموعات تسمّى خلايا.', type: 'detail' },
+          { text: 'تنتقل من زهرة إلى أخرى لجمع الرحيق.', type: 'main' },
+          { text: 'بدون النحل لا تنمو كثير من الفواكه.', type: 'main' },
+        ]
+      },
+      {
+        text: 'الْقَمَرُ يَدُورُ حَوْلَ الْأَرْضِ. نَرَاهُ فِي اللَّيْلِ مُضِيئًا. لَوْنُهُ فِضِّيٌّ جَمِيلٌ. الْقَمَرُ لَا يُشِعُّ ضَوْءًا بِنَفْسِهِ بَلْ يَعْكِسُ ضَوْءَ الشَّمْسِ. يَتَغَيَّرُ شَكْلُهُ خِلَالَ الشَّهْرِ. اسْتَطَاعَ الْإِنْسَانُ الْوُصُولَ إِلَيْهِ عَامَ 1969.',
+        sentences: [
+          { text: 'القمر يدور حول الأرض.', type: 'main' },
+          { text: 'نراه في الليل مضيئاً.', type: 'detail' },
+          { text: 'لونه فضّي جميل.', type: 'detail' },
+          { text: 'القمر لا يُشعّ ضوءاً بنفسه بل يعكس ضوء الشمس.', type: 'main' },
+          { text: 'يتغيّر شكله خلال الشهر.', type: 'main' },
+          { text: 'استطاع الإنسان الوصول إليه عام 1969.', type: 'main' },
+        ]
+      },
+      {
+        text: 'الْجَمَلُ حَيَوَانٌ صَبُورٌ. يُسَمَّى سَفِينَةَ الصَّحْرَاءِ. يَسْتَطِيعُ الْعَيْشَ بِدُونِ مَاءٍ لِأَيَّامٍ طَوِيلَةٍ. لَهُ سَنَامٌ يُخَزِّنُ فِيهِ الدُّهُونَ. لَوْنُهُ بُنِّيٌّ فَاتِحٌ. يَسْتَخْدِمُهُ النَّاسُ فِي السَّفَرِ وَنَقْلِ الْبَضَائِعِ.',
+        sentences: [
+          { text: 'الجمل حيوان صبور.', type: 'main' },
+          { text: 'يُسمّى سفينة الصحراء.', type: 'detail' },
+          { text: 'يستطيع العيش بدون ماء لأيام طويلة.', type: 'main' },
+          { text: 'له سنام يُخزّن فيه الدهون.', type: 'main' },
+          { text: 'لونه بنّي فاتح.', type: 'detail' },
+          { text: 'يستخدمه الناس في السفر ونقل البضائع.', type: 'main' },
+        ]
+      }
+    ];
+
+    let currentPara = 0, currentSent = 0, score = 0, totalSentences = 0, mainSentences = [];
+
+    function init() {
+      totalSentences = paragraphs.reduce((s, p) => s + p.sentences.length, 0);
+      loadParagraph();
+    }
+
+    function loadParagraph() {
+      if (currentPara >= paragraphs.length) {
+        NeuroPedago.showResult('result-area', score, totalSentences, 'fahm-04');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      currentSent = 0;
+      mainSentences = [];
+      document.getElementById('para-num').textContent = currentPara + 1;
+      document.getElementById('full-text').textContent = paragraphs[currentPara].text;
+      document.getElementById('classify-area').style.display = 'block';
+      document.getElementById('summary-area').style.display = 'none';
+      loadSentence();
+    }
+
+    function loadSentence() {
+      const para = paragraphs[currentPara];
+      if (currentSent >= para.sentences.length) {
+        showSummary();
+        return;
+      }
+
+      const progress = paragraphs.slice(0, currentPara).reduce((s, p) => s + p.sentences.length, 0) + currentSent;
+      document.getElementById('progress-fill').style.width = ((progress / totalSentences) * 100) + '%';
+      document.getElementById('sentence-display').textContent = para.sentences[currentSent].text;
+      NeuroPedago.hideFeedback('feedback');
+
+      document.querySelectorAll('#classify-area .btn').forEach(b => b.style.pointerEvents = 'auto');
+    }
+
+    function classify(type) {
+      document.querySelectorAll('#classify-area .btn').forEach(b => b.style.pointerEvents = 'none');
+      const sentence = paragraphs[currentPara].sentences[currentSent];
+      const isCorrect = type === sentence.type;
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 صحيح! ' + (sentence.type === 'main' ? 'هذه فكرة رئيسية' : 'هذا تفصيل'));
+      } else {
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ ' + (sentence.type === 'main' ? 'هذه فكرة رئيسية وليست تفصيلاً' : 'هذا تفصيل وليس فكرة رئيسية'));
+      }
+
+      if (sentence.type === 'main') {
+        mainSentences.push(sentence.text);
+      }
+
+      setTimeout(() => { currentSent++; loadSentence(); }, 1800);
+    }
+
+    function showSummary() {
+      document.getElementById('classify-area').style.display = 'none';
+      const area = document.getElementById('summary-area');
+      area.style.display = 'block';
+      area.innerHTML = `
+        <h3 style="color:var(--purple-dark);">📝 الملخّص الذكي:</h3>
+        <div style="padding:15px; background:#f3e8ff; border-radius:12px; border-right:4px solid var(--purple); text-align:right; font-size:1.1rem; line-height:2;">
+          ${mainSentences.join(' ')}
+        </div>
+        <p style="color:var(--text-secondary); margin-top:10px;">✨ هذه هي الأفكار الرئيسية التي تُكوّن الملخص!</p>
+      `;
+      NeuroPedago.sounds.complete();
+
+      setTimeout(() => { currentPara++; loadParagraph(); }, 4000);
+    }
+
+    init();
+  </script>
+</body>
+</html>

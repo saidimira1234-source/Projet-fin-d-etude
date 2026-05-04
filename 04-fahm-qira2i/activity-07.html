@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أعد ترتيب القصة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header purple-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الرابع ← النشاط 7</div>
+    <h1>🧩 أعد ترتيب القصة</h1>
+    <div class="meta"><span>📂 الفهم القرائي</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box purple">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية الفهم التسلسلي والمنطقي عبر إعادة ترتيب أحداث قصة مبعثرة. يُنشّط التفكير السببي والزمني ومهارات التنظيم المعرفي في القشرة الجبهية.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تظهر أحداث قصة مبعثرة (جمل مرقّمة).</li>
+        <li>ينقر التلميذ على الجمل بالترتيب الصحيح.</li>
+        <li>يحصل على تغذية راجعة بعد كل قصة.</li>
+        <li>5 قصص قصيرة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> رتّب الأحداث!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">القصة: <span id="story-num" style="color:var(--purple);">1</span> / 5</div>
+          <div style="font-weight:700; color:var(--purple-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%; background:var(--purple);"></div></div>
+        </div>
+
+        <p style="font-weight:700; color:var(--purple-dark); margin:10px 0;">الترتيب الذي اخترته:</p>
+        <div id="ordered-area" style="min-height:60px; border:2px dashed var(--purple); border-radius:12px; padding:10px; margin:10px 0; background:var(--bg-secondary);"></div>
+
+        <p style="font-weight:700; color:var(--text-secondary); margin:10px 0;">الأحداث المتاحة — انقر بالترتيب الصحيح:</p>
+        <div id="events-area" style="display:flex; flex-direction:column; gap:10px; margin:10px 0;"></div>
+
+        <div class="btn-group" style="margin-top:15px;">
+          <button class="btn btn-outline btn-sm" onclick="resetStory()">🔄 أعد الاختيار</button>
+          <button class="btn btn-primary" onclick="checkOrder()">✅ تحقق</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        ترتيب الأحداث يتطلب <strong>التفكير السببي الزمني</strong> (Causal-Temporal Reasoning) الذي يُنشّط <strong>القشرة الجبهية</strong> (التخطيط التسلسلي) و<strong>التلفيف الصدغي العلوي</strong> (معالجة الروابط السببية). حسب <strong>van den Broek (1994)</strong>، فهم العلاقات السببية بين الأحداث هو جوهر الفهم القرائي العميق.
+      </p>
+      <div class="reference">
+        📖 van den Broek, P. (1994). Comprehension and Memory for Narrative Texts. In <em>Handbook of Psycholinguistics.</em> Academic Press.<br>
+        📖 Trabasso, T. & van den Broek, P. (1985). Causal thinking and story comprehension. <em>Journal of Memory and Language.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> ترتيب 4-5 قصص بشكل صحيح.</li>
+        <li><strong>جيد:</strong> 3 قصص.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 3.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-06.html">→ السابق</a>
+      <a href="../index.html">🏠 الرئيسية</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const stories = [
+      {
+        title: '🐓 الديك والشمس',
+        events: [
+          'أشرقت الشمس على القرية.',
+          'صاح الديك بصوت عالٍ.',
+          'استيقظ الفلاح من نومه.',
+          'ذهب الفلاح إلى الحقل.',
+          'بدأ يسقي الأشجار والنباتات.',
+        ]
+      },
+      {
+        title: '🎂 عيد ميلاد سمير',
+        events: [
+          'اليوم عيد ميلاد سمير.',
+          'أعدّت أمه كعكة بالشوكولاتة.',
+          'جاء أصدقاؤه إلى البيت.',
+          'أطفأ سمير الشموع وتمنّى أمنية.',
+          'فتح هداياه وفرح كثيراً.',
+        ]
+      },
+      {
+        title: '🌧️ يوم ماطر',
+        events: [
+          'كان الجو صافياً في الصباح.',
+          'بدأت الغيوم تتجمع في السماء.',
+          'هطل المطر بغزارة.',
+          'فتح الأطفال مظلاتهم.',
+          'توقف المطر وظهر قوس قزح.',
+        ]
+      },
+      {
+        title: '📚 في المكتبة',
+        events: [
+          'ذهبت نورة إلى المكتبة.',
+          'بحثت عن كتاب مناسب.',
+          'وجدت قصة عن الفضاء.',
+          'جلست على كرسي وبدأت القراءة.',
+          'أحبّت القصة وقررت استعارة الكتاب.',
+        ]
+      },
+      {
+        title: '🐱 القطة الضائعة',
+        events: [
+          'خرجت القطة من البيت.',
+          'تاهت في الشوارع البعيدة.',
+          'بحث عنها صاحبها طوال اليوم.',
+          'وجدها جالسة تحت شجرة.',
+          'حملها وعاد بها إلى البيت سعيداً.',
+        ]
+      },
+    ];
+
+    let currentStory = 0, score = 0, selectedOrder = [];
+
+    function loadStory() {
+      if (currentStory >= stories.length) {
+        NeuroPedago.showResult('result-area', score, stories.length, 'fahm-07');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      selectedOrder = [];
+      document.getElementById('story-num').textContent = currentStory + 1;
+      document.getElementById('progress-fill').style.width = ((currentStory / stories.length) * 100) + '%';
+      document.getElementById('ordered-area').innerHTML = '<span style="color:var(--text-light);">انقر على الأحداث بالترتيب...</span>';
+      NeuroPedago.hideFeedback('feedback');
+
+      const story = stories[currentStory];
+      const eventsArea = document.getElementById('events-area');
+      eventsArea.innerHTML = `<div style="font-weight:700; color:var(--purple); margin-bottom:5px;">${story.title}</div>`;
+
+      const shuffled = story.events.map((e, i) => ({ text: e, originalIndex: i }));
+      NeuroPedago.shuffle(shuffled);
+
+      shuffled.forEach((event, i) => {
+        const div = document.createElement('div');
+        div.className = 'drag-item';
+        div.textContent = event.text;
+        div.id = 'event-' + i;
+        div.style.cssText = 'padding:12px 15px; font-size:1.1rem; cursor:pointer; text-align:right; border-right:4px solid var(--purple);';
+        div.addEventListener('click', () => selectEvent(event.text, div));
+        eventsArea.appendChild(div);
+      });
+    }
+
+    function selectEvent(text, div) {
+      selectedOrder.push(text);
+      div.style.display = 'none';
+      NeuroPedago.sounds.click();
+
+      const ordered = document.getElementById('ordered-area');
+      if (selectedOrder.length === 1) ordered.innerHTML = '';
+
+      const tag = document.createElement('div');
+      tag.style.cssText = 'padding:8px 15px; margin:5px 0; background:#f3e8ff; border-radius:8px; text-align:right; border-right:4px solid var(--purple);';
+      tag.innerHTML = `<span style="font-weight:700; color:var(--purple); margin-left:8px;">${selectedOrder.length}.</span> ${text}`;
+      ordered.appendChild(tag);
+    }
+
+    function resetStory() {
+      selectedOrder = [];
+      loadStory();
+    }
+
+    function checkOrder() {
+      const story = stories[currentStory];
+      if (selectedOrder.length < story.events.length) {
+        NeuroPedago.showFeedback('feedback', 'info', '⚠ رتّب كل الأحداث أولاً!');
+        return;
+      }
+
+      const isCorrect = selectedOrder.every((event, i) => event === story.events[i]);
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 ترتيب صحيح! أحسنت!');
+      } else {
+        NeuroPedago.sounds.wrong();
+        let correctOrder = '<strong>الترتيب الصحيح:</strong><br>';
+        story.events.forEach((e, i) => correctOrder += `${i + 1}. ${e}<br>`);
+        NeuroPedago.showFeedback('feedback', 'error', '❌ ' + correctOrder);
+      }
+
+      setTimeout(() => { currentStory++; loadStory(); }, 3000);
+    }
+
+    loadStory();
+  </script>
+</body>
+</html>

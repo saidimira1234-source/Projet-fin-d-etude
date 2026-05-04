@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الكاريوكي القرائي - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header orange-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثالث ← النشاط 6</div>
+    <h1>🎤 الكاريوكي القرائي</h1>
+    <div class="meta"><span>📂 الطلاقة اللغوية</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 10 دقائق</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box orange">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تحسين الطلاقة والتعبير النغمي عبر قراءة نص مع تمييز تلقائي للكلمات بسرعة محددة — كأسلوب الكاريوكي. يُنشّط التزامن بين الإدراك البصري والنطق ويُدرّب على السرعة المناسبة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يظهر نص على الشاشة.</li>
+        <li>تتلوّن الكلمات تلقائياً واحدة تلو الأخرى بسرعة محددة.</li>
+        <li>يقرأ التلميذ مع الكلمة المُلوّنة.</li>
+        <li>يمكنه التحكم بالسرعة (بطيء / متوسط / سريع).</li>
+        <li>3 نصوص مختلفة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اقرأ مع الضوء!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="margin-bottom:15px;">
+          <label style="font-weight:700; color:var(--orange-dark);">⚡ السرعة:</label>
+          <button class="btn btn-outline btn-sm speed-btn" onclick="setSpeed(800)" id="speed-slow">🐢 بطيء</button>
+          <button class="btn btn-outline btn-sm speed-btn active" onclick="setSpeed(500)" id="speed-medium">🐇 متوسط</button>
+          <button class="btn btn-outline btn-sm speed-btn" onclick="setSpeed(300)" id="speed-fast">🚀 سريع</button>
+        </div>
+
+        <div style="margin-bottom:10px;">
+          <span style="font-weight:700;">النص: <span id="text-num" style="color:var(--orange);">1</span> / 3</span>
+        </div>
+
+        <div id="karaoke-text" class="reading-area" style="font-size:1.5rem; line-height:2.5; padding:25px; border:2px solid var(--orange); border-radius:12px; background:var(--bg-secondary); text-align:right; min-height:120px;"></div>
+
+        <div class="btn-group" style="margin-top:15px;">
+          <button class="btn btn-success btn-lg" id="play-btn" onclick="startKaraoke()">▶ ابدأ</button>
+          <button class="btn btn-outline btn-sm" id="pause-btn" onclick="pauseKaraoke()" style="display:none;">⏸ أوقف</button>
+          <button class="btn btn-primary btn-sm" id="next-btn" onclick="nextText()" style="display:none;">⏭ النص التالي</button>
+        </div>
+
+        <div id="voice-record-area" style="display:none; margin:20px 0; padding:20px; border:2px dashed var(--orange); border-radius:12px; background:var(--bg-secondary);">
+          <h3 style="color:var(--orange-dark); margin-bottom:10px;">🎙️ دورك الآن! أعد قراءة النص بصوتك</h3>
+          <div id="voice-record-ui"></div>
+        </div>
+
+        <div id="result-msg" style="display:none; margin:20px 0;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        القراءة بمساعدة التمييز المتحرك تستند إلى تقنية <strong>Neurological Impress Method</strong> (Heckelman, 1969). التزامن بين المؤشر البصري والنطق يُقوّي الروابط بين <strong>القشرة البصرية</strong> و<strong>منطقة بروكا</strong> (المسؤولة عن الإنتاج اللغوي). كما أن ضبط السرعة يُدرّب الدماغ على إيقاع قراءة طبيعي.
+      </p>
+      <div class="reference">
+        📖 Heckelman, R.G. (1969). A neurological-impress method. <em>Academic Therapy.</em><br>
+        📖 Chomsky, C. (1976). After decoding: What? <em>Language Arts.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> مواكبة السرعة المتوسطة أو السريعة بتعبير جيد.</li>
+        <li><strong>جيد:</strong> مواكبة السرعة البطيئة.</li>
+        <li><strong>يحتاج تدريب:</strong> صعوبة في المواكبة.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-04.html">→ السابق: القراءة بالتلوين</a>
+      <a href="activity-07.html">التالي: تحدي العبارات ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const karaokeTexts = [
+      'كَانَ يَا مَا كَانَ فِي قَدِيمِ الزَّمَانِ، عَاشَ فَلَّاحٌ طَيِّبٌ مَعَ عَائِلَتِهِ فِي قَرْيَةٍ صَغِيرَةٍ. كَانَ يَزْرَعُ الْقَمْحَ وَالشَّعِيرَ وَيُحِبُّ أَرْضَهُ كَثِيرًا.',
+      'الْمَاءُ نِعْمَةٌ عَظِيمَةٌ. يَحْتَاجُ كُلُّ كَائِنٍ حَيٍّ إِلَى الْمَاءِ. الْإِنْسَانُ وَالْحَيَوَانُ وَالنَّبَاتُ لَا يَسْتَطِيعُونَ الْعَيْشَ بِدُونِهِ. لِذَلِكَ يَجِبُ أَنْ نُحَافِظَ عَلَيْهِ.',
+      'أُحِبُّ وَطَنِي كَثِيرًا. فِيهِ جِبَالٌ شَامِخَةٌ وَبِحَارٌ وَاسِعَةٌ وَصَحَارٍ وَاسِعَةٌ. شَعْبُهُ كَرِيمٌ وَطَيِّبٌ. أَفْتَخِرُ بِتَارِيخِهِ الْعَرِيقِ وَحَضَارَتِهِ الْعَظِيمَةِ.',
+    ];
+
+    let currentText = 0, speed = 500, wordSpans = [], currentWord = 0, karaokeInterval, isPaused = false;
+
+    function renderText() {
+      const container = document.getElementById('karaoke-text');
+      container.innerHTML = '';
+      const words = karaokeTexts[currentText].split(/\s+/);
+      wordSpans = [];
+
+      words.forEach((word, i) => {
+        const span = document.createElement('span');
+        span.textContent = word + ' ';
+        span.className = 'karaoke-word';
+        span.style.cssText = 'display:inline-block; padding:2px 4px; border-radius:4px; transition:all 0.2s;';
+        container.appendChild(span);
+        wordSpans.push(span);
+      });
+
+      document.getElementById('text-num').textContent = currentText + 1;
+      currentWord = 0;
+    }
+
+    function setSpeed(s) {
+      speed = s;
+      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      if (s === 800) document.getElementById('speed-slow').classList.add('active');
+      else if (s === 500) document.getElementById('speed-medium').classList.add('active');
+      else document.getElementById('speed-fast').classList.add('active');
+
+      if (karaokeInterval && !isPaused) {
+        clearInterval(karaokeInterval);
+        karaokeInterval = setInterval(highlightNext, speed);
+      }
+    }
+
+    function startKaraoke() {
+      document.getElementById('play-btn').style.display = 'none';
+      document.getElementById('pause-btn').style.display = 'inline-flex';
+      isPaused = false;
+
+      if (currentWord === 0) {
+        wordSpans.forEach(s => { s.style.background = ''; s.style.color = ''; });
+      }
+
+      karaokeInterval = setInterval(highlightNext, speed);
+    }
+
+    function highlightNext() {
+      if (currentWord > 0 && wordSpans[currentWord - 1]) {
+        wordSpans[currentWord - 1].style.background = 'var(--orange-light)';
+        wordSpans[currentWord - 1].style.color = 'var(--orange-dark)';
+      }
+
+      if (currentWord >= wordSpans.length) {
+        clearInterval(karaokeInterval);
+        NeuroPedago.sounds.complete();
+        document.getElementById('pause-btn').style.display = 'none';
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! أتممت قراءة النص! الآن أعد قراءته بصوتك.');
+
+        // Show voice recording area for evaluation
+        const voiceArea = document.getElementById('voice-record-area');
+        const voiceUI = document.getElementById('voice-record-ui');
+        voiceArea.style.display = 'block';
+        voiceUI.innerHTML = '';
+
+        const expectedText = karaokeTexts[currentText];
+        NeuroPedago.VoiceRecorder.createRecordingUI(voiceUI, {
+          expectedText: expectedText,
+          onEvaluationComplete: function(result) {
+            voiceArea.style.display = 'none';
+            if (result && result.score !== undefined) {
+              const pct = Math.round(result.score * 100);
+              NeuroPedago.showFeedback('feedback', pct >= 60 ? 'success' : 'warning',
+                '🎙️ نتيجة التقييم الصوتي: ' + pct + '% — ' + (pct >= 80 ? 'ممتاز!' : pct >= 60 ? 'جيد!' : 'حاول مرة أخرى!'));
+            }
+            document.getElementById('next-btn').style.display = 'inline-flex';
+          }
+        });
+        return;
+      }
+
+      wordSpans[currentWord].style.background = 'var(--orange)';
+      wordSpans[currentWord].style.color = '#fff';
+      wordSpans[currentWord].style.borderRadius = '6px';
+      currentWord++;
+    }
+
+    function pauseKaraoke() {
+      clearInterval(karaokeInterval);
+      isPaused = true;
+      document.getElementById('pause-btn').style.display = 'none';
+      document.getElementById('play-btn').style.display = 'inline-flex';
+      document.getElementById('play-btn').textContent = '▶ أكمل';
+    }
+
+    function nextText() {
+      currentText++;
+      NeuroPedago.hideFeedback('feedback');
+      document.getElementById('next-btn').style.display = 'none';
+      document.getElementById('voice-record-area').style.display = 'none';
+
+      if (currentText >= karaokeTexts.length) {
+        document.getElementById('result-msg').style.display = 'block';
+        document.getElementById('result-msg').innerHTML = `
+          <div style="font-size:1.5rem; font-weight:900; color:var(--orange-dark); margin:10px 0;">🎤 رائع! قرأت كل النصوص!</div>
+          <div style="margin:10px 0;">${NeuroPedago.renderStars(3)}</div>
+          <button class="btn btn-outline" onclick="location.reload()">🔄 أعد النشاط</button>
+        `;
+        NeuroPedago.storage.save('talaqa-06', { texts: 3, stars: 3 });
+        return;
+      }
+
+      renderText();
+      document.getElementById('play-btn').style.display = 'inline-flex';
+      document.getElementById('play-btn').textContent = '▶ ابدأ';
+    }
+
+    renderText();
+  </script>
+</body>
+</html>

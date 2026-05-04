@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة القصة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header purple-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الرابع ← النشاط 2</div>
+    <h1>🗺️ خريطة القصة</h1>
+    <div class="meta"><span>📂 الفهم القرائي</span><span>🎓 السنة 3 و 4</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box purple">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية مهارة تحليل بنية القصة عبر تحديد عناصرها الأساسية: الشخصيات، المكان، الزمان، المشكلة، والحل. يُنشّط التنظيم المعرفي وبناء النماذج الذهنية.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يقرأ التلميذ قصة قصيرة.</li>
+        <li>يملأ خريطة القصة بالعناصر المطلوبة.</li>
+        <li>لكل عنصر، يختار الإجابة الصحيحة من خيارات.</li>
+        <li>يحصل على تغذية راجعة بعد كل إجابة.</li>
+        <li>3 قصص مختلفة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> ارسم خريطة القصة!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">القصة: <span id="story-num" style="color:var(--purple);">1</span> / 3</div>
+          <div style="font-weight:700; color:var(--purple-dark);">✅ <span id="score">0</span></div>
+        </div>
+
+        <div id="story-text" class="reading-area" style="font-size:1.3rem; line-height:2.2; padding:25px; border:2px solid var(--purple); border-radius:12px; background:var(--bg-secondary); text-align:right; margin:15px 0;"></div>
+
+        <!-- Story Map -->
+        <div id="story-map" style="margin:20px 0;">
+          <h3 style="color:var(--purple-dark);">🗺️ خريطة القصة</h3>
+          <div id="map-element" style="margin:15px 0;">
+            <div id="element-icon" style="font-size:2rem; margin-bottom:5px;"></div>
+            <div id="element-label" style="font-weight:700; color:var(--purple); font-size:1.1rem; margin-bottom:10px;"></div>
+            <div id="element-choices" style="display:flex; flex-direction:column; gap:10px; max-width:500px; margin:0 auto;"></div>
+          </div>
+        </div>
+
+        <div id="completed-map" style="display:none; margin:20px 0;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        خرائط القصة تستند إلى <strong>نظرية المخطط (Schema Theory)</strong> لـ <strong>Rumelhart (1980)</strong>. بناء تمثيل بصري لبنية القصة يُنشّط <strong>القشرة الجبهية الجانبية</strong> (التنظيم) و<strong>الحصين</strong> (الذاكرة السردية). يُظهر البحث أن استخدام المنظمات البصرية يُحسّن الفهم بنسبة 20-40%.
+      </p>
+      <div class="reference">
+        📖 Rumelhart, D.E. (1980). Schemata: The Building Blocks of Cognition. <em>Theoretical Issues in Reading Comprehension.</em><br>
+        📖 National Reading Panel (2000). <em>Teaching Children to Read.</em> NIH.
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> ملأ 13-15 عنصراً بشكل صحيح.</li>
+        <li><strong>جيد:</strong> 10-12 عنصراً.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 10.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-01.html">→ السابق</a>
+      <a href="activity-03.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const stories = [
+      {
+        text: 'فِي قَرْيَةٍ صَغِيرَةٍ بِجَانِبِ النَّهْرِ، عَاشَتْ فَتَاةٌ اسْمُهَا لَيْلَى مَعَ جَدَّتِهَا. فِي يَوْمٍ شِتَائِيٍّ بَارِدٍ، مَرِضَتِ الْجَدَّةُ. خَرَجَتْ لَيْلَى رَغْمَ الْبَرْدِ إِلَى السُّوقِ لِتَشْتَرِيَ الدَّوَاءَ. قَابَلَتْ طَبِيبًا طَيِّبًا سَاعَدَهَا. عَادَتْ لَيْلَى وَعَالَجَتْ جَدَّتَهَا حَتَّى شُفِيَتْ.',
+        elements: [
+          { icon: '👤', label: 'الشخصية الرئيسية', options: ['ليلى', 'الجدة', 'الطبيب', 'البائع'], answer: 0 },
+          { icon: '📍', label: 'المكان', options: ['قرية بجانب النهر', 'مدينة كبيرة', 'غابة مظلمة', 'جبل عالٍ'], answer: 0 },
+          { icon: '🕐', label: 'الزمان', options: ['يوم شتائي بارد', 'يوم صيفي حار', 'ليلة هادئة', 'صباح ربيعي'], answer: 0 },
+          { icon: '⚠️', label: 'المشكلة', options: ['مرض الجدة', 'ضياع ليلى', 'قطع النهر', 'إغلاق السوق'], answer: 0 },
+          { icon: '✅', label: 'الحل', options: ['اشترت الدواء وعالجت جدتها', 'ذهبت للمستشفى', 'انتظرت الربيع', 'طلبت المساعدة من الجيران'], answer: 0 },
+        ]
+      },
+      {
+        text: 'يَوْمَ الْجُمُعَةِ، أَرَادَ عُمَرُ أَنْ يُفَاجِئَ أُمَّهُ بِهَدِيَّةٍ. جَمَعَ نُقُودَهُ وَذَهَبَ مَعَ أَبِيهِ إِلَى السُّوقِ. لَكِنَّهُ لَمْ يَجِدْ هَدِيَّةً مُنَاسِبَةً بِالنُّقُودِ الَّتِي مَعَهُ. فَكَّرَ عُمَرُ ثُمَّ قَرَّرَ أَنْ يَرْسُمَ لَهَا لَوْحَةً جَمِيلَةً. فَرِحَتْ أُمُّهُ كَثِيرًا وَقَالَتْ: "هَذِهِ أَجْمَلُ هَدِيَّةٍ!"',
+        elements: [
+          { icon: '👤', label: 'الشخصية الرئيسية', options: ['عمر', 'الأم', 'الأب', 'البائع'], answer: 0 },
+          { icon: '📍', label: 'المكان', options: ['السوق والبيت', 'المدرسة', 'الحديقة', 'المزرعة'], answer: 0 },
+          { icon: '🕐', label: 'الزمان', options: ['يوم الجمعة', 'يوم الإثنين', 'ليلة العيد', 'رمضان'], answer: 0 },
+          { icon: '⚠️', label: 'المشكلة', options: ['لم يجد هدية بنقوده', 'ضاع في السوق', 'نسي عيد ميلادها', 'كسر اللوحة'], answer: 0 },
+          { icon: '✅', label: 'الحل', options: ['رسم لوحة جميلة لأمه', 'اشترى وردة رخيصة', 'طلب مالاً من أبيه', 'لم يُقدّم هدية'], answer: 0 },
+        ]
+      },
+      {
+        text: 'فِي الصَّيْفِ، ذَهَبَتْ عَائِلَةُ نَادِيَةَ إِلَى شَاطِئِ الْبَحْرِ. بَنَتْ نَادِيَةُ قَلْعَةً مِنَ الرَّمْلِ. فَجْأَةً جَاءَتْ مَوْجَةٌ كَبِيرَةٌ وَهَدَمَتْهَا. حَزِنَتْ نَادِيَةُ لَكِنَّ أَخَاهَا سَاعَدَهَا فِي بِنَاءِ قَلْعَةٍ أَكْبَرَ وَأَجْمَلَ بَعِيدًا عَنِ الْمَوْجِ.',
+        elements: [
+          { icon: '👤', label: 'الشخصية الرئيسية', options: ['نادية', 'الأخ', 'الأم', 'الأب'], answer: 0 },
+          { icon: '📍', label: 'المكان', options: ['شاطئ البحر', 'الحديقة', 'المسبح', 'النهر'], answer: 0 },
+          { icon: '🕐', label: 'الزمان', options: ['الصيف', 'الشتاء', 'الربيع', 'الخريف'], answer: 0 },
+          { icon: '⚠️', label: 'المشكلة', options: ['الموجة هدمت القلعة', 'نسيت أدوات البناء', 'ضاعت في البحر', 'لم تجد رملاً'], answer: 0 },
+          { icon: '✅', label: 'الحل', options: ['ساعدها أخوها في بناء قلعة أكبر بعيداً عن الموج', 'تركت الشاطئ', 'بكت حتى هدأت', 'طلبت من أبيها'], answer: 0 },
+        ]
+      }
+    ];
+
+    let currentStory = 0, currentElement = 0, score = 0, completedElements = [];
+    const totalElements = stories.reduce((s, st) => s + st.elements.length, 0);
+
+    function loadStory() {
+      if (currentStory >= stories.length) {
+        NeuroPedago.showResult('result-area', score, totalElements, 'fahm-02');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+      currentElement = 0;
+      completedElements = [];
+      document.getElementById('story-num').textContent = currentStory + 1;
+      document.getElementById('story-text').textContent = stories[currentStory].text;
+      document.getElementById('completed-map').style.display = 'none';
+      document.getElementById('map-element').style.display = 'block';
+      loadElement();
+    }
+
+    function loadElement() {
+      const story = stories[currentStory];
+      if (currentElement >= story.elements.length) {
+        showCompletedMap();
+        setTimeout(() => { currentStory++; loadStory(); }, 3000);
+        return;
+      }
+
+      const el = story.elements[currentElement];
+      const progress = stories.slice(0, currentStory).reduce((s, st) => s + st.elements.length, 0) + currentElement;
+      document.getElementById('progress-fill').style.width = ((progress / totalElements) * 100) + '%';
+      document.getElementById('element-icon').textContent = el.icon;
+      document.getElementById('element-label').textContent = el.label;
+      NeuroPedago.hideFeedback('feedback');
+
+      const choices = document.getElementById('element-choices');
+      choices.innerHTML = '';
+      const shuffled = el.options.map((opt, i) => ({ text: opt, isCorrect: i === el.answer }));
+      NeuroPedago.shuffle(shuffled).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = opt.text;
+        btn.style.textAlign = 'right';
+        btn.addEventListener('click', () => checkElement(opt.isCorrect, opt.text, btn));
+        choices.appendChild(btn);
+      });
+    }
+
+    function checkElement(isCorrect, text, btn) {
+      document.querySelectorAll('#element-choices .choice-btn').forEach(b => b.style.pointerEvents = 'none');
+      const el = stories[currentStory].elements[currentElement];
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        btn.classList.add('correct');
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 صحيح!');
+        completedElements.push({ icon: el.icon, label: el.label, value: text });
+      } else {
+        btn.classList.add('wrong');
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الإجابة: ' + el.options[el.answer]);
+        completedElements.push({ icon: el.icon, label: el.label, value: el.options[el.answer] });
+      }
+
+      setTimeout(() => { currentElement++; loadElement(); }, 1800);
+    }
+
+    function showCompletedMap() {
+      document.getElementById('map-element').style.display = 'none';
+      const map = document.getElementById('completed-map');
+      map.style.display = 'block';
+      map.innerHTML = '<h3 style="color:var(--purple-dark); margin-bottom:10px;">🗺️ خريطة القصة مكتملة!</h3>';
+
+      completedElements.forEach(el => {
+        map.innerHTML += `<div style="display:flex; align-items:center; gap:10px; padding:8px 15px; margin:5px 0; background:var(--purple-light, #f3e8ff); border-radius:8px;">
+          <span style="font-size:1.5rem;">${el.icon}</span>
+          <strong style="color:var(--purple);">${el.label}:</strong>
+          <span>${el.value}</span>
+        </div>`;
+      });
+
+      NeuroPedago.sounds.complete();
+      NeuroPedago.showFeedback('feedback', 'success', '🏆 أحسنت! أتممت خريطة القصة!');
+    }
+
+    loadStory();
+  </script>
+</body>
+</html>

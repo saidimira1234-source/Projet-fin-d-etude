@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الكلمة المخفية - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header blue-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الأول: التهجئة ← النشاط 6
+    </div>
+    <h1>🫣 الكلمة المخفية</h1>
+    <div class="meta">
+      <span>📂 المحور: التهجئة والفك الترميزي</span>
+      <span>🎓 المستوى: السنة الرابعة ابتدائي</span>
+      <span>⏱ المدة: 10-12 دقيقة</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box blue">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تعزيز الذاكرة البصرية قصيرة المدى والتصور الذهني للكلمات. يرى التلميذ كلمة لمدة قصيرة ثم يحاول استرجاعها وكتابتها، مما يُقوّي المسار البصري المباشر في القراءة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يُعرض تنبيه "استعد!" ثم تظهر كلمة على الشاشة لمدة قصيرة (تتناقص تدريجيًا).</li>
+        <li>تختفي الكلمة وتُستبدل بعلامات استفهام.</li>
+        <li>يكتب التلميذ الكلمة التي رآها في خانة الإدخال.</li>
+        <li>تظهر تغذية راجعة فورية: صحيح أو خطأ مع عرض الكلمة الصحيحة.</li>
+        <li>يُكرر مع 10 كلمات، ووقت العرض يتناقص تدريجيًا (من 2 ثانية إلى 0.8 ثانية).</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> حاول تذكّر الكلمة!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">الكلمة <span id="current-num">1</span> من <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:15px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+        <div id="speed-info" style="font-size:0.9rem; color:var(--text-light); margin-bottom:20px;"></div>
+
+        <!-- منطقة العرض -->
+        <div id="display-area" class="big-text" style="min-height:100px; display:flex; align-items:center; justify-content:center; background:white; border-radius:var(--radius); border:2px solid var(--border); margin-bottom:25px;">
+          <button class="btn btn-primary btn-lg" id="start-btn" onclick="showWord()">👁️ اكشف الكلمة</button>
+        </div>
+
+        <!-- خانة الكتابة -->
+        <div id="input-area" style="display:none; max-width:400px; margin:0 auto;">
+          <p style="font-weight:600; color:var(--blue-dark); margin-bottom:10px;">✍ اكتب الكلمة التي رأيتها:</p>
+          <input type="text" id="answer-input" class="text-input" style="font-size:1.5rem; text-align:center; font-weight:700;" autofocus>
+          <div class="btn-group" style="margin-top:15px;">
+            <button class="btn btn-success" onclick="checkAnswer()">✅ تحقق</button>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يعتمد هذا النشاط على تنشيط <strong>المخزن البصري-المكاني</strong> (Visuospatial Sketchpad) في نموذج الذاكرة العاملة لبادلي. عندما تظهر الكلمة وتختفي بسرعة، يُجبر الدماغ على تكوين <strong>تمثيل بصري داخلي</strong> (Mental Image) للكلمة والاحتفاظ به في الذاكرة قصيرة المدى.
+      </p>
+      <p style="margin-top:10px;">
+        هذا التمرين يُقوّي ما يُسمّى بـ<strong>المسار المعجمي المباشر</strong> (Lexical Route) في نموذج كولثيرت (2001) للقراءة، حيث يتعلم الدماغ التعرف على الكلمة ككل بصري متكامل بدلاً من تهجئتها حرفًا حرفًا. مع تكرار التمرين وتقليل وقت العرض، تصبح هذه العملية <strong>أسرع وأكثر آلية</strong>.
+      </p>
+      <div class="reference">
+        📖 Coltheart, M. (2001). Dual Route Model. <em>Psychological Review.</em> | Baddeley, A. (2003). Working Memory. <em>Nature Reviews Neuroscience.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> كتابة 8-10 كلمات بشكل صحيح.</li>
+        <li><strong>جيد:</strong> 6-7 كلمات صحيحة.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 6، يُنصح بزيادة وقت العرض.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-01.html">→ النشاط السابق</a>
+      <a href="../index.html">🏠 الرئيسية</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const allWords = [
+      'اِسْتِقْلَال', 'الْمُحَافَظَة', 'اِنْتِصَار', 'الْجَزَائِر', 'التَّضَامُن',
+      'الْبِيئَة', 'مُسْتَشْفَى', 'اِحْتِرَام', 'تَعَاوُن', 'التَّلَوُّث',
+      'مَسْؤُولِيَّة', 'اِكْتِشَاف', 'حَضَارَة', 'اِقْتِصَاد', 'الشُّهَدَاء',
+      'الْمُنَاسَبَات', 'التُّرَاث', 'الْخَرِيطَة', 'الْفَلَّاح', 'الْمَعْلُومَات',
+      'الْمُسَابَقَة', 'الْإِبْدَاع', 'الْمُغَامَرَة', 'الْمَحَبَّة'
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let gameWords = [];
+    let currentWord = '';
+
+    // أوقات العرض بالمللي ثانية (تتناقص تدريجيًا)
+    const displayTimes = [1500, 1300, 1100, 1000, 900, 800, 700, 600, 600, 500];
+
+    function init() {
+      gameWords = NeuroPedago.shuffle(allWords).slice(0, 10);
+      document.getElementById('total-num').textContent = gameWords.length;
+      updateInfo();
+    }
+
+    function updateInfo() {
+      const time = displayTimes[currentIndex] || 800;
+      document.getElementById('speed-info').textContent = `⏱ وقت العرض: ${(time/1000).toFixed(1)} ثانية`;
+    }
+
+    function showWord() {
+      if (currentIndex >= gameWords.length) {
+        NeuroPedago.showResult('result-area', score, gameWords.length, 'tahji2a-06');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      currentWord = gameWords[currentIndex];
+      const display = document.getElementById('display-area');
+      const time = displayTimes[currentIndex] || 800;
+
+      // مرحلة "استعد"
+      display.innerHTML = '<span style="color:var(--orange); animation: bounce 0.5s ease infinite;">🔔 استعد!</span>';
+      document.getElementById('input-area').style.display = 'none';
+      NeuroPedago.hideFeedback('feedback');
+
+      setTimeout(() => {
+        // عرض الكلمة
+        display.textContent = currentWord;
+        display.style.color = 'var(--blue-dark)';
+        display.style.fontSize = '3rem';
+        NeuroPedago.sounds.click();
+
+        setTimeout(() => {
+          // إخفاء الكلمة
+          const stripped = currentWord.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '');
+          display.textContent = '؟'.repeat(stripped.length);
+          display.style.color = 'var(--text-light)';
+          display.style.fontSize = '2.5rem';
+          
+          // إظهار خانة الكتابة
+          document.getElementById('input-area').style.display = 'block';
+          const input = document.getElementById('answer-input');
+          input.value = '';
+          input.focus();
+        }, time);
+      }, 1000);
+    }
+
+    function stripDiacritics(text) {
+      return text.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\s]/g, '');
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById('answer-input').value.trim();
+      const correct = stripDiacritics(currentWord);
+      const userAnswer = stripDiacritics(input);
+      const display = document.getElementById('display-area');
+
+      if (userAnswer === correct) {
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! الكلمة هي: ' + currentWord);
+        display.textContent = currentWord;
+        display.style.color = 'var(--green-dark)';
+        display.style.fontSize = '3rem';
+        document.getElementById('answer-input').className = 'text-input correct-input';
+      } else {
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الكلمة الصحيحة هي: ' + currentWord);
+        display.textContent = currentWord;
+        display.style.color = 'var(--red)';
+        display.style.fontSize = '3rem';
+        document.getElementById('answer-input').className = 'text-input wrong-input';
+      }
+
+      document.getElementById('input-area').style.display = 'none';
+
+      setTimeout(() => {
+        currentIndex++;
+        document.getElementById('current-num').textContent = Math.min(currentIndex + 1, gameWords.length);
+        document.getElementById('progress-fill').style.width = ((currentIndex / gameWords.length) * 100) + '%';
+        updateInfo();
+
+        if (currentIndex >= gameWords.length) {
+          NeuroPedago.showResult('result-area', score, gameWords.length, 'tahji2a-06');
+          document.getElementById('game-area').style.display = 'none';
+        } else {
+          const display = document.getElementById('display-area');
+          display.innerHTML = '<button class="btn btn-primary btn-lg" onclick="showWord()">👁️ الكلمة التالية</button>';
+          display.style.fontSize = '2.5rem';
+        }
+      }, 2000);
+    }
+
+    // Enter key support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && document.getElementById('input-area').style.display !== 'none') {
+        checkAnswer();
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

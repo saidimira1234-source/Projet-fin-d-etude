@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سباق الكلمات - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header orange-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثالث ← النشاط 2</div>
+    <h1>🏎️ سباق الكلمات</h1>
+    <div class="meta"><span>📂 الطلاقة اللغوية</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 10 دقائق</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box orange">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">زيادة سرعة القراءة مع الحفاظ على الدقة عبر قراءة أكبر عدد من الكلمات في دقيقة واحدة. يقيس هذا النشاط "الكلمات في الدقيقة" (WPM) كمؤشر على الطلاقة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تظهر قائمة كلمات مرتبة عمودياً.</li>
+        <li>يبدأ العدّاد التنازلي (60 ثانية).</li>
+        <li>ينقر التلميذ على كل كلمة يقرأها بصوت عالٍ.</li>
+        <li>في النهاية، يُعرض عدد الكلمات المقروءة.</li>
+        <li>يمكن إعادة التمرين لتحسين الرقم.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> كم كلمة تقرأ في دقيقة؟</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+          <div style="font-size:1.5rem; font-weight:900;">
+            ⏱ <span id="timer" style="color:var(--orange);">60</span>
+          </div>
+          <div style="font-weight:700; font-size:1.3rem;">
+            📖 <span id="count" style="color:var(--orange-dark);">0</span> كلمة
+          </div>
+        </div>
+
+        <div class="progress-container" style="margin-bottom:15px;">
+          <div class="progress-bar"><div class="fill" id="timer-bar" style="width:100%; background:var(--orange);"></div></div>
+        </div>
+
+        <div id="pre-start" style="margin:20px 0;">
+          <p style="font-weight:600; color:var(--text-secondary);">اقرأ كل كلمة بصوت عالٍ ثم انقر عليها</p>
+          <button class="btn btn-success btn-lg" onclick="startRace()">🏁 ابدأ السباق!</button>
+        </div>
+
+        <div id="word-list" style="display:none; column-count:3; column-gap:15px; text-align:right; max-height:400px; overflow-y:auto; padding:15px; border:2px solid var(--border); border-radius:12px; background:var(--bg-secondary);"></div>
+
+        <div id="post-game" style="display:none; margin-top:20px;">
+          <div style="font-size:2rem; font-weight:900; color:var(--orange-dark); margin:15px 0;">
+            🏆 قرأت <span id="final-count">0</span> كلمة في الدقيقة!
+          </div>
+          <div id="level-badge" style="font-size:1.2rem; margin:10px 0;"></div>
+          <div id="stars-display" style="margin:10px 0;"></div>
+          <button class="btn btn-primary" onclick="resetRace()">🔄 أعد المحاولة</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        الطلاقة القرائية هي جسر بين فك الترميز والفهم حسب <strong>LaBerge & Samuels (1974)</strong>. عندما يصبح فك الترميز آلياً، تتحرر موارد الذاكرة العاملة للفهم. مقياس <strong>الكلمات في الدقيقة (WPM)</strong> هو المعيار الذهبي لقياس الطلاقة حسب <strong>Hasbrouck & Tindal (2006)</strong>.
+      </p>
+      <div class="reference">
+        📖 LaBerge, D. & Samuels, J. (1974). Automatic information processing in reading. <em>Cognitive Psychology.</em><br>
+        📖 Hasbrouck, J. & Tindal, G. (2006). Oral reading fluency norms. <em>The Reading Teacher.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> 60+ كلمة في الدقيقة (سنة 3) / 80+ (سنة 4).</li>
+        <li><strong>جيد:</strong> 40-59 كلمة (سنة 3) / 60-79 (سنة 4).</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 40 كلمة.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="../index.html#talaqa-section">→ السابق</a>
+      <a href="activity-03.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const allWords = [
+      'اِسْتِقْبَالٌ','مُسْتَشْفَى','اِخْتِرَاعٌ','مُغَامَرَةٌ','اِنْتِظَارٌ','حَضَارَةٌ','مَسْؤُولِيَّةٌ','اِكْتِشَافٌ','مُوَاصَلَاتٌ','اِحْتِفَالٌ',
+      'اِسْتِطَاعَةٌ','مُسَابَقَةٌ','تِلْفِزْيُونٌ','مَعْلُومَاتٌ','اِقْتِصَادٌ','مُسْتَقْبَلٌ','اِحْتِرَامٌ','تَعَاوُنٌ','مُسَاعَدَةٌ','حَدِيقَةٌ',
+      'مَدْرَسَةٌ','مَكْتَبَةٌ','اِسْتِرَاحَةٌ','عُصْفُورٌ','فَرَاشَةٌ','دَرَّاجَةٌ','بُرْتُقَالَةٌ','فَرَاوِلَةٌ','بَطِّيخَةٌ','خُضْرَاوَاتٌ',
+      'طَبِيبٌ','مُعَلِّمَةٌ','مُهَنْدِسٌ','صَيْدَلِيٌّ','عَسْكَرِيٌّ','شُرْطِيٌّ','مُخْتَرِعٌ','طَيَّارٌ','بَحَّارٌ','رَسَّامٌ',
+      'مَعْرِضٌ','مُحَاضَرَةٌ','مُسْتَشْفَى','تَصَرَّفٌ','اِمْتِحَانٌ','مُحَافَظَةٌ','مَعْرِفَةٌ','تَجْرِبَةٌ','مُثَابَرَةٌ','مُحَاوَلَةٌ',
+      'مَسْؤُولِيَّةٌ','إنْجَازٌ','اِسْتِقْلَالٌ','تَطَوَّرٌ','مُعَامَلَةٌ','مُرَاسَلَةٌ','بَنَفْسَجِيٌّ','مُشَارَكَةٌ','سَحَابَةٌ','خَرِيطَةٌ',
+      'اِنْتِصَارٌ','بُطُولَةٌ','مَكْتَبَةٌ','مُهَاجِرٌ','اِسْتِعْدَادٌ','اِحْتِيَاطٌ','اِسْتِعْلَامٌ','اِخْتِبَارٌ','رَمَادِيٌّ','مُسْتَقِيمٌ',
+      'مُنْتَظِمٌ','مُسْتَدِيمٌ','مُسْتَشَارٌ','مُتَعَاوِنٌ','زَعِيمٌ','مَشْرُوعٌ','بَطِيءٌ','مُكْتَشِفٌ','مُمَرِّضَةٌ','مُحَاسِبٌ',
+    ];
+
+    let timer, timeLeft = 60, wordCount = 0, raceStarted = false;
+
+    function startRace() {
+      document.getElementById('pre-start').style.display = 'none';
+      const list = document.getElementById('word-list');
+      list.style.display = 'block';
+      list.innerHTML = '';
+      wordCount = 0;
+      timeLeft = 60;
+      raceStarted = true;
+      document.getElementById('count').textContent = '0';
+      document.getElementById('timer').textContent = '60';
+      document.getElementById('timer-bar').style.width = '100%';
+      document.getElementById('post-game').style.display = 'none';
+
+      const shuffled = NeuroPedago.shuffle(allWords);
+      shuffled.forEach((word, i) => {
+        const span = document.createElement('div');
+        span.textContent = word;
+        span.className = 'word-item';
+        span.style.cssText = 'padding:8px 12px; margin:4px 0; cursor:pointer; border-radius:8px; font-size:1.2rem; font-weight:600; transition:all 0.2s; break-inside:avoid;';
+        span.addEventListener('click', function() {
+          if (!raceStarted) return;
+          if (this.dataset.read) return;
+          this.dataset.read = '1';
+          this.style.background = 'var(--orange-light)';
+          this.style.color = 'var(--orange-dark)';
+          this.style.textDecoration = 'line-through';
+          wordCount++;
+          document.getElementById('count').textContent = wordCount;
+          NeuroPedago.sounds.click();
+        });
+        list.appendChild(span);
+      });
+
+      timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').textContent = timeLeft;
+        document.getElementById('timer-bar').style.width = ((timeLeft / 60) * 100) + '%';
+        if (timeLeft <= 10) {
+          document.getElementById('timer').style.color = 'var(--error)';
+        }
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          endRace();
+        }
+      }, 1000);
+    }
+
+    function endRace() {
+      raceStarted = false;
+      document.getElementById('word-list').style.display = 'none';
+      document.getElementById('post-game').style.display = 'block';
+      document.getElementById('final-count').textContent = wordCount;
+      NeuroPedago.sounds.complete();
+
+      let level = '', stars = 1;
+      if (wordCount >= 60) { level = '⭐ طلاقة ممتازة!'; stars = 3; }
+      else if (wordCount >= 40) { level = '👍 جيد جداً!'; stars = 2; }
+      else { level = '💪 تدرّب أكثر!'; stars = 1; }
+
+      document.getElementById('level-badge').textContent = level;
+      document.getElementById('stars-display').innerHTML = NeuroPedago.renderStars(stars);
+
+      NeuroPedago.storage.save('talaqa-02', { score: wordCount, stars: stars });
+
+      // Voice recording section
+      let recSection = document.getElementById('voice-record-section');
+      if (!recSection) {
+        recSection = document.createElement('div');
+        recSection.id = 'voice-record-section';
+        recSection.style.cssText = 'margin-top:20px; padding:20px; border:2px dashed var(--orange); border-radius:12px; background:var(--bg-secondary);';
+        document.getElementById('post-game').appendChild(recSection);
+      }
+      recSection.innerHTML = '<p style="font-weight:700; font-size:1.1rem; margin-bottom:10px;">🎙️ اقرأ بعض الكلمات التي قرأتها بصوت عالٍ</p>';
+      const recordBtn = document.createElement('button');
+      recordBtn.className = 'btn btn-success';
+      recordBtn.textContent = '🎙️ سجّل قراءتك';
+      recordBtn.addEventListener('click', function() {
+        recSection.innerHTML = '<p style="font-weight:700; font-size:1.1rem; margin-bottom:10px;">🎙️ اقرأ بعض الكلمات التي قرأتها بصوت عالٍ</p>';
+        NeuroPedago.VoiceRecorder.createRecordingUI(recSection, {
+          activityId: 'talaqa-02',
+          mode: 'pronunciation',
+          prompt: 'اقرأ الكلمات التي تعلّمتها بصوت واضح'
+        });
+      });
+      recSection.appendChild(recordBtn);
+    }
+
+    function resetRace() {
+      document.getElementById('timer').style.color = 'var(--orange)';
+      document.getElementById('post-game').style.display = 'none';
+      document.getElementById('pre-start').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

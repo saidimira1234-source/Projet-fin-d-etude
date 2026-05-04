@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ركّب الكلمة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header blue-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الأول: التهجئة ← النشاط 2
+    </div>
+    <h1>🧩 ركّب الكلمة</h1>
+    <div class="meta">
+      <span>📂 المحور: التهجئة والفك الترميزي</span>
+      <span>🎓 المستوى: السنة 3 و 4</span>
+      <span>⏱ المدة: 10-15 دقيقة</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box blue">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تدريب الذاكرة العاملة البصرية-المكانية على ترتيب الحروف لتكوين كلمات صحيحة، مما يقوّي الربط بين الوحدات الصوتية والإملائية ويعزز التمثيل الإملائي في الذاكرة طويلة المدى.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تظهر صورة (إيموجي) تمثّل كلمة معينة كتلميح بصري.</li>
+        <li>تُعرض حروف الكلمة بشكل مبعثر وعشوائي أسفل الصورة.</li>
+        <li>يسحب التلميذ الحروف ويضعها في المكان الصحيح لتكوين الكلمة.</li>
+        <li>يمكنه أيضًا النقر على الحروف بالترتيب الصحيح.</li>
+        <li>عند إكمال الكلمة بشكل صحيح، تظهر رسالة تشجيعية وينتقل للكلمة التالية.</li>
+        <li>يتكرر النشاط مع 8 كلمات مختلفة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> ابدأ النشاط!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+          <div class="progress-text" style="font-weight:700;">الكلمة <span id="current-num">1</span> من <span id="total-num">8</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ النقاط: <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <!-- الصورة التلميح -->
+        <div id="hint-emoji" style="font-size:5rem; margin:10px 0;"></div>
+        <div id="hint-text" style="font-size:0.95rem; color:var(--text-light); margin-bottom:20px;"></div>
+
+        <!-- منطقة الإجابة -->
+        <div id="answer-zone" class="drop-zone" style="min-height:70px; margin-bottom:25px; justify-content:center; gap:5px;">
+        </div>
+
+        <!-- الحروف المبعثرة -->
+        <div id="letters-zone" class="drag-container" style="min-height:70px;">
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+        
+        <div class="btn-group" style="margin-top:15px;">
+          <button class="btn btn-outline btn-sm" onclick="resetCurrentWord()">🔄 إعادة ترتيب</button>
+        </div>
+      </div>
+
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يستند هذا النشاط إلى نموذج <strong>الذاكرة العاملة لبادلي (Baddeley, 2003)</strong> حيث يُنشّط المكون البصري-المكاني (Visuospatial Sketchpad) أثناء ترتيب الحروف ذهنيًا. كما يُعزّز ما يُعرف بـ<strong>التعلم الذاتي (Self-Teaching)</strong> حسب نموذج Share (1999)، إذ يتعلم الدماغ التمثيل الأرثوغرافي الصحيح للكلمات عبر المحاولة النشطة لتركيبها.
+      </p>
+      <p style="margin-top:10px;">
+        الصورة المصاحبة تُنشّط <strong>المعالجة الدلالية</strong> في المناطق الصدغية مما يُسهّل استرجاع الكلمة من المعجم الذهني ويربط بين المعنى والشكل الكتابي.
+      </p>
+      <div class="reference">
+        📖 Baddeley, A. (2003). Working Memory. <em>Nature Reviews Neuroscience.</em> | Share, D. (1999). Self-Teaching Hypothesis. <em>Journal of Experimental Child Psychology.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> تركيب 7-8 كلمات بشكل صحيح من المحاولة الأولى.</li>
+        <li><strong>جيد:</strong> تركيب 5-6 كلمات بشكل صحيح.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 5 كلمات، يُنصح بالبدء بكلمات أقصر.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-01.html">→ النشاط السابق</a>
+      <a href="activity-03.html">النشاط التالي: الحرف الدخيل ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const words = [
+      { word: 'اِسْتِقْبَال', emoji: '🤝', hint: 'تَرْحِيبٌ بِالضُّيُوفِ عِنْدَ الْوُصُولِ' },
+      { word: 'اِخْتِرَاع', emoji: '💡', hint: 'صُنْعُ شَيْءٍ جَدِيدٍ لَمْ يَكُنْ مَوْجُودًا' },
+      { word: 'مُسْتَشْفَى', emoji: '🏥', hint: 'مَكَانٌ يُعَالَجُ فِيهِ الْمَرْضَى' },
+      { word: 'مَكْتَبَة', emoji: '📚', hint: 'فِيهَا كُتُبٌ كَثِيرَةٌ لِلْقِرَاءَةِ' },
+      { word: 'اِخْتِبَار', emoji: '📝', hint: 'اِمْتِحَانٌ فِي الْمَدْرَسَةِ' },
+      { word: 'اِسْتِرَاحَة', emoji: '☕', hint: 'وَقْتُ الرَّاحَةِ بَيْنَ الدُّرُوسِ' },
+      { word: 'اِنْتِصَار', emoji: '🏆', hint: 'فَوْزٌ وَغَلَبَةٌ عَلَى الْخَصْمِ' },
+      { word: 'مُغَامَرَة', emoji: '🏔️', hint: 'رِحْلَةٌ مُثِيرَةٌ فِيهَا تَحَدِّيَات' },
+      { word: 'تِلْفِزْيُون', emoji: '📺', hint: 'جِهَازٌ نُشَاهِدُ فِيهِ الْبَرَامِجَ' },
+      { word: 'حَاسُوب', emoji: '💻', hint: 'جِهَازٌ إِلِكْتِرُونِيٌّ لِلْعَمَلِ وَالدِّرَاسَةِ' },
+      { word: 'اِكْتِشَاف', emoji: '🔭', hint: 'إِيجَادُ شَيْءٍ جَدِيدٍ لَمْ يَكُنْ مَعْرُوفًا' },
+      { word: 'اِسْتِقْلَال', emoji: '🏳️', hint: 'حُرِّيَّةُ الْوَطَنِ وَسِيَادَتُهُ' },
+      { word: 'مَسْؤُولِيَّة', emoji: '⚖️', hint: 'وَاجِبٌ يَتَحَمَّلُهُ الْإِنْسَانُ' },
+      { word: 'مُوَاصَلَات', emoji: '🚌', hint: 'وَسَائِلُ النَّقْلِ كَالْحَافِلَةِ وَالْقِطَارِ' },
+      { word: 'اِقْتِصَاد', emoji: '💰', hint: 'تَدْبِيرُ الْأَمْوَالِ وَالتِّجَارَةِ' }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let gameWords = [];
+    let currentLetters = [];
+    let selectedLetters = [];
+
+    function init() {
+      gameWords = NeuroPedago.shuffle(words).slice(0, 8);
+      document.getElementById('total-num').textContent = gameWords.length;
+      loadWord();
+    }
+
+    function getBaseLetters(word) {
+      // استخراج الحروف الأساسية بدون تشكيل
+      return word.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\s]/g, '').split('');
+    }
+
+    function loadWord() {
+      if (currentIndex >= gameWords.length) {
+        NeuroPedago.showResult('result-area', score, gameWords.length, 'tahji2a-02');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      const item = gameWords[currentIndex];
+      selectedLetters = [];
+      
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('hint-emoji').textContent = item.emoji;
+      document.getElementById('hint-text').textContent = '💡 تلميح: ' + item.hint;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameWords.length) * 100) + '%';
+      NeuroPedago.hideFeedback('feedback');
+
+      const baseLetters = getBaseLetters(item.word);
+      currentLetters = NeuroPedago.shuffle(baseLetters);
+
+      // إنشاء خانات الإجابة
+      const answerZone = document.getElementById('answer-zone');
+      answerZone.innerHTML = '';
+      for (let i = 0; i < baseLetters.length; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'letter-box empty';
+        slot.dataset.index = i;
+        slot.addEventListener('click', function() {
+          // إزالة آخر حرف عند النقر على الخانة
+          if (selectedLetters.length > 0) {
+            const last = selectedLetters.pop();
+            renderLetters();
+            renderAnswer();
+          }
+        });
+        answerZone.appendChild(slot);
+      }
+
+      renderLetters();
+    }
+
+    function renderLetters() {
+      const zone = document.getElementById('letters-zone');
+      zone.innerHTML = '';
+      
+      const remaining = [...currentLetters];
+      selectedLetters.forEach(l => {
+        const idx = remaining.indexOf(l);
+        if (idx !== -1) remaining.splice(idx, 1);
+      });
+
+      remaining.forEach((letter, i) => {
+        const el = document.createElement('div');
+        el.className = 'drag-item';
+        el.textContent = letter;
+        el.style.fontSize = '1.8rem';
+        el.addEventListener('click', () => selectLetter(letter, i));
+        zone.appendChild(el);
+      });
+    }
+
+    function renderAnswer() {
+      const answerZone = document.getElementById('answer-zone');
+      const slots = answerZone.querySelectorAll('.letter-box');
+      slots.forEach((slot, i) => {
+        if (i < selectedLetters.length) {
+          slot.textContent = selectedLetters[i];
+          slot.className = 'letter-box highlight';
+        } else {
+          slot.textContent = '';
+          slot.className = 'letter-box empty';
+        }
+      });
+    }
+
+    function selectLetter(letter) {
+      const item = gameWords[currentIndex];
+      const baseLetters = getBaseLetters(item.word);
+      
+      if (selectedLetters.length >= baseLetters.length) return;
+      
+      selectedLetters.push(letter);
+      NeuroPedago.sounds.click();
+      renderAnswer();
+      renderLetters();
+
+      // التحقق من الاكتمال
+      if (selectedLetters.length === baseLetters.length) {
+        checkAnswer();
+      }
+    }
+
+    function checkAnswer() {
+      const item = gameWords[currentIndex];
+      const baseLetters = getBaseLetters(item.word);
+      const isCorrect = selectedLetters.join('') === baseLetters.join('');
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! الكلمة هي: ' + item.word);
+        
+        // تلوين أخضر
+        document.querySelectorAll('#answer-zone .letter-box').forEach(el => {
+          el.className = 'letter-box correct';
+        });
+
+        setTimeout(() => {
+          currentIndex++;
+          loadWord();
+        }, 1500);
+      } else {
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ حاول مرة أخرى! رتّب الحروف بعناية.');
+        
+        document.querySelectorAll('#answer-zone .letter-box').forEach(el => {
+          el.className = 'letter-box wrong';
+        });
+
+        setTimeout(() => {
+          selectedLetters = [];
+          renderAnswer();
+          renderLetters();
+        }, 1200);
+      }
+    }
+
+    function resetCurrentWord() {
+      selectedLetters = [];
+      renderAnswer();
+      renderLetters();
+      NeuroPedago.hideFeedback('feedback');
+    }
+
+    init();
+  </script>
+</body>
+</html>

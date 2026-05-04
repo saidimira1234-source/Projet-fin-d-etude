@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صدى الصوت - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header green-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الثاني: التحويل الصوتي ← النشاط 1
+    </div>
+    <h1>🔊 صدى الصوت</h1>
+    <div class="meta">
+      <span>📂 التحويل الصوتي</span>
+      <span>🎓 السنة الرابعة ابتدائي</span>
+      <span>⏱ 10-12 دقيقة</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box green">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تعزيز المسار الصوتي-البصري في القراءة عبر الاستماع إلى كلمة منطوقة ثم ربطها بشكلها المكتوب الصحيح. يُدرّب هذا النشاط التحويل من المسموع إلى المقروء.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يسمع التلميذ كلمة عبر نظام النطق الآلي (Web Speech API).</li>
+        <li>يمكنه إعادة سماعها بالنقر على زر "أعد السماع".</li>
+        <li>يختار الكلمة المكتوبة الصحيحة من بين 4 خيارات.</li>
+        <li>تظهر تغذية راجعة فورية.</li>
+        <li>يتكرر مع 10 كلمات.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اسمع واختر الكلمة الصحيحة!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">الكلمة <span id="current-num">1</span> / <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:25px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <div style="margin:25px 0;">
+          <button class="btn btn-success btn-lg" id="play-btn" onclick="playCurrentWord()" style="font-size:1.3rem;">
+            🔊 اسمع الكلمة
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="playCurrentWord()" style="margin-top:10px;">🔄 أعد السماع</button>
+        </div>
+
+        <div id="choices" class="choices-grid" style="max-width:500px; margin:20px auto;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يستند هذا النشاط إلى نظرية <strong>"حجم الوحدة" لزيغلر وغوسوامي (Ziegler & Goswami, 2005)</strong> التي تشرح كيف يربط الدماغ بين الوحدات الصوتية والأرثوغرافية. عند الاستماع إلى كلمة، يُنشّط <strong>التلفيف الصدغي العلوي</strong> (STG) لمعالجة الصوت، ثم يبحث الدماغ عن التطابق البصري في <strong>المنطقة القذالية-الصدغية</strong> (VWFA).
+      </p>
+      <p style="margin-top:10px;">
+        هذا الربط المتكرر بين المسموع والمكتوب يُقوّي <strong>حلقة التكرار الصوتي</strong> ويُعزّز ما يُعرف بـ<strong>جودة التمثيل المعجمي</strong> (Lexical Quality - Perfetti, 2007).
+      </p>
+      <div class="reference">
+        📖 Ziegler, J. C. & Goswami, U. (2005). Grain Size Theory. <em>Psychological Bulletin.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> 8-10 إجابات صحيحة.</li>
+        <li><strong>جيد:</strong> 6-7 إجابات.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 6.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="../index.html#tahwil-section">→ العودة للمحور</a>
+      <a href="activity-02.html">النشاط التالي: المرآة الصوتية ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      { word: 'مُسْتَشْفَى', distractors: ['مُصْتَشْفَى', 'مُسْتَشْفَا', 'مُثْتَشْفَى'] },
+      { word: 'اِسْتِقْبَال', distractors: ['اِصْتِقْبَال', 'اِسْتِكْبَال', 'اِسْتِقْبَعل'] },
+      { word: 'اِخْتِرَاع', distractors: ['اِخْطِرَاع', 'اِحْتِرَاع', 'اِخْتِرَاغ'] },
+      { word: 'مُغَامَرَة', distractors: ['مُقَامَرَة', 'مُغَامَلَة', 'مُغَعمَرَة'] },
+      { word: 'اِنْتِظَار', distractors: ['اِنْتِذَار', 'اِنْطِظَار', 'اِنْتِظَعر'] },
+      { word: 'حَضَارَة', distractors: ['حَدَارَة', 'حَظَارَة', 'حَضَالَة'] },
+      { word: 'مَسْؤُولِيَّة', distractors: ['مَسْئُولِيَّة', 'مَصْؤولِيَّة', 'مَسْؤُولِيَّت'] },
+      { word: 'اِكْتِشَاف', distractors: ['اِكْطِشَاف', 'اِقْتِشَاف', 'اِكْتِسَاف'] },
+      { word: 'مُوَاصَلَات', distractors: ['مُوَاضَلَات', 'مُؤَاصَلَات', 'مُوَاصَلَاط'] },
+      { word: 'اِحْتِفَال', distractors: ['اِحْثِفَال', 'اِخْتِفَال', 'اِحْتِفَعل'] },
+      { word: 'اِسْتِطَاعَة', distractors: ['اِسْتِتَاعَة', 'اِصْتِطَاعَة', 'اِسْتِظَاعَة'] },
+      { word: 'مُسَابَقَة', distractors: ['مُسَابَكَة', 'مُصَابَقَة', 'مُسَابَقَت'] },
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let gameItems = [];
+
+    function init() {
+      gameItems = NeuroPedago.shuffle(items).slice(0, 10);
+      document.getElementById('total-num').textContent = gameItems.length;
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      if (currentIndex >= gameItems.length) {
+        NeuroPedago.showResult('result-area', score, gameItems.length, 'tahwil-01');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameItems.length) * 100) + '%';
+      NeuroPedago.hideFeedback('feedback');
+
+      const item = gameItems[currentIndex];
+      const allChoices = NeuroPedago.shuffle([item.word, ...item.distractors]);
+
+      const choicesDiv = document.getElementById('choices');
+      choicesDiv.innerHTML = '';
+      allChoices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = choice;
+        btn.addEventListener('click', () => checkAnswer(choice, btn));
+        choicesDiv.appendChild(btn);
+      });
+
+      // لا تشغيل تلقائي — المتصفح يحظر النطق بدون تفاعل المستخدم
+      // التلميذ ينقر على زر "اسمع الكلمة"
+    }
+
+    function playCurrentWord() {
+      const item = gameItems[currentIndex];
+      if (!item) return;
+      const btn = document.getElementById('play-btn');
+      btn.textContent = '🔊 جاري النطق...';
+      btn.disabled = true;
+      NeuroPedago.speak(item.word, 0.8).then((ok) => {
+        btn.textContent = '🔊 اسمع الكلمة';
+        btn.disabled = false;
+        if (!ok) {
+          NeuroPedago.showFeedback('feedback', 'info', '⚠ النطق غير متوفر على هذا المتصفح. الكلمة هي: ' + item.word);
+        }
+      });
+    }
+
+    function checkAnswer(choice, btn) {
+      const item = gameItems[currentIndex];
+      document.querySelectorAll('.choice-btn').forEach(b => b.style.pointerEvents = 'none');
+
+      if (choice === item.word) {
+        btn.className = 'choice-btn correct';
+        score++;
+        document.getElementById('score').textContent = score;
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 صحيح! ' + item.word);
+      } else {
+        btn.className = 'choice-btn wrong';
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الإجابة الصحيحة: ' + item.word);
+        // إظهار الصحيح
+        document.querySelectorAll('.choice-btn').forEach(b => {
+          if (b.textContent === item.word) b.className = 'choice-btn correct';
+        });
+      }
+
+      setTimeout(() => { currentIndex++; loadQuestion(); }, 1800);
+    }
+
+    init();
+  </script>
+</body>
+</html>

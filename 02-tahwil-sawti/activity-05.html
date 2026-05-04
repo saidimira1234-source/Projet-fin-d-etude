@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الحرف الأول - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header green-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثاني ← النشاط 5</div>
+    <h1>🖼️ الحرف الأول</h1>
+    <div class="meta"><span>📂 التحويل الصوتي</span><span>🎓 السنة 3 و 4</span><span>⏱ 10-12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box green">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنشيط الاسترجاع المعجمي والتجزئة الصوتية: يحدد التلميذ الحرف الأول من اسم كل صورة ثم يجمع الحروف لتكوين كلمة جديدة. يُعزّز الربط بين الصورة والصوت والحرف.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تُعرض مجموعة من الصور (3-5 صور) تمثل أشياء معروفة.</li>
+        <li>يحدد التلميذ الحرف الأول لكل شيء.</li>
+        <li>يجمع الحروف الأولى لتكوين كلمة جديدة ذات معنى.</li>
+        <li>يكتب الكلمة الناتجة.</li>
+        <li>8 جولات.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اجمع الحروف الأولى!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;"><span id="current-num">1</span> / <span id="total-num">8</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:25px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <p style="color:var(--green-dark); font-weight:600;">خذ الحرف الأول من اسم كل صورة واجمعها لتكوين كلمة:</p>
+
+        <div id="images-row" class="image-grid" style="margin:20px auto; max-width:600px;"></div>
+
+        <div id="letters-collected" class="word-display" style="margin:20px 0;"></div>
+
+        <div style="max-width:400px; margin:15px auto;">
+          <input type="text" id="answer-input" class="text-input" placeholder="الكلمة الناتجة..." style="font-size:1.3rem; text-align:center;">
+          <div class="btn-group" style="margin-top:10px;">
+            <button class="btn btn-primary" onclick="checkAnswer()">✅ تحقق</button>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يجمع هذا النشاط بين <strong>الاسترجاع المعجمي</strong> (استدعاء اسم الشيء من مخزن الذاكرة الدلالية) و<strong>التجزئة الصوتية</strong> (Phonemic Segmentation) - استخراج الصوت الأول. هذا ينشط شبكة واسعة تشمل:
+      </p>
+      <ul style="margin:10px 25px; color:var(--text-secondary);">
+        <li><strong>القشرة البصرية:</strong> التعرف على الصورة.</li>
+        <li><strong>المناطق الصدغية:</strong> استرجاع الاسم.</li>
+        <li><strong>المناطق الأمامية:</strong> تجزئة الصوت الأول.</li>
+        <li><strong>الذاكرة العاملة:</strong> تجميع الحروف وتركيبها.</li>
+      </ul>
+      <div class="reference">
+        📖 Adams, M. J. (1990). Beginning to Read. MIT Press. | Liberman, I. Y. et al. (1974). Explicit syllable and phoneme segmentation.
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> 7-8 كلمات صحيحة.</li>
+        <li><strong>جيد:</strong> 5-6 كلمات.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 5.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-04.html">→ السابق</a>
+      <a href="activity-06.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      { imgs: [{e:'🏫',n:'مدرسة'},{e:'🐪',n:'جمل'},{e:'🌳',n:'تين'},{e:'🏥',n:'هلال'},{e:'🐝',n:'دبور'}], firstLetters: ['م','ج','ت','ه','د'], answerWord: 'مُجْتَهِد' },
+      { imgs: [{e:'🏥',n:'مستشفى'},{e:'🌊',n:'كرسي'},{e:'🌳',n:'تفاحة'},{e:'🐝',n:'بطة'}], firstLetters: ['م','ك','ت','ب'], answerWord: 'مَكْتَب' },
+      { imgs: [{e:'🐦',n:'حمامة'},{e:'🐕',n:'ذئب'},{e:'🌹',n:'ياسمين'},{e:'🌊',n:'قارب'},{e:'🌳',n:'ة'}], firstLetters: ['ح','ذ','ي','ق','ة'], answerWord: 'حَدِيقَة' },
+      { imgs: [{e:'🏫',n:'مدرسة'},{e:'🌳',n:'عنب'},{e:'🌹',n:'لوز'},{e:'🐘',n:'ماء'}], firstLetters: ['م','ع','ل','م'], answerWord: 'مُعَلِّم' },
+      { imgs: [{e:'🐦',n:'فراشة'},{e:'🌹',n:'رسم'},{e:'🌊',n:'أسد'},{e:'🌳',n:'شجرة'},{e:'🐝',n:'ة'}], firstLetters: ['ف','ر','ا','ش','ة'], answerWord: 'فَرَاشَة' },
+      { imgs: [{e:'🐦',n:'حصان'},{e:'🌊',n:'قارب'},{e:'🌹',n:'ياسمين'},{e:'🐝',n:'بطة'},{e:'🌳',n:'ة'}], firstLetters: ['ح','ق','ي','ب','ة'], answerWord: 'حَقِيبَة' },
+      { imgs: [{e:'🏫',n:'كتاب'},{e:'🏥',n:'تاج'},{e:'🌹',n:'ألوان'},{e:'🐝',n:'ب'}], firstLetters: ['ك','ت','ا','ب'], answerWord: 'كِتَاب' },
+      { imgs: [{e:'🐦',n:'عين'},{e:'🌊',n:'صقر'},{e:'🌹',n:'فيل'},{e:'🌳',n:'ورد'},{e:'🐝',n:'رمان'}], firstLetters: ['ع','ص','ف','و','ر'], answerWord: 'عُصْفُور' },
+      { imgs: [{e:'🏥',n:'دار'},{e:'🌹',n:'راية'},{e:'🐪',n:'جمل'},{e:'🌳',n:'ة'}], firstLetters: ['د','ر','ا','ج','ة'], answerWord: 'دَرَّاجَة' },
+      { imgs: [{e:'🏫',n:'مفتاح'},{e:'🌊',n:'غزال'},{e:'🌹',n:'أرنب'},{e:'🐝',n:'مد'},{e:'🌳',n:'رة'}], firstLetters: ['م','غ','ا','م','ر','ة'], answerWord: 'مُغَامَرَة' },
+    ];
+
+    let currentIndex = 0, score = 0;
+
+    function stripD(t) {
+      return t.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\s]/g, '');
+    }
+
+    function init() {
+      document.getElementById('total-num').textContent = items.length;
+      loadRound();
+    }
+
+    function loadRound() {
+      if (currentIndex >= items.length) {
+        NeuroPedago.showResult('result-area', score, items.length, 'tahwil-05');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      const item = items[currentIndex];
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / items.length) * 100) + '%';
+      document.getElementById('answer-input').value = '';
+      document.getElementById('answer-input').className = 'text-input';
+      NeuroPedago.hideFeedback('feedback');
+
+      const row = document.getElementById('images-row');
+      row.innerHTML = '';
+      const lettersDiv = document.getElementById('letters-collected');
+      lettersDiv.innerHTML = '';
+
+      item.imgs.forEach((img, i) => {
+        const card = document.createElement('div');
+        card.className = 'image-card';
+        card.innerHTML = `<div class="emoji">${img.e}</div><div class="label" style="font-size:0.85rem; color:var(--text-light);">الحرف الأول: ؟</div>`;
+        card.addEventListener('click', () => {
+          card.querySelector('.label').textContent = 'الحرف الأول: ' + item.firstLetters[i];
+          card.querySelector('.label').style.color = 'var(--green-dark)';
+          card.querySelector('.label').style.fontWeight = '700';
+          card.querySelector('.label').style.fontSize = '1.2rem';
+          NeuroPedago.sounds.click();
+          updateLetters();
+        });
+        row.appendChild(card);
+      });
+
+      function updateLetters() {
+        lettersDiv.innerHTML = '';
+        item.firstLetters.forEach(l => {
+          const box = document.createElement('div');
+          box.className = 'letter-box highlight';
+          box.textContent = l;
+          lettersDiv.appendChild(box);
+        });
+      }
+    }
+
+    function checkAnswer() {
+      const item = items[currentIndex];
+      const input = stripD(document.getElementById('answer-input').value.trim());
+      const correct = stripD(item.answerWord);
+
+      if (input === correct) {
+        score++;
+        document.getElementById('score').textContent = score;
+        document.getElementById('answer-input').className = 'text-input correct-input';
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! الكلمة هي: ' + item.answerWord);
+      } else {
+        document.getElementById('answer-input').className = 'text-input wrong-input';
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الكلمة الصحيحة: ' + item.answerWord + ' (' + item.firstLetters.join(' + ') + ')');
+      }
+      setTimeout(() => { currentIndex++; loadRound(); }, 2000);
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Enter') checkAnswer(); });
+    init();
+  </script>
+</body>
+</html>

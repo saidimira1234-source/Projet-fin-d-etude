@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صيّاد الحروف - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header blue-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الأول: التهجئة ← النشاط 1
+    </div>
+    <h1>🎯 صيّاد الحروف</h1>
+    <div class="meta">
+      <span>📂 المحور: التهجئة والفك الترميزي</span>
+      <span>🎓 المستوى: السنة الرابعة ابتدائي</span>
+      <span>⏱ المدة: 10-15 دقيقة</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <!-- الهدف -->
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box blue">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية قدرة التلميذ على التعرف السريع على شكل الحرف داخل الكلمات، مما يعزز الانتباه الانتقائي البصري ويقوّي الوصلات العصبية المسؤولة عن التمييز الحرفي في المنطقة القذالية-الصدغية.</span>
+      </div>
+    </div>
+
+    <!-- خطوات النشاط -->
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يُعرض نص قصير مكوّن من عدة جمل على الشاشة.</li>
+        <li>يظهر حرف مستهدف في الأعلى (مثلاً: حرف "ب").</li>
+        <li>يبدأ المؤقت (60 ثانية). على التلميذ النقر على كل حرف مطابق في النص بأسرع ما يمكن.</li>
+        <li>كل نقرة صحيحة تُكسبه نقطة مع تأثير بصري وصوتي إيجابي.</li>
+        <li>كل نقرة خاطئة تُنقص نصف نقطة مع تنبيه لطيف.</li>
+        <li>بعد انتهاء الوقت، تظهر النتيجة مع عدد النجوم والتقييم.</li>
+      </ol>
+    </div>
+
+    <!-- المنطقة التفاعلية -->
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> ابدأ النشاط!</h2>
+      
+      <div id="game-setup" style="text-align:center;">
+        <p style="font-size:1.1rem; margin-bottom:20px; color:var(--text-secondary);">
+          سيظهر لك نص وحرف مستهدف. انقر على كل ظهور لهذا الحرف في النص! لديك 60 ثانية.
+        </p>
+        <button class="btn btn-primary btn-lg" onclick="startGame()">🚀 ابدأ اللعبة</button>
+      </div>
+
+      <div id="game-area" style="display:none;">
+        <!-- الحرف المستهدف -->
+        <div style="text-align:center; margin-bottom:20px;">
+          <span style="font-size:0.95rem; color:var(--text-secondary);">ابحث عن حرف:</span>
+          <div id="target-letter" style="font-size:3rem; font-weight:900; color:var(--blue-dark); margin:10px 0;"></div>
+        </div>
+
+        <!-- المؤقت والنقاط -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+          <div style="font-weight:700; color:var(--blue-dark);">
+            ⏱ الوقت: <span id="timer-display">1:00</span>
+          </div>
+          <div style="font-weight:700; color:var(--green-dark);">
+            ✅ النقاط: <span id="score-display">0</span> / <span id="total-display">0</span>
+          </div>
+        </div>
+        <div class="timer-bar">
+          <div class="fill" id="timer-bar-fill" style="width:100%"></div>
+        </div>
+
+        <!-- النص -->
+        <div id="text-container" class="reading-area" style="font-size:1.5rem; line-height:3; cursor:pointer;"></div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+
+      <div id="result-area"></div>
+    </div>
+
+    <!-- الأساس العلمي -->
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يعتمد هذا النشاط على تنشيط <strong>الانتباه الانتقائي البصري</strong> (Visual Selective Attention) الذي يُدار بواسطة الشبكة الجبهية-الجدارية في الدماغ. عندما يبحث التلميذ عن حرف معيّن وسط نص كامل، فإنه يُدرّب دماغه على <strong>التمييز البصري الدقيق</strong> بين الأشكال الحرفية المتقاربة، مما يقوّي التمثيلات العصبية للحروف في <strong>المنطقة القذالية-الصدغية (VWFA)</strong>.
+      </p>
+      <p style="margin-top:10px;">
+        كما أن عنصر الوقت يُنشّط <strong>الجهاز النورأدرينالي</strong> المسؤول عن اليقظة والانتباه المستمر، مما يحسّن من قدرة التلميذ على التركيز لفترات أطول أثناء القراءة.
+      </p>
+      <div class="reference">
+        📖 Dehaene, S. (2009). <em>Reading in the Brain.</em> Viking Press. | Posner, M. I. (1980). Orienting of attention. <em>Quarterly Journal of Experimental Psychology.</em>
+      </div>
+    </div>
+
+    <!-- معايير التقييم -->
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز (3 نجوم):</strong> التعرف على 90% أو أكثر من الحروف المستهدفة بأخطاء قليلة.</li>
+        <li><strong>جيد (نجمتان):</strong> التعرف على 70-89% من الحروف، مع بعض الأخطاء.</li>
+        <li><strong>يحتاج تدريب (نجمة):</strong> أقل من 70%، يُنصح بإعادة النشاط بسرعة أبطأ.</li>
+      </ul>
+    </div>
+
+    <!-- التنقل -->
+    <div class="activity-nav">
+      <a href="../index.html">→ العودة للرئيسية</a>
+      <a href="activity-06.html">النشاط التالي: الكلمة المخفية ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const texts = [
+      'ذَهَبَ التِّلْمِيذُ إِلَى الْمُسْتَشْفَى لِزِيَارَةِ جَدَّتِهِ الْمَرِيضَةِ وَكَانَ يَحْمِلُ حَقِيبَتَهُ الْمَدْرَسِيَّةَ عَلَى ظَهْرِهِ وَفِي يَدِهِ بَاقَةُ أَزْهَارٍ جَمِيلَةٌ اشْتَرَاهَا مِنَ الْمَحَلِّ الْقَرِيبِ مِنَ الْمُسْتَشْفَى وَعِنْدَمَا وَصَلَ اسْتَقْبَلَتْهُ الْمُمَرِّضَةُ بِابْتِسَامَةٍ وَاسِعَةٍ وَأَخَذَتْهُ إِلَى غُرْفَةِ الِاسْتِرَاحَةِ حَيْثُ كَانَتْ جَدَّتُهُ تَنْتَظِرُهُ بِشَوْقٍ',
+      'تُشْرِقُ الشَّمْسُ كُلَّ صَبَاحٍ فَتُنِيرُ الْأَرْضَ بِأَشِعَّتِهَا الذَّهَبِيَّةِ وَتَسْتَيْقِظُ الطُّيُورُ وَتُغَرِّدُ فَوْقَ الْأَشْجَارِ بِأَصْوَاتِهَا الْجَمِيلَةِ وَيَخْرُجُ الْفَلَّاحُونَ إِلَى حُقُولِهِمُ الْوَاسِعَةِ لِيَبْدَؤُوا الْحِصَادَ وَتَنْتَشِرُ رَائِحَةُ الْخُبْزِ الطَّازَجِ مِنَ الْمَخَابِزِ الْمُجَاوِرَةِ فَيَشْعُرُ الْجَمِيعُ بِالسَّعَادَةِ وَالِامْتِنَانِ لِهَذَا الصَّبَاحِ الْمُشْرِقِ',
+      'يُحِبُّ سَامِي الْمُشَارَكَةَ فِي الْمُسَابَقَاتِ الرِّيَاضِيَّةِ كَثِيرًا فَهُوَ يَتَدَرَّبُ عَلَى الْجَرْيِ السَّرِيعِ كُلَّ مَسَاءٍ مَعَ أَصْدِقَائِهِ فِي الْمَلْعَبِ الْبَلَدِيِّ وَقَدِ اسْتَطَاعَ الْفَوْزَ بِالْمَرْتَبَةِ الْأُولَى فِي مُسَابَقَةِ الِاخْتِرَاعَاتِ الْعِلْمِيَّةِ الَّتِي نَظَّمَتْهَا الْمَدْرَسَةُ وَحَصَلَ عَلَى جَائِزَةِ التَّفَوُّقِ وَالِاسْتِحْقَاقِ',
+      'زَارَ الْمُعَلِّمُ مَعَ تَلَامِيذِهِ الْمُتْحَفَ الْوَطَنِيَّ لِلِاطِّلَاعِ عَلَى تَارِيخِ الْحَضَارَاتِ الْقَدِيمَةِ وَشَاهَدُوا مَجْمُوعَةً مِنَ الْمَخْطُوطَاتِ وَالِاكْتِشَافَاتِ الْأَثَرِيَّةِ ثُمَّ اسْتَمَعُوا إِلَى شَرْحِ الْمُرْشِدِ عَنِ الِاخْتِرَاعَاتِ الْعَرَبِيَّةِ فِي الطِّبِّ وَالْفَلَكِ وَالرِّيَاضِيَّاتِ فَشَعَرُوا بِالْفَخْرِ وَالِاعْتِزَازِ بِتُرَاثِهِمْ'
+    ];
+
+    const targetLetters = ['ب', 'ت', 'ر', 'ل', 'م', 'ن', 'ع', 'ك', 'د', 'ح', 'س', 'ف', 'ث', 'ذ', 'ظ', 'ض', 'ص', 'غ', 'خ'];
+    
+    let score = 0;
+    let totalTargets = 0;
+    let timer = null;
+    let gameActive = false;
+
+    function startGame() {
+      document.getElementById('game-setup').style.display = 'none';
+      document.getElementById('game-area').style.display = 'block';
+      document.getElementById('result-area').innerHTML = '';
+      
+      score = 0;
+      const text = NeuroPedago.randomPick(texts);
+      // فقط الحروف الموجودة فعلاً في النص المختار
+      const strippedText = text.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '');
+      const availableLetters = targetLetters.filter(l => strippedText.includes(l));
+      const letter = NeuroPedago.randomPick(availableLetters);
+      
+      document.getElementById('target-letter').textContent = letter;
+      document.getElementById('score-display').textContent = '0';
+      
+      // عرض النص حرفًا حرفًا مع إمكانية النقر
+      const container = document.getElementById('text-container');
+      container.innerHTML = '';
+      totalTargets = 0;
+      
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        const span = document.createElement('span');
+        span.textContent = ch;
+        
+        // التحقق من تطابق الحرف  (بدون التشكيل)
+        const stripped = ch.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '');
+        
+        if (stripped === letter) {
+          totalTargets++;
+          span.dataset.target = 'true';
+          span.style.cursor = 'pointer';
+          span.style.padding = '2px';
+          span.style.borderRadius = '4px';
+          span.style.transition = 'all 0.2s ease';
+          
+          span.addEventListener('click', function() {
+            if (!gameActive) return;
+            if (this.dataset.found) return;
+            this.dataset.found = 'true';
+            this.style.background = '#4CAF50';
+            this.style.color = 'white';
+            this.style.padding = '2px 4px';
+            score++;
+            document.getElementById('score-display').textContent = score;
+            NeuroPedago.sounds.correct();
+          });
+        } else if (stripped.trim() && stripped !== ' ') {
+          span.style.cursor = 'pointer';
+          span.addEventListener('click', function() {
+            if (!gameActive) return;
+            this.style.background = '#FFCDD2';
+            setTimeout(() => { this.style.background = ''; }, 500);
+            score = Math.max(0, score - 0.5);
+            document.getElementById('score-display').textContent = score;
+            NeuroPedago.sounds.wrong();
+          });
+        }
+        
+        container.appendChild(span);
+      }
+      
+      document.getElementById('total-display').textContent = totalTargets;
+      
+      // بدء المؤقت
+      gameActive = true;
+      timer = new NeuroPedago.Timer(60,
+        (remaining, percent) => {
+          document.getElementById('timer-display').textContent = timer.getFormatted();
+          document.getElementById('timer-bar-fill').style.width = percent + '%';
+          if (remaining <= 10) {
+            document.getElementById('timer-display').style.color = 'var(--red)';
+          }
+        },
+        () => {
+          endGame();
+        }
+      );
+      timer.start();
+    }
+
+    function endGame() {
+      gameActive = false;
+      if (timer) timer.stop();
+      
+      // إظهار الحروف التي لم تُكتشف
+      document.querySelectorAll('[data-target="true"]:not([data-found])').forEach(el => {
+        el.style.background = '#FFEB3B';
+        el.style.fontWeight = '900';
+      });
+      
+      setTimeout(() => {
+        const maxScore = totalTargets;
+        NeuroPedago.showResult('result-area', Math.round(score), maxScore, 'tahji2a-01');
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

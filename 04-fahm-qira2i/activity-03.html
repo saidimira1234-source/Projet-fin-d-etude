@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قبل وبعد - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header purple-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الرابع ← النشاط 3</div>
+    <h1>🔮 قبل وبعد</h1>
+    <div class="meta"><span>📂 الفهم القرائي</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box purple">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تفعيل استراتيجية التوقع (Prediction) قبل القراءة والتحقق بعدها. يُنشّط القشرة الجبهية المسؤولة عن التخطيط والتوقع، ويُعمّق الفهم من خلال المقارنة بين التوقعات والواقع.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يرى التلميذ عنوان القصة وصورة تعبيرية.</li>
+        <li>يتوقع ما ستدور حوله القصة (يختار من خيارات).</li>
+        <li>يقرأ القصة كاملة.</li>
+        <li>يُقارن توقعه بما حدث فعلاً.</li>
+        <li>يُجيب على سؤال فهم.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> توقّع ثم تحقّق!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">القصة: <span id="story-num" style="color:var(--purple);">1</span> / 4</div>
+          <div style="font-weight:700; color:var(--purple-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%; background:var(--purple);"></div></div>
+        </div>
+
+        <!-- Phase 1: Prediction -->
+        <div id="phase-predict" style="margin:20px 0;">
+          <div id="story-emoji" style="font-size:4rem; margin:15px 0;"></div>
+          <h3 id="story-title" style="color:var(--purple-dark); font-size:1.5rem; margin:10px 0;"></h3>
+          <p style="font-weight:600; color:var(--text-secondary); margin:15px 0;">🔮 ماذا تتوقع أن تكون القصة؟</p>
+          <div id="predict-choices" style="display:flex; flex-direction:column; gap:10px; max-width:500px; margin:0 auto;"></div>
+        </div>
+
+        <!-- Phase 2: Reading -->
+        <div id="phase-read" style="display:none; margin:20px 0;">
+          <div id="story-text" class="reading-area" style="font-size:1.3rem; line-height:2.2; padding:25px; border:2px solid var(--purple); border-radius:12px; background:var(--bg-secondary); text-align:right;"></div>
+          <button class="btn btn-primary btn-lg" onclick="showCompare()" style="margin-top:15px;">📊 قارن توقعك</button>
+        </div>
+
+        <!-- Phase 3: Compare -->
+        <div id="phase-compare" style="display:none; margin:20px 0;">
+          <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:15px 0;">
+            <div style="flex:1; min-width:200px; padding:15px; border-radius:12px; background:#f3e8ff; border:2px solid var(--purple);">
+              <div style="font-weight:700; color:var(--purple); margin-bottom:5px;">🔮 توقعك:</div>
+              <div id="your-prediction" style="font-weight:600;"></div>
+            </div>
+            <div style="flex:1; min-width:200px; padding:15px; border-radius:12px; background:#e8f5e9; border:2px solid var(--success);">
+              <div style="font-weight:700; color:var(--success); margin-bottom:5px;">📖 ما حدث فعلاً:</div>
+              <div id="actual-story" style="font-weight:600;"></div>
+            </div>
+          </div>
+          <div id="match-result" style="font-size:1.2rem; font-weight:700; margin:10px 0;"></div>
+
+          <div style="margin-top:15px;">
+            <p id="comprehension-q" style="font-weight:700; color:var(--purple-dark); font-size:1.1rem; margin-bottom:10px;"></p>
+            <div id="comp-choices" style="display:flex; flex-direction:column; gap:10px; max-width:500px; margin:0 auto;"></div>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        التوقع (Prediction) هو استراتيجية فهم قوية تُنشّط <strong>الحلقة التنبؤية (Predictive Loop)</strong> في الدماغ. حسب <strong>Duke & Pearson (2002)</strong>، القراء الماهرون يولّدون توقعات باستمرار ويُعدّلونها أثناء القراءة. عندما يُخطئ التوقع، يُنشَّط <strong>جهاز كشف الخطأ (Error Detection)</strong> في القشرة الحزامية الأمامية، مما يُعمّق التعلم.
+      </p>
+      <div class="reference">
+        📖 Duke, N. & Pearson, P.D. (2002). Effective practices for developing reading comprehension. In <em>What Research Has to Say About Reading Instruction.</em><br>
+        📖 Kuperberg, G. & Jaeger, T.F. (2016). What do we mean by prediction in language comprehension? <em>Language, Cognition and Neuroscience.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> توقعات منطقية + إجابات صحيحة.</li>
+        <li><strong>جيد:</strong> توقعات جزئية + معظم الإجابات صحيحة.</li>
+        <li><strong>يحتاج تدريب:</strong> صعوبة في التوقع والفهم.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-01.html">→ السابق</a>
+      <a href="activity-06.html">التالي: اكتشف المعنى ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      {
+        emoji: '🐕', title: 'الكلب الوفي',
+        predictions: ['كلب يساعد صاحبه', 'كلب يضيع في الغابة', 'كلب يتعلم حيلاً', 'كلب يخاف من القطة'],
+        correct_prediction: 0,
+        text: 'كَانَ لِعَلِيٍّ كَلْبٌ اسْمُهُ رِيكُو. كُلَّ يَوْمٍ يَمْشِيَانِ مَعًا إِلَى الْمَدْرَسَةِ. فِي يَوْمٍ مَاطِرٍ، سَقَطَ عَلِيٌّ فِي حُفْرَةٍ. نَبَحَ رِيكُو بِصَوْتٍ عَالٍ حَتَّى جَاءَ النَّاسُ وَأَنْقَذُوا عَلِيًّا. شَكَرَ عَلِيٌّ كَلْبَهُ الْوَفِيَّ.',
+        summary: 'كلب وفي أنقذ صاحبه من حفرة بنباحه',
+        q: 'كيف أنقذ ريكو علياً؟',
+        q_options: ['نبح حتى جاء الناس', 'سحبه من الحفرة', 'ذهب للمدرسة', 'جلب حبلاً'], q_answer: 0
+      },
+      {
+        emoji: '🌱', title: 'البذرة الصغيرة',
+        predictions: ['بذرة تنمو لتصبح شجرة', 'بذرة لا تنمو أبداً', 'طفل يزرع بذرة ويهملها', 'نبتة تتكلم'],
+        correct_prediction: 0,
+        text: 'زَرَعَتْ هِنْدُ بَذْرَةً صَغِيرَةً فِي حَدِيقَةِ الْمَنْزِلِ. سَقَتْهَا كُلَّ يَوْمٍ بِالْمَاءِ. بَعْدَ أُسْبُوعَيْنِ ظَهَرَتْ نَبْتَةٌ خَضْرَاءُ. مَرَّتِ الْأَشْهُرُ وَكَبُرَتِ النَّبْتَةُ حَتَّى صَارَتْ شَجَرَةً تُعْطِي تُفَّاحًا لَذِيذًا. فَرِحَتْ هِنْدُ كَثِيرًا.',
+        summary: 'طفلة زرعت بذرة واعتنت بها حتى صارت شجرة تفاح',
+        q: 'ماذا فعلت هند كل يوم؟',
+        q_options: ['سقت البذرة بالماء', 'قطفت التفاح', 'لعبت في الحديقة', 'نظّفت المنزل'], q_answer: 0
+      },
+      {
+        emoji: '🎁', title: 'المفاجأة',
+        predictions: ['حفلة مفاجئة لشخص', 'هدية غير متوقعة', 'اكتشاف كنز', 'زيارة مفاجئة'],
+        correct_prediction: 0,
+        text: 'رَجَعَتْ أُمُّ سَلْمَى مِنَ السَّفَرِ. وَجَدَتْ الْبَيْتَ نَظِيفًا وَمُزَيَّنًا بِالْبَالُونَاتِ. كَتَبَتْ سَلْمَى عَلَى لَافِتَةٍ: "أَهْلًا بِأَغْلَى أُم!" حَضَّرَتْ كَعْكَةً بِالشُّوكُولَاتَةِ. بَكَتِ الْأُمُّ مِنَ الْفَرَحِ وَاحْتَضَنَتْ سَلْمَى.',
+        summary: 'سلمى فاجأت أمها بحفلة ترحيب عند عودتها من السفر',
+        q: 'لماذا بكت الأم؟',
+        q_options: ['من الفرح بالمفاجأة', 'لأنها حزينة', 'لأن الكعكة سقطت', 'لأنها تعبة'], q_answer: 0
+      },
+      {
+        emoji: '⛵', title: 'رحلة البحر',
+        predictions: ['مغامرة في البحر', 'صيد سمكة كبيرة', 'عاصفة في البحر', 'اكتشاف جزيرة'],
+        correct_prediction: 0,
+        text: 'رَكِبَ يُوسُفُ قَارِبًا صَغِيرًا مَعَ أَبِيهِ. أَبْحَرَا فِي الْبَحْرِ الْهَادِئِ. فَجْأَةً رَأَيَا دَلَافِينَ تَقْفِزُ فِي الْمَاءِ. ثُمَّ وَصَلَا إِلَى جَزِيرَةٍ صَغِيرَةٍ. وَجَدَا فِيهَا صَدَفَاتٍ مُلَوَّنَةً جَمِيلَةً. قَالَ يُوسُفُ: "هَذَا أَجْمَلُ يَوْمٍ!"',
+        summary: 'يوسف أبحر مع أبيه ووصلا جزيرة فيها صدفات جميلة',
+        q: 'ماذا وجدا في الجزيرة؟',
+        q_options: ['صدفات ملوّنة جميلة', 'كنزاً ذهبياً', 'حيوانات غريبة', 'بيتاً قديماً'], q_answer: 0
+      },
+    ];
+
+    let currentIndex = 0, score = 0, userPrediction = '';
+
+    function loadItem() {
+      if (currentIndex >= items.length) {
+        NeuroPedago.showResult('result-area', score, items.length * 2, 'fahm-03');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      const item = items[currentIndex];
+      document.getElementById('story-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / items.length) * 100) + '%';
+      document.getElementById('story-emoji').textContent = item.emoji;
+      document.getElementById('story-title').textContent = item.title;
+      NeuroPedago.hideFeedback('feedback');
+
+      // Show prediction phase
+      document.getElementById('phase-predict').style.display = 'block';
+      document.getElementById('phase-read').style.display = 'none';
+      document.getElementById('phase-compare').style.display = 'none';
+
+      const choices = document.getElementById('predict-choices');
+      choices.innerHTML = '';
+      item.predictions.forEach((pred, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = pred;
+        btn.style.textAlign = 'right';
+        btn.addEventListener('click', () => makePrediction(pred, i));
+        choices.appendChild(btn);
+      });
+    }
+
+    function makePrediction(prediction, index) {
+      userPrediction = prediction;
+      NeuroPedago.sounds.click();
+
+      // Show reading phase
+      document.getElementById('phase-predict').style.display = 'none';
+      document.getElementById('phase-read').style.display = 'block';
+      document.getElementById('story-text').textContent = items[currentIndex].text;
+    }
+
+    function showCompare() {
+      const item = items[currentIndex];
+      document.getElementById('phase-read').style.display = 'none';
+      document.getElementById('phase-compare').style.display = 'block';
+
+      document.getElementById('your-prediction').textContent = userPrediction;
+      document.getElementById('actual-story').textContent = item.summary;
+
+      const isMatch = userPrediction === item.predictions[item.correct_prediction];
+      if (isMatch) {
+        score++;
+        document.getElementById('score').textContent = score;
+        document.getElementById('match-result').innerHTML = '<span style="color:var(--success);">🎯 توقعك كان صحيحاً!</span>';
+      } else {
+        document.getElementById('match-result').innerHTML = '<span style="color:var(--orange);">🤔 توقعك كان مختلفاً — وهذا طبيعي!</span>';
+      }
+
+      // Comprehension question
+      document.getElementById('comprehension-q').textContent = item.q;
+      const compChoices = document.getElementById('comp-choices');
+      compChoices.innerHTML = '';
+      const shuffledOpts = item.q_options.map((o, i) => ({ text: o, isCorrect: i === item.q_answer }));
+      NeuroPedago.shuffle(shuffledOpts).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = opt.text;
+        btn.style.textAlign = 'right';
+        btn.addEventListener('click', () => checkComprehension(opt.isCorrect, btn));
+        compChoices.appendChild(btn);
+      });
+    }
+
+    function checkComprehension(isCorrect, btn) {
+      document.querySelectorAll('#comp-choices .choice-btn').forEach(b => b.style.pointerEvents = 'none');
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        btn.classList.add('correct');
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 إجابة صحيحة!');
+      } else {
+        btn.classList.add('wrong');
+        NeuroPedago.sounds.wrong();
+        const item = items[currentIndex];
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الإجابة: ' + item.q_options[item.q_answer]);
+      }
+
+      setTimeout(() => { currentIndex++; loadItem(); }, 2500);
+    }
+
+    loadItem();
+  </script>
+</body>
+</html>

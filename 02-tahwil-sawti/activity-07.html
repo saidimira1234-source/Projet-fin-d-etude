@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة الأصوات - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header green-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثاني ← النشاط 7</div>
+    <h1>🗺️ خريطة الأصوات</h1>
+    <div class="meta"><span>📂 التحويل الصوتي</span><span>🎓 السنة 3 و 4</span><span>⏱ 10 دقائق</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box green">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تنمية الوعي الصوتي بتحديد موقع صوت مُعيّن (حرف) في الكلمة: أول، وسط، أو آخر. يُنشّط التحليل الفونيمي والتمثيل المكاني للأصوات في الذاكرة العاملة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يظهر حرف هدف وكلمة أسفله.</li>
+        <li>يحدد التلميذ موقع الحرف في الكلمة (أول - وسط - آخر).</li>
+        <li>ينقر على الموقع المناسب في جدول المواقع.</li>
+        <li>يتكرر مع 10 كلمات.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> أين يقع الصوت؟</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;"><span id="current-num">1</span> / <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <div id="target-letter" style="font-size:3rem; font-weight:900; color:var(--green); margin:10px 0;">ب</div>
+        <div id="target-word" style="font-size:2rem; font-weight:700; margin-bottom:20px;">بَابٌ</div>
+
+        <button class="btn btn-outline btn-sm" onclick="hearWord()" style="margin-bottom:15px;">🔊 اسمع الكلمة</button>
+
+        <div class="position-table" style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin:20px 0;">
+          <button class="choice-btn" id="btn-first" onclick="choose('first')">
+            <div style="font-size:2rem;">⬅️</div>
+            <div>أول الكلمة</div>
+          </button>
+          <button class="choice-btn" id="btn-middle" onclick="choose('middle')">
+            <div style="font-size:2rem;">⏺️</div>
+            <div>وسط الكلمة</div>
+          </button>
+          <button class="choice-btn" id="btn-last" onclick="choose('last')">
+            <div style="font-size:2rem;">➡️</div>
+            <div>آخر الكلمة</div>
+          </button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يعتمد هذا النشاط على أبحاث <strong>Liberman وآخرون (1974)</strong> حول الوعي الفونيمي كأساس لتعلّم القراءة. تحديد موقع الصوت في الكلمة يتطلب:
+      </p>
+      <ul style="margin:10px 25px; color:var(--text-secondary);">
+        <li><strong>التحليل التسلسلي:</strong> تقسيم الكلمة ذهنياً إلى فونيمات متتابعة.</li>
+        <li><strong>الربط المكاني-الصوتي:</strong> ربط الموقع المجرد (أول/وسط/آخر) بالتتابع الصوتي.</li>
+        <li><strong>التثبيط الانتقائي:</strong> تجاهل الأصوات الأخرى والتركيز على الصوت المستهدف — ينشّط القشرة الجبهية.</li>
+      </ul>
+      <div class="reference">
+        📖 Liberman, I.Y., Shankweiler, D., et al. (1974). Explicit syllable and phoneme segmentation in the young child. <em>Journal of Experimental Child Psychology.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> 9-10 إجابات صحيحة.</li>
+        <li><strong>جيد:</strong> 7-8 إجابات.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 7.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-06.html">→ السابق</a>
+      <a href="../index.html">🏠 الرئيسية</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      { letter: 'ت', word: 'اِسْتِقْبَالٌ', plain: 'استقبال', answer: 'middle' },
+      { letter: 'ش', word: 'مُسْتَشْفَى', plain: 'مستشفى', answer: 'middle' },
+      { letter: 'ر', word: 'اِخْتِرَاعٌ', plain: 'اختراع', answer: 'middle' },
+      { letter: 'ظ', word: 'اِنْتِظَارٌ', plain: 'انتظار', answer: 'middle' },
+      { letter: 'غ', word: 'مُغَامَرَةٌ', plain: 'مغامرة', answer: 'middle' },
+      { letter: 'ص', word: 'اِقْتِصَادٌ', plain: 'اقتصاد', answer: 'middle' },
+      { letter: 'ف', word: 'اِحْتِفَالٌ', plain: 'احتفال', answer: 'middle' },
+      { letter: 'ق', word: 'مُسْتَقْبَلٌ', plain: 'مستقبل', answer: 'middle' },
+      { letter: 'م', word: 'مَعْلُومَاتٌ', plain: 'معلومات', answer: 'first' },
+      { letter: 'ض', word: 'حَضَارَةٌ', plain: 'حضارة', answer: 'middle' },
+      { letter: 'ع', word: 'اِخْتِرَاعٌ', plain: 'اختراع', answer: 'last' },
+      { letter: 'ل', word: 'مُوَاصَلَاتٌ', plain: 'مواصلات', answer: 'middle' },
+    ];
+
+    let currentIndex = 0, score = 0, gameItems = [], answered = false;
+
+    function init() {
+      gameItems = NeuroPedago.shuffle(items).slice(0, 10);
+      document.getElementById('total-num').textContent = gameItems.length;
+      loadItem();
+    }
+
+    function loadItem() {
+      if (currentIndex >= gameItems.length) {
+        NeuroPedago.showResult('result-area', score, gameItems.length, 'tahwil-07');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+      answered = false;
+      const item = gameItems[currentIndex];
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameItems.length) * 100) + '%';
+      document.getElementById('target-letter').textContent = item.letter;
+      document.getElementById('target-word').textContent = item.word;
+      NeuroPedago.hideFeedback('feedback');
+
+      document.querySelectorAll('.choice-btn').forEach(btn => {
+        btn.classList.remove('correct', 'wrong');
+        btn.style.pointerEvents = 'auto';
+      });
+    }
+
+    function hearWord() {
+      NeuroPedago.speak(gameItems[currentIndex].plain).then((ok) => {
+        if (!ok) {
+          NeuroPedago.showFeedback('feedback', 'info', '⚠ النطق غير متوفر. اقرأ الكلمة بصوت عالٍ.');
+        }
+      });
+    }
+
+    function choose(pos) {
+      if (answered) return;
+      answered = true;
+      const item = gameItems[currentIndex];
+      const isCorrect = pos === item.answer;
+
+      const posMap = { first: 'btn-first', middle: 'btn-middle', last: 'btn-last' };
+      document.querySelectorAll('.choice-btn').forEach(b => b.style.pointerEvents = 'none');
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('score').textContent = score;
+        document.getElementById(posMap[pos]).classList.add('correct');
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 أحسنت! إجابة صحيحة!');
+      } else {
+        document.getElementById(posMap[pos]).classList.add('wrong');
+        document.getElementById(posMap[item.answer]).classList.add('correct');
+        NeuroPedago.sounds.wrong();
+        const posNames = { first: 'أول الكلمة', middle: 'وسط الكلمة', last: 'آخر الكلمة' };
+        NeuroPedago.showFeedback('feedback', 'error', '❌ الحرف «' + item.letter + '» يقع في ' + posNames[item.answer]);
+      }
+      setTimeout(() => { currentIndex++; loadItem(); }, 2200);
+    }
+
+    init();
+  </script>
+</body>
+</html>

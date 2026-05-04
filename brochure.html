@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطوية النوروبيداغوجيا — مطوية ثلاثية احترافية</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+:root{
+  --p1:#6C63FF;--p2:#F857A6;--p3:#FF5858;--p4:#38ef7d;--p5:#11998e;
+  --grad-hero:linear-gradient(135deg,#0F2027,#203A43,#2C5364);
+  --grad-warm:linear-gradient(135deg,#F857A6,#FF5858);
+  --grad-cool:linear-gradient(135deg,#6C63FF,#3F3D9E);
+  --grad-mint:linear-gradient(135deg,#11998e,#38ef7d);
+  --grad-sun:linear-gradient(135deg,#F2994A,#F2C94C);
+  --grad-rose:linear-gradient(135deg,#ee9ca7,#ffdde1);
+  --blue:#42A5F5;--blue-l:#E3F2FD;--blue-d:#1565C0;
+  --green:#66BB6A;--green-l:#E8F5E9;--green-d:#2E7D32;
+  --orange:#FFA726;--orange-l:#FFF3E0;--orange-d:#E65100;
+  --purple:#AB47BC;--purple-l:#F3E5F5;--purple-d:#6A1B9A;
+  --red:#EF5350;--red-l:#FFEBEE;--red-d:#C62828;
+  --teal:#26A69A;--teal-l:#E0F2F1;
+  --txt:#1a1a2e;--txt2:#4a4a6a;--txt3:#9A9FB4;
+  --bg:#F8F9FC;--bdr:#E8EAF0;
+  --font:'Cairo','Tajawal',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font);background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);color:var(--txt);-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* ===== TOOLBAR ===== */
+.toolbar{position:sticky;top:0;z-index:200;background:rgba(15,32,39,.92);backdrop-filter:blur(25px);padding:14px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);}
+.toolbar h1{color:white;font-size:1rem;font-weight:800;display:flex;align-items:center;gap:10px;}
+.toolbar h1 .t-badge{background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:.7rem;}
+.toolbar .actions{display:flex;gap:10px;}
+.btn{border:none;padding:11px 26px;border-radius:50px;font-family:var(--font);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .35s;display:flex;align-items:center;gap:6px;}
+.btn-pdf{background:var(--grad-warm);color:white;box-shadow:0 4px 20px rgba(248,87,166,.35);}
+.btn-pdf:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 30px rgba(248,87,166,.5);}
+.btn-print{background:rgba(255,255,255,.08);color:white;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px);}
+.btn-print:hover{background:rgba(255,255,255,.18);}
+.btn-back{color:rgba(255,255,255,.6);text-decoration:none;font-weight:600;font-size:.82rem;padding:11px 20px;border-radius:50px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:all .35s;}
+.btn-back:hover{background:rgba(255,255,255,.12);color:white;}
+.help-text{color:rgba(255,255,255,.35);font-size:.72rem;text-align:center;padding:10px;font-weight:500;letter-spacing:.3px;}
+
+/* ===== TRIFOLD SHEET ===== */
+.sheet-wrap{padding:25px;display:flex;flex-direction:column;align-items:center;gap:20px;}
+.sheet-label{color:rgba(255,255,255,.4);font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+.sheet-label::before,.sheet-label::after{content:'';width:30px;height:1px;background:rgba(255,255,255,.2);}
+.sheet{width:297mm;height:210mm;background:white;box-shadow:0 12px 80px rgba(0,0,0,.4);display:grid;grid-template-columns:1fr 1fr 1fr;position:relative;overflow:hidden;border-radius:2px;}
+
+/* ===== PANELS ===== */
+.panel{padding:10mm 7mm;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+
+/* ===== SECTION NUMBER BADGES ===== */
+.sec-num{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.sec-num .num{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13pt;font-weight:900;color:white;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.15);position:relative;}
+.sec-num .num::after{content:'';position:absolute;inset:-2px;border-radius:12px;border:2px solid rgba(255,255,255,.3);pointer-events:none;}
+.sec-num h2{font-size:10.5pt;font-weight:900;line-height:1.4;}
+.sec-num .num-line{flex:1;height:2px;border-radius:2px;min-width:10px;}
+
+/* Color themes */
+.theme-blue .num{background:var(--grad-cool);}.theme-blue h2{color:#3F3D9E;}.theme-blue .num-line{background:linear-gradient(90deg,#6C63FF 0%,transparent 100%);}
+.theme-orange .num{background:var(--grad-sun);}.theme-orange h2{color:#E65100;}.theme-orange .num-line{background:linear-gradient(90deg,#F2994A 0%,transparent 100%);}
+.theme-purple .num{background:var(--grad-warm);}.theme-purple h2{color:#C2185B;}.theme-purple .num-line{background:linear-gradient(90deg,#F857A6 0%,transparent 100%);}
+.theme-green .num{background:var(--grad-mint);}.theme-green h2{color:#00796B;}.theme-green .num-line{background:linear-gradient(90deg,#11998e 0%,transparent 100%);}
+.theme-red .num{background:linear-gradient(135deg,#FF416C,#FF4B2B);}.theme-red h2{color:#C62828;}.theme-red .num-line{background:linear-gradient(90deg,#FF416C 0%,transparent 100%);}
+
+/* ===== COVER PANEL ===== */
+.p-cover{background:var(--grad-hero);color:white;justify-content:center;align-items:center;text-align:center;position:relative;}
+.p-cover::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5;}
+/* Floating orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;}
+.orb-1{width:120px;height:120px;background:rgba(108,99,255,.25);top:-20px;right:-20px;}
+.orb-2{width:90px;height:90px;background:rgba(248,87,166,.2);bottom:30px;left:-15px;}
+.orb-3{width:60px;height:60px;background:rgba(56,239,125,.15);top:40%;left:20px;}
+
+.cover-inner{position:relative;z-index:1;}
+/* Brain illustration */
+.brain-art{margin-bottom:12px;}
+.brain-art svg{filter:drop-shadow(0 0 20px rgba(108,99,255,.5));}
+
+.p-cover h1{font-size:16pt;font-weight:900;line-height:1.8;margin-bottom:6px;text-shadow:0 2px 20px rgba(0,0,0,.3);}
+.p-cover .cover-sub{font-size:7.5pt;opacity:.85;line-height:2;max-width:82%;margin:0 auto 14px;}
+.cover-divider{display:flex;align-items:center;gap:8px;justify-content:center;margin:10px 0;}
+.cover-divider span{width:6px;height:6px;border-radius:50%;}.cd-1{background:#6C63FF;}.cd-2{background:#F857A6;}.cd-3{background:#38ef7d;}
+.cover-divider::before,.cover-divider::after{content:'';width:35px;height:1px;background:rgba(255,255,255,.2);}
+.cover-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.2);padding:5px 16px;border-radius:50px;font-size:7pt;font-weight:800;margin-bottom:5px;}
+.cover-chip svg{opacity:.8;}
+.cover-year{font-size:6pt;opacity:.45;margin-top:12px;letter-spacing:.5px;}
+
+/* ===== INSIDE FLAP ===== */
+.p-flap{background:linear-gradient(180deg,#fafbff 0%,#f0f3ff 100%);}
+/* Intro card */
+.intro-card{background:white;border-radius:10px;padding:10px 12px;border-right:4px solid var(--p1);margin-bottom:8px;box-shadow:0 3px 15px rgba(108,99,255,.08);position:relative;overflow:hidden;}
+.intro-card::before{content:'';position:absolute;top:0;right:0;width:50px;height:50px;background:radial-gradient(circle,rgba(108,99,255,.06),transparent);border-radius:50%;}
+.intro-card p{font-size:7pt;color:var(--txt2);line-height:2.1;position:relative;z-index:1;}
+.intro-card strong{color:var(--p1);font-weight:800;}
+
+/* Principle pills */
+.princ-grid{display:flex;flex-direction:column;gap:4px;}
+.princ-pill{display:flex;align-items:center;gap:7px;background:white;border-radius:8px;padding:6px 9px;border:1px solid rgba(0,0,0,.05);box-shadow:0 2px 8px rgba(0,0,0,.03);transition:all .2s;}
+.princ-pill:hover{transform:translateX(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.pp-icon{width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10pt;flex-shrink:0;}
+.pp-num{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:5.5pt;font-weight:900;color:white;flex-shrink:0;}
+.princ-pill span{font-size:6.5pt;color:var(--txt2);line-height:1.6;}
+.princ-pill strong{color:var(--txt);font-weight:800;}
+
+/* ===== BACK PANEL ===== */
+.p-back{background:linear-gradient(180deg,#f8f9fc 0%,#eef0f8 100%);position:relative;}
+.p-back::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q50 0 100 20 T200 20 V30 H0Z' fill='%236C63FF' opacity='.06'/%3E%3C/svg%3E") repeat-x bottom;background-size:200px 30px;}
+.back-icon{text-align:center;margin-bottom:6px;}
+.back-icon svg{filter:drop-shadow(0 3px 10px rgba(108,99,255,.25));}
+.refs-title{text-align:center;font-size:8pt;font-weight:900;color:var(--purple-d);margin-bottom:6px;}
+.ref-item{font-size:5.3pt;color:var(--txt2);line-height:1.9;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04);display:flex;align-items:flex-start;gap:4px;}
+.ref-item .r-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+
+.back-footer{margin-top:auto;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.bf-top{background:var(--grad-hero);padding:10px 12px;text-align:center;color:white;}
+.bf-top .bf-name{font-size:9pt;font-weight:900;margin-bottom:2px;}
+.bf-bottom{background:white;padding:8px 10px;text-align:center;}
+.bf-bottom p{font-size:5.5pt;color:var(--txt2);line-height:1.9;}
+.bf-bottom strong{color:var(--txt);}
+
+/* ===== INSIDE PANELS ===== */
+/* Strategy pill */
+.strat-item{background:white;border-radius:8px;padding:7px 9px;margin-bottom:5px;box-shadow:0 2px 10px rgba(0,0,0,.04);display:flex;align-items:flex-start;gap:7px;border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden;}
+.strat-item::before{content:'';position:absolute;top:0;bottom:0;right:0;width:3px;}
+.strat-item.s-orange::before{background:var(--grad-sun);}.strat-item.s-purple::before{background:var(--grad-warm);}
+.si-num{width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:9pt;font-weight:900;color:white;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.si-body h4{font-size:7pt;font-weight:800;color:var(--txt);margin-bottom:1px;}
+.si-body p{font-size:5.8pt;color:var(--txt2);line-height:1.65;}
+.si-body .si-ex{font-size:5.3pt;font-weight:600;margin-top:2px;display:flex;align-items:center;gap:3px;border-radius:4px;padding:2px 5px;background:rgba(0,0,0,.02);}
+.si-ex.ex-orange{color:var(--orange-d);}.si-ex.ex-purple{color:var(--purple-d);}
+
+/* Tip items */
+.tip-item{display:flex;align-items:flex-start;gap:6px;background:white;border-radius:7px;padding:6px 8px;margin-bottom:4px;box-shadow:0 1px 6px rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.04);position:relative;}
+.tip-item::after{content:'';position:absolute;bottom:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(171,71,188,.15),transparent);}
+.ti-icon{flex-shrink:0;margin-top:1px;}
+.ti-icon svg{filter:drop-shadow(0 1px 3px rgba(0,0,0,.1));}
+.tip-item p{font-size:6pt;color:var(--txt2);line-height:1.7;}
+.tip-item strong{color:var(--txt);font-weight:800;}
+
+/* Error cards */
+.err-item{display:flex;align-items:flex-start;gap:5px;border-radius:7px;padding:5px 8px;margin-bottom:3px;position:relative;overflow:hidden;}
+.err-item::before{content:'';position:absolute;inset:0;border-radius:7px;border:1px solid rgba(239,83,80,.15);}
+.err-item{background:linear-gradient(135deg,rgba(255,235,238,.6),rgba(255,205,210,.3));}
+.ei-num{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#FF416C,#FF4B2B);display:flex;align-items:center;justify-content:center;font-size:6pt;font-weight:900;color:white;flex-shrink:0;box-shadow:0 2px 6px rgba(255,65,108,.25);}
+.err-item p{font-size:6pt;color:var(--red-d);line-height:1.65;font-weight:600;}
+
+/* Conclusion */
+.conclusion{border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);margin-top:auto;}
+.conc-head{background:var(--grad-hero);padding:8px 12px;display:flex;align-items:center;gap:6px;}
+.conc-head svg{filter:drop-shadow(0 1px 4px rgba(0,0,0,.3));}
+.conc-head h3{font-size:8pt;font-weight:900;color:white;}
+.conc-body{background:white;padding:10px 12px;}
+.conc-body p{font-size:6.5pt;color:var(--txt2);line-height:2.1;}
+.conc-body strong{color:var(--p1);}
+
+/* Panel BGs */
+.p-in-left{background:linear-gradient(180deg,#fffcf5 0%,#fff5e6 100%);}
+.p-in-center{background:linear-gradient(180deg,#faf5ff 0%,#f0e6ff 100%);}
+.p-in-right{background:linear-gradient(180deg,#fff5f5 0%,#ffe8e8 100%);}
+
+/* ===== PRINT ===== */
+@media print{
+  body{background:white!important;}
+  .toolbar,.help-text,.sheet-label{display:none!important;}
+  .sheet-wrap{padding:0;gap:0;}
+  .sheet{box-shadow:none;page-break-after:always;page-break-inside:avoid;margin:0;border-radius:0;}
+  .sheet:last-child{page-break-after:auto;}
+  .p-cover,.orb,.cover-chip,.si-num,.pp-num,.ei-num,.pp-icon,.conc-head,
+  .back-footer,.bf-top,.sec-num .num,.num-line,.err-item,.intro-card,
+  .conclusion,.strat-item,.tip-item,.princ-pill{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact;
+  }
+}
+@page{size:297mm 210mm;margin:0;}
+
+@media screen and (max-width:800px){
+  .sheet{width:100%;height:auto;grid-template-columns:1fr;grid-template-rows:auto;}
+  .panel{min-height:280px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <h1>📖 مطوية النوروبيداغوجيا <span class="t-badge">Premium</span></h1>
+  <div class="actions">
+    <a href="index.html" class="btn-back">→ الرئيسية</a>
+    <button class="btn btn-print" onclick="window.print()">🖨️ طباعة</button>
+    <button class="btn btn-pdf" id="dlPdf">📥 تحميل PDF</button>
+  </div>
+</div>
+<div class="help-text">✦ اطبع الورقتين على وجهَي نفس الورقة (Recto–Verso) ثم اطوِها ثلاثيًا ✦</div>
+
+<div class="sheet-wrap" id="brochure">
+
+<!-- ═══════════ SHEET 1: OUTSIDE ═══════════ -->
+<div class="sheet-label">✦ الوجه الخارجي ✦</div>
+<div class="sheet" id="page1">
+
+  <!-- ▌ BACK PANEL -->
+  <div class="panel p-back">
+    <div class="back-icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="14" fill="url(#gBack)"/>
+        <path d="M16 14h10c1.1 0 2 .9 2 2v2m-4 14H14c-1.1 0-2-.9-2-2V16c0-1.1.9-2 2-2" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 22h8M20 26h6M20 30h4" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity=".8"/>
+        <path d="M30 18v16c0 1.1-.9 2-2 2H16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <defs><linearGradient id="gBack" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#3F3D9E"/></linearGradient></defs>
+      </svg>
+    </div>
+    <div class="refs-title">المراجع العلمية</div>
+
+    <div class="ref-item"><div class="r-dot" style="background:#6C63FF;"></div><span>Dehaene, S. (2009). <em>Reading in the Brain.</em> Viking Press.</span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#F857A6;"></div><span>Dehaene, S. (2018). <em>Apprendre ! Les talents du cerveau.</em> Odile Jacob.</span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#38ef7d;"></div><span>Baddeley, A. (2003). Working memory. <em>Nature Reviews Neuroscience, 4.</em></span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#F2994A;"></div><span>Ehri, L. C. (2005). Learning to read words. <em>Scientific Studies of Reading, 9</em>(2).</span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#6C63FF;"></div><span>Ziegler & Goswami (2005). Reading acquisition & dyslexia. <em>Psych. Bulletin, 131.</em></span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#F857A6;"></div><span>National Reading Panel (2000). <em>Teaching Children to Read.</em> NICHD.</span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#38ef7d;"></div><span>Rasinski, T. V. (2010). <em>The Fluent Reader.</em> Scholastic.</span></div>
+    <div class="ref-item"><div class="r-dot" style="background:#F2994A;"></div><span>Goswami, U. (2000). Phonological processes. <em>Handbook of Reading Research</em> III.</span></div>
+
+    <div class="back-footer">
+      <div class="bf-top">
+        <div class="bf-name">📖 قارئ المستقبل</div>
+      </div>
+      <div class="bf-bottom">
+        <p><strong>المعهد العالي للعلوم الانسانية بمدنين</strong></p>
+        <p>إشراف: <strong>أ. وفاء كردمين</strong></p>
+        <p>إعداد: <strong>إسلام سليم</strong> — <strong>أميرة السعيدي</strong></p>
+        <p>2025 / 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▌ COVER PANEL -->
+  <div class="panel p-cover">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cover-inner">
+      <div class="brain-art">
+        <svg width="80" height="80" viewBox="0 0 120 120" fill="none">
+          <!-- Outer glow ring -->
+          <circle cx="60" cy="60" r="55" stroke="url(#gRing)" stroke-width="1.5" fill="none" opacity=".3"/>
+          <circle cx="60" cy="60" r="45" stroke="rgba(255,255,255,.12)" stroke-width="1" fill="rgba(255,255,255,.04)"/>
+          <!-- Brain left -->
+          <path d="M60 25C44 25 32 36 30 50C28 62 36 72 46 76C50 78 55 80 60 80" stroke="rgba(255,255,255,.6)" stroke-width="2.2" fill="rgba(255,255,255,.05)" stroke-linecap="round"/>
+          <!-- Brain right -->
+          <path d="M60 25C76 25 88 36 90 50C92 62 84 72 74 76C70 78 65 80 60 80" stroke="rgba(255,255,255,.6)" stroke-width="2.2" fill="rgba(255,255,255,.05)" stroke-linecap="round"/>
+          <!-- Sulcus lines -->
+          <path d="M42 42C48 48 52 42 48 36" stroke="rgba(255,255,255,.2)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M78 42C72 48 68 42 72 36" stroke="rgba(255,255,255,.2)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M38 56C46 54 48 60 42 62" stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M82 56C74 54 72 60 78 62" stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <!-- Center line -->
+          <line x1="60" y1="25" x2="60" y2="80" stroke="rgba(255,255,255,.15)" stroke-width="1.2" stroke-dasharray="3,4"/>
+          <!-- Neural nodes with pulses -->
+          <circle cx="44" cy="44" r="4" fill="url(#gNode1)" opacity=".9"/><circle cx="44" cy="44" r="7" fill="none" stroke="#6C63FF" stroke-width=".6" opacity=".3"/>
+          <circle cx="76" cy="44" r="4" fill="url(#gNode2)" opacity=".9"/><circle cx="76" cy="44" r="7" fill="none" stroke="#F857A6" stroke-width=".6" opacity=".3"/>
+          <circle cx="38" cy="58" r="3" fill="rgba(56,239,125,.6)"/><circle cx="82" cy="58" r="3" fill="rgba(242,201,76,.6)"/>
+          <circle cx="48" cy="70" r="2.5" fill="rgba(255,255,255,.35)"/><circle cx="72" cy="70" r="2.5" fill="rgba(255,255,255,.35)"/>
+          <!-- Connections -->
+          <line x1="44" y1="44" x2="38" y2="58" stroke="rgba(108,99,255,.4)" stroke-width=".8"/>
+          <line x1="38" y1="58" x2="48" y2="70" stroke="rgba(108,99,255,.3)" stroke-width=".8"/>
+          <line x1="76" y1="44" x2="82" y2="58" stroke="rgba(248,87,166,.4)" stroke-width=".8"/>
+          <line x1="82" y1="58" x2="72" y2="70" stroke="rgba(248,87,166,.3)" stroke-width=".8"/>
+          <line x1="44" y1="44" x2="76" y2="44" stroke="rgba(255,255,255,.1)" stroke-width=".6" stroke-dasharray="3,5"/>
+          <!-- Sparkles -->
+          <circle cx="32" cy="34" r="1.5" fill="rgba(255,255,255,.25)"/><circle cx="88" cy="34" r="1.5" fill="rgba(255,255,255,.25)"/>
+          <circle cx="60" cy="90" r="1" fill="rgba(255,255,255,.15)"/>
+          <!-- Book at bottom -->
+          <rect x="48" y="88" width="24" height="14" rx="2" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+          <line x1="60" y1="88" x2="60" y2="102" stroke="rgba(255,255,255,.15)" stroke-width=".6"/>
+          <defs>
+            <linearGradient id="gRing" x1="0" y1="0" x2="120" y2="120"><stop stop-color="#6C63FF"/><stop offset=".5" stop-color="#F857A6"/><stop offset="1" stop-color="#38ef7d"/></linearGradient>
+            <radialGradient id="gNode1"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#3F3D9E"/></radialGradient>
+            <radialGradient id="gNode2"><stop stop-color="#F857A6"/><stop offset="1" stop-color="#c2185b"/></radialGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1>النوروبيداغوجيا<br>في خدمة تعليم القراءة</h1>
+      <p class="cover-sub">استراتيجيات عملية للحد من صعوبات القراءة في التعليم الابتدائي</p>
+      <div class="cover-divider"><span class="cd-1"></span><span class="cd-2"></span><span class="cd-3"></span></div>
+      <div class="cover-chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        دليل مبسّط للمعلّم
+      </div><br>
+      <div class="cover-chip" style="font-size:6pt;opacity:.75;margin-top:4px;">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+        الإجازة التطبيقية في علوم التربية والتعليم
+      </div>
+      <div class="cover-year">المعهد العالي للعلوم الانسانية بمدنين — 2025 / 2026</div>
+    </div>
+  </div>
+
+  <!-- ▌ INSIDE FLAP PANEL -->
+  <div class="panel p-flap">
+    <div class="sec-num theme-blue">
+      <div class="num">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </div>
+      <h2>مدخل مبسّط</h2>
+      <div class="num-line"></div>
+    </div>
+    <div class="intro-card">
+      <p>إن تعليم القراءة الفعّال يقتضي فهم كيفية اشتغال دماغ المتعلّم، حيث تساهم <strong>النوروبيداغوجيا</strong> في بناء تعلّم تدريجي يراعي <strong>الانتباه</strong> و<strong>الذاكرة</strong> و<strong>الفهم</strong>، مما يساعد على الحد من صعوبات القراءة.</p>
+    </div>
+
+    <div class="sec-num theme-orange" style="margin-top:2px;">
+      <div class="num">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h2>مبادئ أساسية</h2>
+      <div class="num-line"></div>
+    </div>
+
+    <div class="princ-grid">
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--green-l);">📶</div><div class="pp-num" style="background:var(--grad-mint);">1</div><span><strong>التعلّم بالتدرّج:</strong> من السهل إلى الصعب.</span></div>
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--blue-l);">🔄</div><div class="pp-num" style="background:var(--grad-cool);">2</div><span><strong>التكرار المنتظم:</strong> تثبيت في الذاكرة الطويلة.</span></div>
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--purple-l);">🔗</div><div class="pp-num" style="background:var(--grad-warm);">3</div><span><strong>ربط الجديد بالمكتسبات:</strong> جسور للفهم.</span></div>
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--orange-l);">🌈</div><div class="pp-num" style="background:var(--grad-sun);">4</div><span><strong>تنويع الحواس:</strong> سمعي + بصري + حركي.</span></div>
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--red-l);">👤</div><div class="pp-num" style="background:linear-gradient(135deg,#FF416C,#FF4B2B);">5</div><span><strong>مراعاة الفروق الفردية:</strong> تكييف الأنشطة.</span></div>
+      <div class="princ-pill"><div class="pp-icon" style="background:var(--teal-l);">🖐️</div><div class="pp-num" style="background:var(--grad-mint);">6</div><span><strong>التعلّم النشط:</strong> المشاركة تُنشّط الدماغ.</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ SHEET 2: INSIDE ═══════════ -->
+<div class="sheet-label" style="margin-top:14px;">✦ الوجه الداخلي ✦</div>
+<div class="sheet" id="page2">
+
+  <!-- ▌ LEFT: Strategies 1-4 -->
+  <div class="panel p-in-left">
+    <div class="sec-num theme-orange">
+      <div class="num">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h2>استراتيجيات عملية</h2>
+      <div class="num-line"></div>
+    </div>
+
+    <div class="strat-item s-orange">
+      <div class="si-num" style="background:var(--grad-sun);">1</div>
+      <div class="si-body">
+        <h4>القراءة الجماعية الموجّهة</h4>
+        <p>يقرأ المعلّم ثم يُكرّر التلاميذ جماعيًا — يُنشّط التقليد السمعي.</p>
+        <div class="si-ex ex-orange">💡 المعلّم يقرأ → القسم → مجموعات → أفراد</div>
+      </div>
+    </div>
+    <div class="strat-item s-orange">
+      <div class="si-num" style="background:var(--grad-sun);">2</div>
+      <div class="si-body">
+        <h4>القراءة بصوت مرتفع</h4>
+        <p>تُنشّط منطقة بروكا وتُساعد على التصحيح الذاتي للنطق.</p>
+        <div class="si-ex ex-orange">💡 كل تلميذ يقرأ فقرة والمعلّم يُصحّح بلطف</div>
+      </div>
+    </div>
+    <div class="strat-item s-orange">
+      <div class="si-num" style="background:var(--grad-sun);">3</div>
+      <div class="si-body">
+        <h4>ألعاب الوعي الصوتي</h4>
+        <p>تمييز الأصوات وتقطيع الكلمات يُقوّي الربط حرف ↔ صوت.</p>
+        <div class="si-ex ex-orange">💡 "ما الصوت الأول في بَحْر؟" — تصفيق: بَحْ / ر</div>
+      </div>
+    </div>
+    <div class="strat-item s-orange">
+      <div class="si-num" style="background:var(--grad-sun);">4</div>
+      <div class="si-body">
+        <h4>استعمال الصور لدعم الفهم</h4>
+        <p>الصورة تبني تمثّلاً ذهنيًا وتُنشّط المسارات البصرية.</p>
+        <div class="si-ex ex-orange">💡 صورة قبل القراءة: "ماذا تتوقعون من القصة؟"</div>
+      </div>
+    </div>
+
+    <!-- Decorative illustration -->
+    <div style="margin-top:auto;text-align:center;">
+      <svg width="90" height="28" viewBox="0 0 90 28" opacity=".1">
+        <circle cx="15" cy="14" r="10" fill="#F2994A"/><circle cx="45" cy="14" r="10" fill="#F2C94C"/><circle cx="75" cy="14" r="10" fill="#FFA726"/>
+        <line x1="25" y1="14" x2="35" y2="14" stroke="#F2994A" stroke-width="2"/><line x1="55" y1="14" x2="65" y2="14" stroke="#F2C94C" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ▌ CENTER: Strategies 5-7 + Help -->
+  <div class="panel p-in-center">
+    <div class="strat-item s-purple">
+      <div class="si-num" style="background:var(--grad-warm);">5</div>
+      <div class="si-body">
+        <h4>تقسيم النص إلى مقاطع</h4>
+        <p>يُخفّف العبء على الذاكرة العاملة ← فهم تدريجي.</p>
+        <div class="si-ex ex-purple">💡 3 أسطر + سؤال → 3 أسطر + سؤال → …</div>
+      </div>
+    </div>
+    <div class="strat-item s-purple">
+      <div class="si-num" style="background:var(--grad-warm);">6</div>
+      <div class="si-body">
+        <h4>أسئلة بسيطة بعد القراءة</h4>
+        <p>تُنشّط الفص الجبهي والتعلّم بالاسترجاع.</p>
+        <div class="si-ex ex-purple">💡 "مَن البطل؟ ماذا فعل؟ لماذا؟"</div>
+      </div>
+    </div>
+    <div class="strat-item s-purple">
+      <div class="si-num" style="background:var(--grad-warm);">7</div>
+      <div class="si-body">
+        <h4>التكرار بطريقة ممتعة</h4>
+        <p>الألعاب تُنشّط الدوبامين وتُحوّل التكرار إلى متعة.</p>
+        <div class="si-ex ex-purple">💡 سباق: مَن يقرأ 5 كلمات أسرع؟ ⭐</div>
+      </div>
+    </div>
+
+    <div style="height:6px;"></div>
+
+    <div class="sec-num theme-green">
+      <div class="num">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <h2>مساعدة التلميذ المتعثّر</h2>
+      <div class="num-line"></div>
+    </div>
+
+    <div class="tip-item">
+      <span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="url(#gt1)"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="white"/><circle cx="15" cy="10" r="1" fill="white"/><defs><linearGradient id="gt1" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#11998e"/><stop offset="1" stop-color="#38ef7d"/></linearGradient></defs></svg></span>
+      <p><strong>لا نضغط عليه:</strong> الضغط يُعطّل الذاكرة العاملة.</p>
+    </div>
+    <div class="tip-item">
+      <span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="url(#gt2)"/><path d="M12 7v5l3 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="gt2" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#3F3D9E"/></linearGradient></defs></svg></span>
+      <p><strong>وقت كافٍ:</strong> كل دماغ له إيقاعه الخاص.</p>
+    </div>
+    <div class="tip-item">
+      <span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="url(#gt3)"/><path d="M8 12l3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gt3" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#F2994A"/><stop offset="1" stop-color="#F2C94C"/></linearGradient></defs></svg></span>
+      <p><strong>التشجيع:</strong> يُنشّط الدوبامين والرغبة في التعلّم.</p>
+    </div>
+    <div class="tip-item">
+      <span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="url(#gt4)"/><path d="M3 12h4l3-9 4 18 3-9h4" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" transform="scale(.65) translate(6,6)"/><defs><linearGradient id="gt4" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#F857A6"/><stop offset="1" stop-color="#FF5858"/></linearGradient></defs></svg></span>
+      <p><strong>نبدأ من مستواه:</strong> لا فائدة من نشاط يفوق قدراته.</p>
+    </div>
+    <div class="tip-item">
+      <span class="ti-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="url(#gt5)"/><path d="M12 8v4m0 4h.01" stroke="white" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gt5" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#11998e"/><stop offset="1" stop-color="#38ef7d"/></linearGradient></defs></svg></span>
+      <p><strong>أنشطة متدرّجة:</strong> نجاحات صغيرة تبني الثقة.</p>
+    </div>
+  </div>
+
+  <!-- ▌ RIGHT: Mistakes + Conclusion -->
+  <div class="panel p-in-right">
+    <div class="sec-num theme-red">
+      <div class="num">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <h2>أخطاء يجب تجنّبها</h2>
+      <div class="num-line"></div>
+    </div>
+
+    <div class="err-item"><div class="ei-num">1</div><p><strong>الاعتماد على التلقين فقط</strong> — الدماغ يحتاج المشاركة لا الاستماع السلبي.</p></div>
+    <div class="err-item"><div class="ei-num">2</div><p><strong>تجاهل الفروق الفردية</strong> — نشاط واحد للجميع يُهمّش المتعثّرين.</p></div>
+    <div class="err-item"><div class="ei-num">3</div><p><strong>تقديم نصوص صعبة</strong> — نص فوق المستوى يُعطّل الدافعية والثقة.</p></div>
+    <div class="err-item"><div class="ei-num">4</div><p><strong>تصحيح الأخطاء بإحباط</strong> — يُنشّط الأميغدالا ويُوقف التعلّم.</p></div>
+    <div class="err-item"><div class="ei-num">5</div><p><strong>عدم التنويع</strong> — الرتابة تُقلّل الانتباه، الدماغ يحتاج التجديد.</p></div>
+
+    <div style="height:8px;"></div>
+
+    <div class="conclusion">
+      <div class="conc-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,.15)"/>
+          <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>الخاتمة</h3>
+      </div>
+      <div class="conc-body">
+        <p>إن توظيف مبادئ <strong>النوروبيداغوجيا</strong> في تعليم القراءة يُسهم في بناء تعلّم فعّال يُراعي قدرات المتعلّمين، ويُساعد على تجاوز صعوبات القراءة بطريقة تدريجية ومشجّعة. عندما يفهم المعلّم كيف يشتغل الدماغ، تتحوّل ممارساته إلى أداة علمية حقيقية.</p>
+      </div>
+    </div>
+
+    <!-- Decorative bottom -->
+    <div style="margin-top:auto;text-align:center;padding-top:6px;">
+      <svg width="70" height="20" viewBox="0 0 70 20" opacity=".12">
+        <circle cx="10" cy="10" r="7" fill="#6C63FF"/><circle cx="35" cy="10" r="7" fill="#F857A6"/><circle cx="60" cy="10" r="7" fill="#38ef7d"/>
+        <line x1="17" y1="10" x2="28" y2="10" stroke="#999" stroke-width="1.5"/><line x1="42" y1="10" x2="53" y2="10" stroke="#999" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== PDF DOWNLOAD ===== -->
+<script>
+document.getElementById('dlPdf').addEventListener('click', function(){
+  const el = document.getElementById('brochure');
+  const btn = this;
+  btn.innerHTML = '⏳ جارٍ التحميل…';
+  btn.disabled = true;
+  btn.style.opacity = '.6';
+
+  const opt = {
+    margin:       0,
+    filename:     'مطوية_النوروبيداغوجيا.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2.5, useCORS: true, letterRendering: true, logging: false },
+    jsPDF:        { unit: 'mm', format: [297, 210], orientation: 'landscape' },
+    pagebreak:    { mode: ['css','legacy'], after: '.sheet' }
+  };
+
+  html2pdf().set(opt).from(el).save().then(function(){
+    btn.innerHTML = '✅ تم التحميل!';
+    setTimeout(function(){ btn.innerHTML = '📥 تحميل PDF'; btn.disabled = false; btn.style.opacity = '1'; }, 2000);
+  }).catch(function(){
+    btn.innerHTML = '📥 تحميل PDF';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  });
+});
+</script>
+
+</body>
+</html>

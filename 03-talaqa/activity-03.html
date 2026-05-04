@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القراءة المتكررة - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header orange-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الثالث ← النشاط 3</div>
+    <h1>🔁 القراءة المتكررة</h1>
+    <div class="meta"><span>📂 الطلاقة اللغوية</span><span>🎓 السنة الرابعة ابتدائي</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box orange">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تحسين الطلاقة والدقة عبر قراءة نفس الفقرة عدة مرات مع قياس الزمن في كل محاولة. يستند إلى مبدأ التكرار لتعزيز المسارات العصبية (Myelination) للقراءة الآلية.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تظهر فقرة قصيرة (30-50 كلمة).</li>
+        <li>يقرأ التلميذ الفقرة بصوت عالٍ ويُسجّل الزمن.</li>
+        <li>يعيد القراءة 3 مرات إجمالاً.</li>
+        <li>يُقارن الزمن بين المحاولات لمعرفة التحسن.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اقرأ وحسّن زمنك!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">المحاولة: <span id="attempt-num" style="color:var(--orange);">1</span> / 3</div>
+          <div style="font-weight:700;">⏱ <span id="stopwatch" style="color:var(--orange-dark); font-size:1.3rem;">0.0</span> ث</div>
+        </div>
+
+        <div id="passage-area" class="reading-area" style="font-size:1.4rem; line-height:2.2; padding:25px; border:2px solid var(--orange); border-radius:12px; background:var(--bg-secondary); text-align:right; margin:15px 0;">
+        </div>
+
+        <div class="btn-group" style="margin:15px 0;">
+          <button class="btn btn-success btn-lg" id="start-btn" onclick="startRecordingReading()" style="background:#E53935; border-color:#E53935;">🎙️ ابدأ القراءة والتسجيل</button>
+          <button class="btn btn-primary btn-lg" id="stop-btn" onclick="stopRecordingReading()" style="display:none; background:#E53935; border-color:#C62828; animation: pulse 1s infinite;">⏹ انتهيتُ</button>
+        </div>
+        <div id="rec-status" style="text-align:center; margin:10px 0; font-weight:600; color:var(--text-secondary);"></div>
+        <div id="rec-playback" style="display:none; text-align:center; margin:10px 0;"><audio id="rec-audio" controls style="max-width:100%;"></audio></div>
+
+        <div id="results-table" style="display:none; margin-top:20px;">
+          <h3 style="color:var(--orange-dark);">📊 نتائج محاولاتك</h3>
+          <table style="width:100%; border-collapse:collapse; margin:10px 0;">
+            <thead>
+              <tr style="background:var(--orange-light);">
+                <th style="padding:10px; border:1px solid var(--border);">المحاولة</th>
+                <th style="padding:10px; border:1px solid var(--border);">الزمن (ثانية)</th>
+                <th style="padding:10px; border:1px solid var(--border);">دقة القراءة</th>
+                <th style="padding:10px; border:1px solid var(--border);">التحسن</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+
+        <div id="final-msg" style="display:none; margin:20px 0;"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        القراءة المتكررة (Repeated Reading) هي استراتيجية مُثبتة علمياً حسب <strong>Samuels (1979)</strong>. كل قراءة متكررة تُعزّز <strong>الميالين (Myelin)</strong> حول المسارات العصبية المسؤولة عن فك الترميز، مما يجعل القراءة أسرع وأكثر تلقائية. يُظهر البحث أن التحسن يحدث عادةً بين المحاولة الأولى والثالثة.
+      </p>
+      <div class="reference">
+        📖 Samuels, S.J. (1979). The Method of Repeated Readings. <em>The Reading Teacher.</em><br>
+        📖 Therrien, W. (2004). Fluency and comprehension gains. <em>Remedial and Special Education.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> تحسّن 30%+ بين المحاولة 1 و 3.</li>
+        <li><strong>جيد:</strong> تحسّن 15-29%.</li>
+        <li><strong>يحتاج تدريب:</strong> تحسّن أقل من 15%.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-02.html">→ السابق</a>
+      <a href="activity-04.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const passages = [
+      'فِي يَوْمٍ مُشْمِسٍ، خَرَجَ سَامِي إِلَى الْحَدِيقَةِ. رَأَى فَرَاشَةً جَمِيلَةً تَطِيرُ بَيْنَ الْأَزْهَارِ. جَلَسَ تَحْتَ شَجَرَةٍ كَبِيرَةٍ وَأَخْرَجَ كِتَابَهُ الْمُفَضَّلَ. قَرَأَ قِصَّةً عَنْ أَسَدٍ شُجَاعٍ يُسَاعِدُ أَصْدِقَاءَهُ.',
+      'تُحِبُّ مَرْيَمُ الرِّيَاضَةَ كَثِيرًا. كُلَّ صَبَاحٍ تَرْكُضُ فِي الْحَدِيقَةِ مَعَ أَخِيهَا أَحْمَدَ. بَعْدَ الرُّكُوبِ يَشْرَبَانِ الْحَلِيبَ وَيَأْكُلَانِ الْفَوَاكِهَ الطَّازِجَةَ. ثُمَّ يَذْهَبَانِ إِلَى الْمَدْرَسَةِ بِنَشَاطٍ.',
+      'الْبَحْرُ وَاسِعٌ وَجَمِيلٌ. تَعِيشُ فِيهِ أَسْمَاكٌ مُلَوَّنَةٌ وَسَلَاحِفُ بَحْرِيَّةٌ. يُحِبُّ الْأَطْفَالُ السِّبَاحَةَ فِيهِ صَيْفًا. وَعِنْدَمَا تَغِيبُ الشَّمْسُ، يَتَحَوَّلُ لَوْنُ الْمَاءِ إِلَى ذَهَبِيٍّ.',
+    ];
+
+    let currentPassage, attempt = 0, times = [], voiceResults = [], swInterval, swTime = 0;
+
+    function init() {
+      currentPassage = passages[Math.floor(Math.random() * passages.length)];
+      document.getElementById('passage-area').textContent = currentPassage;
+    }
+
+    function startRecordingReading() {
+      document.getElementById('start-btn').style.display = 'none';
+      document.getElementById('stop-btn').style.display = 'inline-flex';
+      document.getElementById('rec-status').textContent = '🔴 جارٍ التسجيل... اقرأ بصوت عالٍ وواضح';
+      document.getElementById('rec-status').style.color = '#E53935';
+      document.getElementById('rec-playback').style.display = 'none';
+      NeuroPedago.hideFeedback('feedback');
+      swTime = 0;
+      document.getElementById('stopwatch').textContent = '0.0';
+
+      // Start stopwatch
+      swInterval = setInterval(() => {
+        swTime += 0.1;
+        document.getElementById('stopwatch').textContent = swTime.toFixed(1);
+      }, 100);
+
+      // Start voice recording
+      NeuroPedago.VoiceRecorder.startRecording(
+        (result) => {
+          // Recording finished - evaluate
+          const evaluation = NeuroPedago.VoiceRecorder.evaluate(result.text, currentPassage);
+          evaluation.audioUrl = result.audioUrl;
+          onRecordingComplete(evaluation);
+        },
+        (error) => {
+          clearInterval(swInterval);
+          document.getElementById('stop-btn').style.display = 'none';
+          document.getElementById('start-btn').style.display = 'inline-flex';
+          document.getElementById('rec-status').textContent = '❌ ' + error;
+          document.getElementById('rec-status').style.color = 'var(--error)';
+        }
+      );
+    }
+
+    function stopRecordingReading() {
+      clearInterval(swInterval);
+      document.getElementById('stop-btn').style.display = 'none';
+      document.getElementById('rec-status').textContent = '⏳ جارٍ تحليل التسجيل...';
+      document.getElementById('rec-status').style.color = 'var(--text-secondary)';
+      NeuroPedago.VoiceRecorder.stopRecording();
+    }
+
+    function onRecordingComplete(evaluation) {
+      attempt++;
+      times.push(swTime);
+      voiceResults.push(evaluation);
+
+      // Show audio playback
+      if (evaluation.audioUrl) {
+        document.getElementById('rec-playback').style.display = 'block';
+        document.getElementById('rec-audio').src = evaluation.audioUrl;
+      }
+      document.getElementById('rec-status').textContent = '✅ تم التسجيل بنجاح';
+      document.getElementById('rec-status').style.color = 'var(--success)';
+
+      // Show results table
+      const table = document.getElementById('results-table');
+      table.style.display = 'block';
+      const body = document.getElementById('results-body');
+      body.innerHTML = '';
+
+      times.forEach((t, i) => {
+        const tr = document.createElement('tr');
+        const improvement = i > 0 ? (((times[0] - t) / times[0]) * 100).toFixed(0) : '-';
+        const impColor = i > 0 && t < times[0] ? 'var(--success)' : (i > 0 ? 'var(--error)' : 'inherit');
+        const voicePercent = voiceResults[i] ? voiceResults[i].percent + '%' : '-';
+        const voiceColor = voiceResults[i] && voiceResults[i].percent >= 60 ? 'var(--success)' : (voiceResults[i] && voiceResults[i].percent < 40 ? 'var(--error)' : 'var(--orange)');
+        tr.innerHTML = `
+          <td style="padding:8px; border:1px solid var(--border); font-weight:600;">المحاولة ${i + 1}</td>
+          <td style="padding:8px; border:1px solid var(--border);">${t.toFixed(1)}</td>
+          <td style="padding:8px; border:1px solid var(--border); color:${voiceColor}; font-weight:700;">${voicePercent}</td>
+          <td style="padding:8px; border:1px solid var(--border); color:${impColor}; font-weight:700;">${i > 0 ? improvement + '%' : '-'}</td>
+        `;
+        body.appendChild(tr);
+      });
+
+      if (attempt < 3) {
+        document.getElementById('attempt-num').textContent = attempt + 1;
+        const voiceMsg = evaluation.noRecognition ? '' : ' | دقة القراءة: ' + evaluation.percent + '%';
+        NeuroPedago.showFeedback('feedback', 'info', '📝 المحاولة ' + attempt + ' تمّت! زمنك: ' + swTime.toFixed(1) + ' ثانية' + voiceMsg + '. ' + (evaluation.message || 'حاول أسرع!'));
+        setTimeout(() => {
+          document.getElementById('start-btn').style.display = 'inline-flex';
+          document.getElementById('start-btn').textContent = '🎙️ المحاولة ' + (attempt + 1);
+          document.getElementById('rec-status').textContent = '';
+          document.getElementById('rec-playback').style.display = 'none';
+        }, 2000);
+      } else {
+        // Final
+        const improvement = ((times[0] - times[2]) / times[0] * 100).toFixed(0);
+        const avgVoice = Math.round(voiceResults.reduce((s, v) => s + v.percent, 0) / voiceResults.length);
+        let stars = 1, msg = '';
+        if (improvement >= 30 && avgVoice >= 60) { stars = 3; msg = '🌟 تحسّن رائع! أصبحت أسرع بـ ' + improvement + '% ودقة قراءة ' + avgVoice + '%!'; }
+        else if (improvement >= 15 || avgVoice >= 50) { stars = 2; msg = '👍 تحسّن جيد بـ ' + improvement + '% ودقة ' + avgVoice + '%!'; }
+        else { stars = 1; msg = '💪 واصل التدريب! التحسّن: ' + improvement + '% | الدقة: ' + avgVoice + '%'; }
+
+        document.getElementById('final-msg').style.display = 'block';
+        document.getElementById('final-msg').innerHTML = `
+          <div style="font-size:1.5rem; font-weight:900; color:var(--orange-dark); margin:10px 0;">${msg}</div>
+          <div style="margin:10px 0;">${NeuroPedago.renderStars(stars)}</div>
+          <button class="btn btn-outline" onclick="location.reload()">🔄 أعد النشاط</button>
+        `;
+        NeuroPedago.sounds.complete();
+        NeuroPedago.storage.save('talaqa-03', { times: times, voiceResults: voiceResults.map(v => v.percent), stars: stars });
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

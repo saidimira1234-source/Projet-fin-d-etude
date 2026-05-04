@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ربط وتوسيع - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+  <header class="activity-header purple-bg">
+    <div class="breadcrumb"><a href="../index.html">الرئيسية</a> ← المحور الرابع ← النشاط 5</div>
+    <h1>🔗 ربط وتوسيع</h1>
+    <div class="meta"><span>📂 الفهم القرائي</span><span>🎓 السنة 3 و 4</span><span>⏱ 12 دقيقة</span></div>
+  </header>
+
+  <div class="activity-body">
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box purple">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تعزيز الربط بين النص والمعرفة السابقة (Text-to-Self, Text-to-World). يُنشّط شبكة المعرفة المُخزّنة في الذاكرة طويلة المدى ويُعمّق الفهم عبر إنشاء روابط شخصية مع المحتوى.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>يقرأ التلميذ نصاً قصيراً.</li>
+        <li>يُجيب على أسئلة ربط: "ماذا يُذكّرك هذا النص؟"</li>
+        <li>يربط بين النص وخبرته الشخصية أو معرفته بالعالم.</li>
+        <li>ثم يُجيب على سؤال توسيع: "ماذا يمكن أن يحدث بعد ذلك؟"</li>
+        <li>4 نصوص قصيرة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اربط وتوسّع!</h2>
+
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+          <div style="font-weight:700;">النص: <span id="text-num" style="color:var(--purple);">1</span> / 4</div>
+          <div style="font-weight:700; color:var(--purple-dark);">✅ <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%; background:var(--purple);"></div></div>
+        </div>
+
+        <div id="text-display" class="reading-area" style="font-size:1.3rem; line-height:2.2; padding:25px; border:2px solid var(--purple); border-radius:12px; background:var(--bg-secondary); text-align:right; margin:15px 0;"></div>
+
+        <div id="question-area" style="margin:20px 0;">
+          <div id="q-icon" style="font-size:2rem; margin-bottom:5px;"></div>
+          <p id="q-text" style="font-size:1.1rem; font-weight:700; color:var(--purple-dark); margin-bottom:15px;"></p>
+          <div id="q-choices" style="display:flex; flex-direction:column; gap:10px; max-width:500px; margin:0 auto;"></div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يستند هذا النشاط إلى <strong>نظرية المخطط (Schema Theory)</strong> و<strong>نموذج البناء-التكامل</strong> لـ <strong>Kintsch (1998)</strong>. الربط بين النص والمعرفة السابقة يُنشّط <strong>الحصين (Hippocampus)</strong> لاسترجاع الذكريات، و<strong>القشرة الجبهية</strong> لبناء روابط جديدة. أسئلة التوسيع تُنشّط <strong>الشبكة الافتراضية (Default Mode Network)</strong> للتخيل والتوقع.
+      </p>
+      <div class="reference">
+        📖 Kintsch, W. (1998). <em>Comprehension: A Paradigm for Cognition.</em> Cambridge UP.<br>
+        📖 Keene, E. & Zimmermann, S. (2007). <em>Mosaic of Thought.</em> Heinemann.
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> ربط وتوسيع صحيح في 7-8 أسئلة.</li>
+        <li><strong>جيد:</strong> 5-6 أسئلة.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 5.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-04.html">→ السابق</a>
+      <a href="activity-06.html">التالي ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer"><p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p></footer>
+  <script src="../js/app.js"></script>
+  <script>
+    const texts = [
+      {
+        text: 'فِي فَصْلِ الشِّتَاءِ تَتَسَاقَطُ الْأَمْطَارُ بِغَزَارَةٍ عَلَى الْمُدُنِ وَالْقُرَى. يَجْلِسُ النَّاسُ فِي بُيُوتِهِمْ الدَّافِئَةِ وَيَشْرَبُونَ الشَّايَ السَّاخِنَ بَيْنَمَا يَسْتَمِعُونَ إِلَى صَوْتِ الْمَطَرِ. يَفْرَحُ الْأَطْفَالُ كَثِيرًا عِنْدَمَا يَرَوْنَ قَطَرَاتِ الْمَطَرِ عَلَى النَّوَافِذِ، وَيَخْرُجُونَ لِلَّعِبِ بِالْمَاءِ الْمُتَجَمِّعِ رَغْمَ الْبَرْدِ الشَّدِيدِ.',
+        questions: [
+          { icon: '🔗', text: 'ماذا تفعل أنت عادةً في الأيام الماطرة؟', options: ['أقرأ كتاباً أو ألعب في البيت', 'أذهب للسباحة', 'أزرع الأشجار', 'أنام طوال اليوم'], answer: 0 },
+          { icon: '🌍', text: 'لماذا المطر مهم للأرض والكائنات الحية؟', options: ['يسقي النباتات ويملأ الأنهار ويُغذّي التربة', 'لأنه يُبرّد الجو فقط', 'لا فائدة منه', 'يُنظّف السيارات'], answer: 0 },
+          { icon: '🔮', text: 'ماذا يحدث لو لم تنزل الأمطار لفترة طويلة؟', options: ['تجف الأنهار وتموت النباتات', 'لا يتغير شيء', 'يزداد الحر فقط', 'يحزن الأطفال فقط'], answer: 0 },
+        ]
+      },
+      {
+        text: 'أَحْمَدُ تِلْمِيذٌ مُجْتَهِدٌ يَدْرُسُ فِي السَّنَةِ الرَّابِعَةِ اِبْتِدَائِي. يُذَاكِرُ دُرُوسَهُ كُلَّ يَوْمٍ بِانْتِظَامٍ وَيُنَظِّمُ وَقْتَهُ بَيْنَ الدِّرَاسَةِ وَاللَّعِبِ. حَصَلَ عَلَى الْمَرْتَبَةِ الْأُولَى فِي الِامْتِحَانِ النِّهَائِيِّ، فَفَرِحَ أَبُوهُ وَأُمُّهُ كَثِيرًا وَأَقَامَا احْتِفَالًا بِمُنَاسَبَةِ تَفَوَّقِهِ.',
+        questions: [
+          { icon: '🔗', text: 'هل تعرف شخصاً مجتهداً مثل أحمد؟ ماذا يفعل؟', options: ['نعم، يدرس كل يوم ويحصل على علامات جيدة', 'لا أعرف أحداً', 'لا أحب الدراسة', 'الحظ هو السبب'], answer: 0 },
+          { icon: '🔮', text: 'ماذا يمكن أن يحدث لأحمد إذا واصل اجتهاده؟', options: ['يُحَقِّقُ أحلامه ويصبح ناجحاً في حياته', 'يترك الدراسة', 'لا شيء يتغيّر', 'ينسى كل شيء'], answer: 0 },
+          { icon: '🌍', text: 'كيف يمكنك تنظيم وقتك مثل أحمد؟', options: ['أضع جدولاً يومياً وألتزم به', 'لا أستطيع التنظيم', 'ألعب فقط', 'التنظيم غير مهم'], answer: 0 },
+        ]
+      },
+      {
+        text: 'الْحَدِيقَةُ الْعَامَّةُ مَكَانٌ رَائِعٌ يَزُورُهُ النَّاسُ لِلاِسْتِرَاحَةِ وَالتَّرْفِيهِ. فِيهَا أَزْهَارٌ مُلَوَّنَةٌ وَأَشْجَارٌ ضَخْمَةٌ تُوَفِّرُ الظِّلَّ لِلْزُوَّارِ، وَطُيُورٌ مُلَوَّنَةٌ تُغَنِّي عَلَى الْأَغْصَانِ. يَجِبُ عَلَيْنَا الْمُحَافَظَةُ عَلَى نَظَافَةِ الْحَدِيقَةِ وَعَدَمِ رَمْيِ النِّفَايَاتِ فِيهَا.',
+        questions: [
+          { icon: '🔗', text: 'ماذا تحب أن تفعل عندما تزور حديقة؟', options: ['ألعب وأستمتع بالطبيعة الخضراء', 'لا أحب الحدائق', 'أنام تحت الشجرة', 'أقطف الأزهار'], answer: 0 },
+          { icon: '🌍', text: 'لماذا يجب أن نحافظ على نظافة الحدائق العامة؟', options: ['لأنها تُنقّي الهواء وتُسعد الناس وتُحسّن البيئة', 'لا يجب المحافظة عليها', 'لأنها غالية', 'لأن الحكومة تريد ذلك'], answer: 0 },
+          { icon: '🔮', text: 'ماذا يحدث إذا لم يُحافظ الناس على الحدائق؟', options: ['تُصبح قذرة وتموت الأشجار وتهرب الطيور', 'لا يتغير شيء', 'تزداد جمالاً', 'يأتي عمال النظافة'], answer: 0 },
+        ]
+      },
+      {
+        text: 'تَعَلَّمَ خَالِدٌ رُكُوبَ الدَّرَّاجَةِ الْهَوَائِيَّةِ فِي الْعُطْلَةِ الصَّيْفِيَّةِ. سَقَطَ كَثِيرًا فِي الْبِدَايَةِ وَأُصِيبَتْ رُكْبَتَاهُ بِخُدُوشٍ، لَكِنَّهُ لَمْ يَسْتَسْلِمْ وَوَاصَلَ التَّدْرِيبَ كُلَّ يَوْمٍ. بَعْدَ أُسْبُوعَيْنِ مِنَ الْمُمَارَسَةِ الْمُتَوَاصِلَةِ، أَصْبَحَ يَرْكَبُ بِمَهَارَةٍ عَالِيَةٍ وَشَعَرَ بِالفَخْرِ بِنَفْسِهِ.',
+        questions: [
+          { icon: '🔗', text: 'هل مررت بتجربة صعبة تعلّمت منها؟', options: ['نعم، صبرت حتى نجحت', 'لا أتذكر', 'لم أحاول شيئاً صعباً', 'أستسلم دائماً'], answer: 0 },
+          { icon: '🔮', text: 'ماذا تعلّمنا من قصة خالد؟', options: ['الصبر والمثابرة يُحققان النجاح', 'السقوط سيئ دائماً', 'الدراجات خطيرة', 'لا نتعلم شيئاً'], answer: 0 },
+          { icon: '🌍', text: 'ما الصفة التي تميّز بها خالد؟', options: ['الإصرار وعدم الاستسلام', 'الكسل', 'الخوف', 'التسرع'], answer: 0 },
+        ]
+      },
+    ];
+
+    let currentText = 0, currentQ = 0, score = 0;
+    const totalQ = texts.reduce((s, t) => s + t.questions.length, 0);
+
+    function loadText() {
+      if (currentText >= texts.length) {
+        NeuroPedago.showResult('result-area', score, totalQ, 'fahm-05');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      currentQ = 0;
+      document.getElementById('text-num').textContent = currentText + 1;
+      document.getElementById('text-display').textContent = texts[currentText].text;
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const t = texts[currentText];
+      if (currentQ >= t.questions.length) {
+        currentText++;
+        loadText();
+        return;
+      }
+
+      const q = t.questions[currentQ];
+      const progress = texts.slice(0, currentText).reduce((s, t) => s + t.questions.length, 0) + currentQ;
+      document.getElementById('progress-fill').style.width = ((progress / totalQ) * 100) + '%';
+      document.getElementById('q-icon').textContent = q.icon;
+      document.getElementById('q-text').textContent = q.text;
+      NeuroPedago.hideFeedback('feedback');
+
+      const choices = document.getElementById('q-choices');
+      choices.innerHTML = '';
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = opt;
+        btn.style.textAlign = 'right';
+        btn.addEventListener('click', () => checkAnswer(i, q.answer, btn));
+        choices.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected, correct, btn) {
+      document.querySelectorAll('#q-choices .choice-btn').forEach(b => b.style.pointerEvents = 'none');
+
+      if (selected === correct) {
+        score++;
+        document.getElementById('score').textContent = score;
+        btn.classList.add('correct');
+        NeuroPedago.sounds.correct();
+        NeuroPedago.showFeedback('feedback', 'success', '🎉 رائع! ربط ممتاز!');
+      } else {
+        btn.classList.add('wrong');
+        document.querySelectorAll('#q-choices .choice-btn')[correct].classList.add('correct');
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ فكّر أكثر في الربط!');
+      }
+
+      setTimeout(() => { currentQ++; loadQuestion(); }, 2000);
+    }
+
+    loadText();
+  </script>
+</body>
+</html>

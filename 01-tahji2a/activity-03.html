@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الحرف الدخيل - قارئ المستقبل</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="activity-page">
+
+  <header class="activity-header blue-bg">
+    <div class="breadcrumb">
+      <a href="../index.html">الرئيسية</a> ← المحور الأول: التهجئة ← النشاط 3
+    </div>
+    <h1>🔍 الحرف الدخيل</h1>
+    <div class="meta">
+      <span>📂 المحور: التهجئة والفك الترميزي</span>
+      <span>🎓 المستوى: السنة 3 و 4</span>
+      <span>⏱ المدة: 10 دقائق</span>
+    </div>
+  </header>
+
+  <div class="activity-body">
+
+    <div class="activity-section">
+      <h2><span class="icon">🎯</span> الهدف التعليمي</h2>
+      <div class="objective-box blue">
+        <span class="obj-icon">🧠</span>
+        <span class="obj-text">تعزيز الوعي الأرثوغرافي (الإملائي) عبر المقارنة الذهنية بين الكلمة المعروضة والتمثيل المعجمي الداخلي. يتعلم التلميذ اكتشاف الأخطاء الإملائية مما يقوّي الرقابة الذاتية أثناء القراءة والكتابة.</span>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <h2><span class="icon">📋</span> خطوات النشاط</h2>
+      <ol>
+        <li>تُعرض كلمة فيها حرف خاطئ (دخيل) مع صورة أو جملة كتلميح للكلمة الصحيحة.</li>
+        <li>يحدد التلميذ الحرف الخاطئ بالنقر عليه.</li>
+        <li>بعد تحديد الحرف الخاطئ، تظهر خيارات لاستبداله بالحرف الصحيح.</li>
+        <li>يتكرر النشاط مع 10 كلمات مختلفة.</li>
+        <li>تظهر تغذية راجعة فورية بعد كل محاولة.</li>
+      </ol>
+    </div>
+
+    <div class="interactive-zone">
+      <h2><span class="icon">🎮</span> اكتشف الحرف الدخيل!</h2>
+      
+      <div id="game-area" style="text-align:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+          <div class="progress-text" style="font-weight:700;">الكلمة <span id="current-num">1</span> من <span id="total-num">10</span></div>
+          <div style="font-weight:700; color:var(--green-dark);">✅ النقاط: <span id="score">0</span></div>
+        </div>
+        <div class="progress-container" style="margin-bottom:20px;">
+          <div class="progress-bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <div id="hint-area" style="font-size:3rem; margin:10px 0;"></div>
+        <p id="hint-sentence" style="color:var(--text-secondary); margin-bottom:20px; font-size:1.05rem;"></p>
+        <p style="color:var(--blue-dark); font-weight:600; margin-bottom:15px;">👆 انقر على الحرف الخاطئ في الكلمة:</p>
+
+        <div id="word-display" class="word-display" style="font-size:2rem;"></div>
+
+        <div id="replace-area" style="display:none; margin-top:20px;">
+          <p style="color:var(--blue-dark); font-weight:600; margin-bottom:10px;">اختر الحرف الصحيح:</p>
+          <div id="replace-choices" class="choices-grid" style="max-width:400px; margin:0 auto;"></div>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </div>
+
+      <div id="result-area"></div>
+    </div>
+
+    <div class="science-box">
+      <h3>🔬 الأساس العلمي العصبي</h3>
+      <p>
+        يستند هذا النشاط إلى نموذج <strong>مراحل تعلم القراءة لإهري (Ehri, 2005)</strong> الذي يُبيّن أن القارء الماهر يبني تمثيلات إملائية دقيقة في ذاكرته تُمكّنه من اكتشاف الأخطاء البصرية فورًا. عندما يُواجه التلميذ كلمة فيها خطأ، يُنشّط دماغه عملية <strong>المقارنة بين المدخل البصري والتمثيل المعجمي المخزن</strong>، مما يقوّي هذا التمثيل.
+      </p>
+      <p style="margin-top:10px;">
+        كما يُنشّط النشاط <strong>القشرة الأمامية الجبهية</strong> المسؤولة عن اكتشاف الأخطاء والمراقبة الذاتية (Error Monitoring)، وهي مهارة أساسية للقراءة الدقيقة.
+      </p>
+      <div class="reference">
+        📖 Ehri, L. C. (2005). Phases of Word Reading. <em>Scientific Studies of Reading.</em> | Perfetti, C. (2007). Reading Ability: Lexical Quality. <em>Scientific Studies of Reading.</em>
+      </div>
+    </div>
+
+    <div class="evaluation-box">
+      <h3>📊 معايير التقييم</h3>
+      <ul>
+        <li><strong>ممتاز:</strong> اكتشاف واستبدال 8-10 حروف بشكل صحيح.</li>
+        <li><strong>جيد:</strong> اكتشاف واستبدال 6-7 حروف.</li>
+        <li><strong>يحتاج تدريب:</strong> أقل من 6، يُنصح بالتدرب على كلمات أبسط.</li>
+      </ul>
+    </div>
+
+    <div class="activity-nav">
+      <a href="activity-02.html">→ النشاط السابق</a>
+      <a href="activity-04.html">النشاط التالي: سلّم المقاطع ←</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>أنشطة قارئ المستقبل لتحسين مهارات القراءة</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      { correct: 'اِسْتِقْبَال', wrong: 'اِسْتِكْبَال', wrongIndex: 3, emoji: '🤝', hint: 'تَرْحِيبٌ بِالضُّيُوفِ عِنْدَ وُصُولِهِمْ', replacements: ['ق', 'ك', 'غ'] },
+      { correct: 'مُسْتَشْفَى', wrong: 'مُصْتَشْفَى', wrongIndex: 1, emoji: '🏥', hint: 'مَكَانُ عِلَاجِ الْمَرْضَى', replacements: ['س', 'ص', 'ث'] },
+      { correct: 'اِخْتِرَاع', wrong: 'اِخْطِرَاع', wrongIndex: 2, emoji: '💡', hint: 'صُنْعُ شَيْءٍ جَدِيدٍ لَمْ يُوجَدْ مِنْ قَبْلُ', replacements: ['ت', 'ط', 'ث'] },
+      { correct: 'مَعْلُومَات', wrong: 'مَعْلُومَاط', wrongIndex: 6, emoji: '📊', hint: 'بَيَانَاتٌ وَحَقَائِقُ نَتَعَلَّمُهَا', replacements: ['ت', 'ط', 'ث'] },
+      { correct: 'اِنْتِظَار', wrong: 'اِنْتِذَار', wrongIndex: 3, emoji: '⏳', hint: 'الْبَقَاءُ فِي الْمَكَانِ حَتَّى يَأْتِيَ شَيْءٌ', replacements: ['ظ', 'ذ', 'ض'] },
+      { correct: 'اِقْتِصَاد', wrong: 'اِقْتِسَاد', wrongIndex: 3, emoji: '💰', hint: 'تَدْبِيرُ الْأَمْوَالِ وَالتِّجَارَةِ', replacements: ['ص', 'س', 'ث'] },
+      { correct: 'مُسَابَقَة', wrong: 'مُسَابَكَة', wrongIndex: 4, emoji: '🏅', hint: 'مُنَافَسَةٌ بَيْنَ الْمُتَسَابِقِينَ', replacements: ['ق', 'ك', 'غ'] },
+      { correct: 'حَضَارَة', wrong: 'حَدَارَة', wrongIndex: 1, emoji: '🏛️', hint: 'تَارِيخُ الشُّعُوبِ وَإِنْجَازَاتُهُمْ', replacements: ['ض', 'د', 'ذ'] },
+      { correct: 'اِسْتِطَاعَة', wrong: 'اِسْتِتَاعَة', wrongIndex: 3, emoji: '💪', hint: 'الْقُدْرَةُ عَلَى فِعْلِ شَيْءٍ', replacements: ['ط', 'ت', 'ظ'] },
+      { correct: 'مُسْتَقْبَل', wrong: 'مُثْتَقْبَل', wrongIndex: 1, emoji: '🔮', hint: 'الزَّمَنُ الْآتِي بَعْدَ الْيَوْمِ', replacements: ['س', 'ث', 'ص'] },
+      { correct: 'مُوَاصَلَات', wrong: 'مُوَاضَلَات', wrongIndex: 3, emoji: '🚌', hint: 'وَسَائِلُ النَّقْلِ كَالْحَافِلَةِ', replacements: ['ص', 'ض', 'ظ'] },
+      { correct: 'اِحْتِفَال', wrong: 'اِحْثِفَال', wrongIndex: 2, emoji: '🎉', hint: 'مُنَاسَبَةٌ سَعِيدَةٌ فِيهَا فَرَح', replacements: ['ت', 'ث', 'ط'] },
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let gameItems = [];
+    let phase = 'find'; // 'find' or 'replace'
+
+    function init() {
+      gameItems = NeuroPedago.shuffle(items).slice(0, 10);
+      document.getElementById('total-num').textContent = gameItems.length;
+      loadWord();
+    }
+
+    function getBaseLetters(word) {
+      return word.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '').split('');
+    }
+
+    function loadWord() {
+      if (currentIndex >= gameItems.length) {
+        NeuroPedago.showResult('result-area', score, gameItems.length, 'tahji2a-03');
+        document.getElementById('game-area').style.display = 'none';
+        return;
+      }
+
+      phase = 'find';
+      const item = gameItems[currentIndex];
+      document.getElementById('current-num').textContent = currentIndex + 1;
+      document.getElementById('progress-fill').style.width = ((currentIndex / gameItems.length) * 100) + '%';
+      document.getElementById('hint-area').textContent = item.emoji;
+      document.getElementById('hint-sentence').textContent = '💡 ' + item.hint;
+      document.getElementById('replace-area').style.display = 'none';
+      NeuroPedago.hideFeedback('feedback');
+
+      const letters = getBaseLetters(item.wrong);
+      const display = document.getElementById('word-display');
+      display.innerHTML = '';
+
+      letters.forEach((letter, i) => {
+        const box = document.createElement('div');
+        box.className = 'letter-box';
+        box.textContent = letter;
+        box.style.cursor = 'pointer';
+        box.dataset.index = i;
+        box.addEventListener('click', () => handleLetterClick(i, box));
+        display.appendChild(box);
+      });
+    }
+
+    function handleLetterClick(index, box) {
+      if (phase !== 'find') return;
+      const item = gameItems[currentIndex];
+
+      if (index === item.wrongIndex) {
+        // صحيح - وجد الحرف الدخيل
+        box.className = 'letter-box wrong';
+        NeuroPedago.sounds.click();
+        phase = 'replace';
+        showReplacements(item, box);
+      } else {
+        // خاطئ
+        box.style.animation = 'shake 0.3s ease';
+        setTimeout(() => box.style.animation = '', 300);
+        NeuroPedago.sounds.wrong();
+        NeuroPedago.showFeedback('feedback', 'error', '❌ هذا ليس الحرف الدخيل، حاول مرة أخرى!');
+      }
+    }
+
+    function showReplacements(item, wrongBox) {
+      const area = document.getElementById('replace-area');
+      area.style.display = 'block';
+      const choices = document.getElementById('replace-choices');
+      choices.innerHTML = '';
+
+      const shuffled = NeuroPedago.shuffle(item.replacements);
+      const correctLetter = getBaseLetters(item.correct)[item.wrongIndex];
+
+      shuffled.forEach(letter => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = letter;
+        btn.style.fontSize = '1.5rem';
+        btn.addEventListener('click', () => {
+          if (letter === correctLetter) {
+            btn.className = 'choice-btn correct';
+            wrongBox.textContent = letter;
+            wrongBox.className = 'letter-box correct';
+            score++;
+            document.getElementById('score').textContent = score;
+            NeuroPedago.sounds.correct();
+            NeuroPedago.showFeedback('feedback', 'success', '🎉 ممتاز! الكلمة الصحيحة هي: ' + item.correct);
+            setTimeout(() => { currentIndex++; loadWord(); }, 1500);
+          } else {
+            btn.className = 'choice-btn wrong';
+            NeuroPedago.sounds.wrong();
+            NeuroPedago.showFeedback('feedback', 'error', '❌ هذا ليس الحرف الصحيح!');
+          }
+        });
+        choices.appendChild(btn);
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
